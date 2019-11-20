@@ -1,0 +1,5 @@
+{
+  "Db": {
+    "ConnectionString": "Server=localhost;Database=workout_diary;User Id=sa;Password=Maxim-work13245;Connection Timeout=120;"
+  }
+}

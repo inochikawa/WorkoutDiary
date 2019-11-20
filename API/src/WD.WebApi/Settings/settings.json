@@ -1,0 +1,13 @@
+{
+  "Db": {
+    "ConnectionString": "TODO: define own connection string in local settings.json"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "AllowedHosts": "*"
+}
