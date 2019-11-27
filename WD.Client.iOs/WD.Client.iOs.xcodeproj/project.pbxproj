@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6463E2D92386064E00A52792 /* TrainingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6463E2D82386064E00A52792 /* TrainingList.swift */; };
+		6463E2DB238DBAF600A52792 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6463E2DA238DBAF600A52792 /* DateUtil.swift */; };
+		6463E2DD238DBF7700A52792 /* TrainingDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6463E2DC238DBF7700A52792 /* TrainingDetails.swift */; };
+		6463E2E0238DD5E200A52792 /* ExerciseDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6463E2DF238DD5E200A52792 /* ExerciseDetails.swift */; };
+		6496A7CA238E00DE009DCC61 /* ExerciseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6496A7C9238E00DE009DCC61 /* ExerciseStore.swift */; };
 		64A7A11F2383E99000870687 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A11E2383E99000870687 /* AppDelegate.swift */; };
 		64A7A1212383E99000870687 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A1202383E99000870687 /* SceneDelegate.swift */; };
 		64A7A1232383E99000870687 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A1222383E99000870687 /* ContentView.swift */; };
@@ -19,8 +24,9 @@
 		64A7A1522384383600870687 /* ExerciseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A1512384383600870687 /* ExerciseDto.swift */; };
 		64A7A1542384384400870687 /* ExerciseLoopDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A1532384384400870687 /* ExerciseLoopDto.swift */; };
 		64A7A15823844C1C00870687 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A15723844C1C00870687 /* Api.swift */; };
-		64A7A15B2384933F00870687 /* TrainingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A15A2384933F00870687 /* TrainingsManager.swift */; };
+		64A7A15B2384933F00870687 /* TrainingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A15A2384933F00870687 /* TrainingsStore.swift */; };
 		64A7A15E2384938C00870687 /* JsonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A15D2384938C00870687 /* JsonUtil.swift */; };
+		64E3AB70238DE74600B37599 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E3AB6F238DE74600B37599 /* TestData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +47,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6463E2D82386064E00A52792 /* TrainingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingList.swift; sourceTree = "<group>"; };
+		6463E2DA238DBAF600A52792 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
+		6463E2DC238DBF7700A52792 /* TrainingDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDetails.swift; sourceTree = "<group>"; };
+		6463E2DF238DD5E200A52792 /* ExerciseDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetails.swift; sourceTree = "<group>"; };
+		6496A7C9238E00DE009DCC61 /* ExerciseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseStore.swift; sourceTree = "<group>"; };
 		64A7A11B2383E99000870687 /* WD.Client.iOs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WD.Client.iOs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64A7A11E2383E99000870687 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64A7A1202383E99000870687 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,8 +70,9 @@
 		64A7A1512384383600870687 /* ExerciseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDto.swift; sourceTree = "<group>"; };
 		64A7A1532384384400870687 /* ExerciseLoopDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseLoopDto.swift; sourceTree = "<group>"; };
 		64A7A15723844C1C00870687 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
-		64A7A15A2384933F00870687 /* TrainingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsManager.swift; sourceTree = "<group>"; };
+		64A7A15A2384933F00870687 /* TrainingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsStore.swift; sourceTree = "<group>"; };
 		64A7A15D2384938C00870687 /* JsonUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonUtil.swift; sourceTree = "<group>"; };
+		64E3AB6F238DE74600B37599 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,11 +100,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6463E2D72386060400A52792 /* Training */ = {
+			isa = PBXGroup;
+			children = (
+				6463E2D82386064E00A52792 /* TrainingList.swift */,
+				6463E2DC238DBF7700A52792 /* TrainingDetails.swift */,
+			);
+			path = Training;
+			sourceTree = "<group>";
+		};
+		6463E2DE238DC1CB00A52792 /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				6463E2DF238DD5E200A52792 /* ExerciseDetails.swift */,
+			);
+			path = Exercise;
+			sourceTree = "<group>";
+		};
 		64A7A1122383E99000870687 = {
 			isa = PBXGroup;
 			children = (
 				64A7A15C2384937300870687 /* WD.Client.Utils */,
-				64A7A1592384921700870687 /* WD.Client.Managers */,
+				64A7A1592384921700870687 /* WD.Client.Stores */,
 				64A7A15623844BE000870687 /* WD.Client.ApiClient */,
 				64A7A11D2383E99000870687 /* WD.Client.iOs */,
 				64A7A1342383E99300870687 /* WD.Client.iOsTests */,
@@ -165,6 +194,8 @@
 		64A7A15523844BCC00870687 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6463E2DE238DC1CB00A52792 /* Exercise */,
+				6463E2D72386060400A52792 /* Training */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -177,19 +208,22 @@
 			path = WD.Client.ApiClient;
 			sourceTree = "<group>";
 		};
-		64A7A1592384921700870687 /* WD.Client.Managers */ = {
+		64A7A1592384921700870687 /* WD.Client.Stores */ = {
 			isa = PBXGroup;
 			children = (
 				64A7A14E23842FF200870687 /* Dto */,
-				64A7A15A2384933F00870687 /* TrainingsManager.swift */,
+				64A7A15A2384933F00870687 /* TrainingsStore.swift */,
+				64E3AB6F238DE74600B37599 /* TestData.swift */,
+				6496A7C9238E00DE009DCC61 /* ExerciseStore.swift */,
 			);
-			path = WD.Client.Managers;
+			path = WD.Client.Stores;
 			sourceTree = "<group>";
 		};
 		64A7A15C2384937300870687 /* WD.Client.Utils */ = {
 			isa = PBXGroup;
 			children = (
 				64A7A15D2384938C00870687 /* JsonUtil.swift */,
+				6463E2DA238DBAF600A52792 /* DateUtil.swift */,
 			);
 			path = WD.Client.Utils;
 			sourceTree = "<group>";
@@ -326,11 +360,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				64A7A11F2383E99000870687 /* AppDelegate.swift in Sources */,
+				6463E2DB238DBAF600A52792 /* DateUtil.swift in Sources */,
 				64A7A1542384384400870687 /* ExerciseLoopDto.swift in Sources */,
 				64A7A1522384383600870687 /* ExerciseDto.swift in Sources */,
-				64A7A15B2384933F00870687 /* TrainingsManager.swift in Sources */,
+				64A7A15B2384933F00870687 /* TrainingsStore.swift in Sources */,
+				64E3AB70238DE74600B37599 /* TestData.swift in Sources */,
 				64A7A1212383E99000870687 /* SceneDelegate.swift in Sources */,
+				6463E2DD238DBF7700A52792 /* TrainingDetails.swift in Sources */,
+				6463E2D92386064E00A52792 /* TrainingList.swift in Sources */,
 				64A7A1232383E99000870687 /* ContentView.swift in Sources */,
+				6463E2E0238DD5E200A52792 /* ExerciseDetails.swift in Sources */,
+				6496A7CA238E00DE009DCC61 /* ExerciseStore.swift in Sources */,
 				64A7A15823844C1C00870687 /* Api.swift in Sources */,
 				64A7A15E2384938C00870687 /* JsonUtil.swift in Sources */,
 				64A7A1502384302800870687 /* TrainingDto.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  TrainingDto.swift
+//  ExerciseLoopDto.swift
 //  WD.Client.iOs
 //
 //  Created by Maxim Stecenko on 19.11.2019.
@@ -8,8 +8,9 @@
 
 import Foundation;
 
-struct TrainingDto {
+struct ExerciseLoopDto : Identifiable {
     var id: String?;
-    var createdDate:Date?;
-    var exercises: [ExerciseDto] = [ExerciseDto]();
+    var repeats: Int?;
+    var weight: Int?;
+    var exerciseId: String?;
 }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WD.Data;
 
 namespace WD.Data.Migrations
 {
     [DbContext(typeof(WdDbContext))]
-    partial class WdDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191126233444_Seed_More_Data")]
+    partial class Seed_More_Data
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

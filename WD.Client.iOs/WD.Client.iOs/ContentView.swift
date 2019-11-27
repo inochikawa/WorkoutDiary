@@ -10,13 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Text("Hello Maxim")
-                .multilineTextAlignment(.center)
-                .foregroundColor(.red);
-            DatePicker(selection: .constant(Date()), label: { Text("Date") })
-            Text("Goodbye Maxim");
-        }.padding()
+        TrainingList()
     }
 }
 
