@@ -23,7 +23,7 @@ struct TrainingList: View {
             .navigationBarTitle(Text("Trainings history"))
             .navigationBarItems(
                 leading: Button(action: {
-//                    self.appStore.reloadData();
+                    self.store.reloalTrainingsList();
                 }) {
                     Image(systemName: "arrow.clockwise")
                 },
