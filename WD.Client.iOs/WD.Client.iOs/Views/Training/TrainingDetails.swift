@@ -9,8 +9,7 @@
 import SwiftUI
 
 struct TrainingDetails: View {
-    var trainingItem: TrainingDto;
-//    @ObservedObject private var exerciseStore: ExerciseStore = ExerciseStore();
+    var trainingItem: TrainingModel;
     
     var body: some View {
         VStack(alignment: HorizontalAlignment.leading) {

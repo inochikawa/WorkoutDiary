@@ -9,13 +9,13 @@
 import SwiftUI
 
 struct TrainingList: View {
-    @ObservedObject private var trainingsStore: TrainingsStore = TrainingsStore();
+    @EnvironmentObject private var appStore: AppStore;
+    @ObservedObject var trainingStore: TrainingsStore = TrainingsStore(with: AppStore());
     
     var body: some View {
         NavigationView {
             List {
-//                ForEach(testData)  {
-                ForEach(self.trainingsStore.trainings)  {
+                ForEach(self.appStore.data)  {
                     item in
                     TrainingRow(item: item)
                 }
@@ -23,13 +23,13 @@ struct TrainingList: View {
             .navigationBarTitle(Text("Trainings history"))
             .navigationBarItems(
                 leading: Button(action: {
-                    self.trainingsStore.reloadData();
+                    self.appStore.reloadData();
                 }) {
-                    Image(systemName: "goforward")
+                    Image(systemName: "arrow.clockwise")
                 },
                 trailing:
                 Button(action: {
-                    
+                    self.appStore.createNewTraining();
                 }) {
                     HStack {
                         Image(systemName: "plus")
@@ -43,7 +43,7 @@ struct TrainingList: View {
 }
 
 struct TrainingRow: View {
-    var item: TrainingDto;
+    var item: TrainingModel;
     
     var body: some View {
         NavigationLink(destination: TrainingDetails(trainingItem: item)) {

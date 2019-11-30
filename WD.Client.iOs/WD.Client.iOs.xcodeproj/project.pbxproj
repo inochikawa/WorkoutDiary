@@ -11,7 +11,16 @@
 		6463E2DB238DBAF600A52792 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6463E2DA238DBAF600A52792 /* DateUtil.swift */; };
 		6463E2DD238DBF7700A52792 /* TrainingDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6463E2DC238DBF7700A52792 /* TrainingDetails.swift */; };
 		6463E2E0238DD5E200A52792 /* ExerciseDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6463E2DF238DD5E200A52792 /* ExerciseDetails.swift */; };
-		6496A7CA238E00DE009DCC61 /* ExerciseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6496A7C9238E00DE009DCC61 /* ExerciseStore.swift */; };
+		6484642423908E2600F3290D /* TrainingModelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6484642323908E2600F3290D /* TrainingModelExtension.swift */; };
+		6484642623908E5300F3290D /* ExerciseModelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6484642523908E5300F3290D /* ExerciseModelExtension.swift */; };
+		6484642823908E8000F3290D /* ExerciseLoopModelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6484642723908E8000F3290D /* ExerciseLoopModelExtension.swift */; };
+		6484642B23908F2F00F3290D /* ExerciseHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6484642A23908F2F00F3290D /* ExerciseHeader.swift */; };
+		6484642D23908F4000F3290D /* ExerciseLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6484642C23908F4000F3290D /* ExerciseLoop.swift */; };
+		6484642F239097BF00F3290D /* TrainingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6484642E239097BF00F3290D /* TrainingsStore.swift */; };
+		648464372390A37E00F3290D /* TrainingDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648464362390A37E00F3290D /* TrainingDetailsViewModel.swift */; };
+		648464392390A3AE00F3290D /* TrainingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648464382390A3AE00F3290D /* TrainingListViewModel.swift */; };
+		6496A7CC238F45CD009DCC61 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6496A7CB238F45CD009DCC61 /* AppStore.swift */; };
+		6496A7CE239087AB009DCC61 /* TrainingsApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6496A7CD239087AB009DCC61 /* TrainingsApiClient.swift */; };
 		64A7A11F2383E99000870687 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A11E2383E99000870687 /* AppDelegate.swift */; };
 		64A7A1212383E99000870687 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A1202383E99000870687 /* SceneDelegate.swift */; };
 		64A7A1232383E99000870687 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A1222383E99000870687 /* ContentView.swift */; };
@@ -20,13 +29,13 @@
 		64A7A12B2383E99200870687 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64A7A1292383E99200870687 /* LaunchScreen.storyboard */; };
 		64A7A1362383E99300870687 /* WD_Client_iOsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A1352383E99300870687 /* WD_Client_iOsTests.swift */; };
 		64A7A1412383E99300870687 /* WD_Client_iOsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A1402383E99300870687 /* WD_Client_iOsUITests.swift */; };
-		64A7A1502384302800870687 /* TrainingDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A14F2384302800870687 /* TrainingDto.swift */; };
-		64A7A1522384383600870687 /* ExerciseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A1512384383600870687 /* ExerciseDto.swift */; };
-		64A7A1542384384400870687 /* ExerciseLoopDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A1532384384400870687 /* ExerciseLoopDto.swift */; };
+		64A7A1502384302800870687 /* TrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A14F2384302800870687 /* TrainingModel.swift */; };
+		64A7A1522384383600870687 /* ExerciseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A1512384383600870687 /* ExerciseModel.swift */; };
+		64A7A1542384384400870687 /* ExerciseLoopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A1532384384400870687 /* ExerciseLoopModel.swift */; };
 		64A7A15823844C1C00870687 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A15723844C1C00870687 /* Api.swift */; };
-		64A7A15B2384933F00870687 /* TrainingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A15A2384933F00870687 /* TrainingsStore.swift */; };
 		64A7A15E2384938C00870687 /* JsonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A15D2384938C00870687 /* JsonUtil.swift */; };
 		64E3AB70238DE74600B37599 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E3AB6F238DE74600B37599 /* TestData.swift */; };
+		DF2E04FC27117711D02B4A5D /* Pods_WD_Client_iOs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC57C74FE1CB94C544BD0684 /* Pods_WD_Client_iOs.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +59,17 @@
 		6463E2D82386064E00A52792 /* TrainingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingList.swift; sourceTree = "<group>"; };
 		6463E2DA238DBAF600A52792 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		6463E2DC238DBF7700A52792 /* TrainingDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDetails.swift; sourceTree = "<group>"; };
-		6463E2DF238DD5E200A52792 /* ExerciseDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetails.swift; sourceTree = "<group>"; };
-		6496A7C9238E00DE009DCC61 /* ExerciseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseStore.swift; sourceTree = "<group>"; };
+		6463E2DF238DD5E200A52792 /* ExerciseDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetails.swift; sourceTree = "<group>"; usesTabs = 0; };
+		6484642323908E2600F3290D /* TrainingModelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModelExtension.swift; sourceTree = "<group>"; };
+		6484642523908E5300F3290D /* ExerciseModelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModelExtension.swift; sourceTree = "<group>"; };
+		6484642723908E8000F3290D /* ExerciseLoopModelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseLoopModelExtension.swift; sourceTree = "<group>"; };
+		6484642A23908F2F00F3290D /* ExerciseHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseHeader.swift; sourceTree = "<group>"; };
+		6484642C23908F4000F3290D /* ExerciseLoop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseLoop.swift; sourceTree = "<group>"; };
+		6484642E239097BF00F3290D /* TrainingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsStore.swift; sourceTree = "<group>"; };
+		648464362390A37E00F3290D /* TrainingDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDetailsViewModel.swift; sourceTree = "<group>"; };
+		648464382390A3AE00F3290D /* TrainingListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingListViewModel.swift; sourceTree = "<group>"; };
+		6496A7CB238F45CD009DCC61 /* AppStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
+		6496A7CD239087AB009DCC61 /* TrainingsApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsApiClient.swift; sourceTree = "<group>"; };
 		64A7A11B2383E99000870687 /* WD.Client.iOs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WD.Client.iOs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64A7A11E2383E99000870687 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64A7A1202383E99000870687 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,13 +84,15 @@
 		64A7A13C2383E99300870687 /* WD.Client.iOsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WD.Client.iOsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		64A7A1402383E99300870687 /* WD_Client_iOsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WD_Client_iOsUITests.swift; sourceTree = "<group>"; };
 		64A7A1422383E99300870687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		64A7A14F2384302800870687 /* TrainingDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDto.swift; sourceTree = "<group>"; };
-		64A7A1512384383600870687 /* ExerciseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDto.swift; sourceTree = "<group>"; };
-		64A7A1532384384400870687 /* ExerciseLoopDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseLoopDto.swift; sourceTree = "<group>"; };
+		64A7A14F2384302800870687 /* TrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModel.swift; sourceTree = "<group>"; };
+		64A7A1512384383600870687 /* ExerciseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModel.swift; sourceTree = "<group>"; };
+		64A7A1532384384400870687 /* ExerciseLoopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseLoopModel.swift; sourceTree = "<group>"; };
 		64A7A15723844C1C00870687 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
-		64A7A15A2384933F00870687 /* TrainingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsStore.swift; sourceTree = "<group>"; };
 		64A7A15D2384938C00870687 /* JsonUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonUtil.swift; sourceTree = "<group>"; };
 		64E3AB6F238DE74600B37599 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		9B38C5728D98362776C878FC /* Pods-WD.Client.iOs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WD.Client.iOs.debug.xcconfig"; path = "Target Support Files/Pods-WD.Client.iOs/Pods-WD.Client.iOs.debug.xcconfig"; sourceTree = "<group>"; };
+		CC57C74FE1CB94C544BD0684 /* Pods_WD_Client_iOs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WD_Client_iOs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF5E2A33878C6A66025484D3 /* Pods-WD.Client.iOs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WD.Client.iOs.release.xcconfig"; path = "Target Support Files/Pods-WD.Client.iOs/Pods-WD.Client.iOs.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF2E04FC27117711D02B4A5D /* Pods_WD_Client_iOs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +121,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15B42A6D296377843B7FDD22 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9B38C5728D98362776C878FC /* Pods-WD.Client.iOs.debug.xcconfig */,
+				FF5E2A33878C6A66025484D3 /* Pods-WD.Client.iOs.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		6463E2D72386060400A52792 /* Training */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,8 +144,29 @@
 			isa = PBXGroup;
 			children = (
 				6463E2DF238DD5E200A52792 /* ExerciseDetails.swift */,
+				6484642A23908F2F00F3290D /* ExerciseHeader.swift */,
+				6484642C23908F4000F3290D /* ExerciseLoop.swift */,
 			);
 			path = Exercise;
+			sourceTree = "<group>";
+		};
+		6484642223908E0000F3290D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6484642323908E2600F3290D /* TrainingModelExtension.swift */,
+				6484642523908E5300F3290D /* ExerciseModelExtension.swift */,
+				6484642723908E8000F3290D /* ExerciseLoopModelExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		648464302390998600F3290D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				648464382390A3AE00F3290D /* TrainingListViewModel.swift */,
+				648464362390A37E00F3290D /* TrainingDetailsViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		64A7A1122383E99000870687 = {
@@ -127,6 +179,8 @@
 				64A7A1342383E99300870687 /* WD.Client.iOsTests */,
 				64A7A13F2383E99300870687 /* WD.Client.iOsUITests */,
 				64A7A11C2383E99000870687 /* Products */,
+				15B42A6D296377843B7FDD22 /* Pods */,
+				793CA5D11E3A553B3D5E6AF4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,14 +235,15 @@
 			path = WD.Client.iOsUITests;
 			sourceTree = "<group>";
 		};
-		64A7A14E23842FF200870687 /* Dto */ = {
+		64A7A14E23842FF200870687 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				64A7A14F2384302800870687 /* TrainingDto.swift */,
-				64A7A1512384383600870687 /* ExerciseDto.swift */,
-				64A7A1532384384400870687 /* ExerciseLoopDto.swift */,
+				6484642223908E0000F3290D /* Extensions */,
+				64A7A14F2384302800870687 /* TrainingModel.swift */,
+				64A7A1512384383600870687 /* ExerciseModel.swift */,
+				64A7A1532384384400870687 /* ExerciseLoopModel.swift */,
 			);
-			path = Dto;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		64A7A15523844BCC00870687 /* Views */ = {
@@ -204,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				64A7A15723844C1C00870687 /* Api.swift */,
+				6496A7CD239087AB009DCC61 /* TrainingsApiClient.swift */,
 			);
 			path = WD.Client.ApiClient;
 			sourceTree = "<group>";
@@ -211,10 +267,11 @@
 		64A7A1592384921700870687 /* WD.Client.Stores */ = {
 			isa = PBXGroup;
 			children = (
-				64A7A14E23842FF200870687 /* Dto */,
-				64A7A15A2384933F00870687 /* TrainingsStore.swift */,
+				648464302390998600F3290D /* ViewModels */,
+				64A7A14E23842FF200870687 /* Models */,
 				64E3AB6F238DE74600B37599 /* TestData.swift */,
-				6496A7C9238E00DE009DCC61 /* ExerciseStore.swift */,
+				6496A7CB238F45CD009DCC61 /* AppStore.swift */,
+				6484642E239097BF00F3290D /* TrainingsStore.swift */,
 			);
 			path = WD.Client.Stores;
 			sourceTree = "<group>";
@@ -228,6 +285,14 @@
 			path = WD.Client.Utils;
 			sourceTree = "<group>";
 		};
+		793CA5D11E3A553B3D5E6AF4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC57C74FE1CB94C544BD0684 /* Pods_WD_Client_iOs.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -235,9 +300,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 64A7A1452383E99300870687 /* Build configuration list for PBXNativeTarget "WD.Client.iOs" */;
 			buildPhases = (
+				77ADDC444CDB14772F8EC106 /* [CP] Check Pods Manifest.lock */,
 				64A7A1172383E99000870687 /* Sources */,
 				64A7A1182383E99000870687 /* Frameworks */,
 				64A7A1192383E99000870687 /* Resources */,
+				E5B737A4F2D61D27331E2346 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -354,6 +421,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		77ADDC444CDB14772F8EC106 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WD.Client.iOs-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5B737A4F2D61D27331E2346 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WD.Client.iOs/Pods-WD.Client.iOs-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WD.Client.iOs/Pods-WD.Client.iOs-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WD.Client.iOs/Pods-WD.Client.iOs-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		64A7A1172383E99000870687 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -361,19 +470,27 @@
 			files = (
 				64A7A11F2383E99000870687 /* AppDelegate.swift in Sources */,
 				6463E2DB238DBAF600A52792 /* DateUtil.swift in Sources */,
-				64A7A1542384384400870687 /* ExerciseLoopDto.swift in Sources */,
-				64A7A1522384383600870687 /* ExerciseDto.swift in Sources */,
-				64A7A15B2384933F00870687 /* TrainingsStore.swift in Sources */,
+				6484642423908E2600F3290D /* TrainingModelExtension.swift in Sources */,
+				6496A7CC238F45CD009DCC61 /* AppStore.swift in Sources */,
+				64A7A1542384384400870687 /* ExerciseLoopModel.swift in Sources */,
+				648464392390A3AE00F3290D /* TrainingListViewModel.swift in Sources */,
+				64A7A1522384383600870687 /* ExerciseModel.swift in Sources */,
 				64E3AB70238DE74600B37599 /* TestData.swift in Sources */,
+				6484642D23908F4000F3290D /* ExerciseLoop.swift in Sources */,
+				6484642623908E5300F3290D /* ExerciseModelExtension.swift in Sources */,
 				64A7A1212383E99000870687 /* SceneDelegate.swift in Sources */,
 				6463E2DD238DBF7700A52792 /* TrainingDetails.swift in Sources */,
 				6463E2D92386064E00A52792 /* TrainingList.swift in Sources */,
 				64A7A1232383E99000870687 /* ContentView.swift in Sources */,
+				648464372390A37E00F3290D /* TrainingDetailsViewModel.swift in Sources */,
+				6484642823908E8000F3290D /* ExerciseLoopModelExtension.swift in Sources */,
+				6484642F239097BF00F3290D /* TrainingsStore.swift in Sources */,
 				6463E2E0238DD5E200A52792 /* ExerciseDetails.swift in Sources */,
-				6496A7CA238E00DE009DCC61 /* ExerciseStore.swift in Sources */,
+				6496A7CE239087AB009DCC61 /* TrainingsApiClient.swift in Sources */,
 				64A7A15823844C1C00870687 /* Api.swift in Sources */,
 				64A7A15E2384938C00870687 /* JsonUtil.swift in Sources */,
-				64A7A1502384302800870687 /* TrainingDto.swift in Sources */,
+				64A7A1502384302800870687 /* TrainingModel.swift in Sources */,
+				6484642B23908F2F00F3290D /* ExerciseHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,10 +653,12 @@
 		};
 		64A7A1462383E99300870687 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B38C5728D98362776C878FC /* Pods-WD.Client.iOs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"WD.Client.iOs/Preview Content\"";
+				DEVELOPMENT_TEAM = 9K29WP93U5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = WD.Client.iOs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -555,10 +674,12 @@
 		};
 		64A7A1472383E99300870687 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF5E2A33878C6A66025484D3 /* Pods-WD.Client.iOs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"WD.Client.iOs/Preview Content\"";
+				DEVELOPMENT_TEAM = 9K29WP93U5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = WD.Client.iOs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -2,25 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5e405cb-6067-46c9-8b30-c50722e2cfd2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/WD.WebApi/Controllers/ExerciseController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/ExerciseStore.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/TestData.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Utils/DateUtil.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.iOs/Views/Exercise/ExerciseDetails.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.iOs/Views/Training/TrainingDetails.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.iOs/Views/Training/TrainingList.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WD.Api/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WD.Api/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.ApiClient/TrainingsApiClient.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/AppStore.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/Models/ExerciseLoopModel.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/Models/ExerciseModel.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/Models/Extensions/ExerciseLoopModelExtension.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/Models/Extensions/ExerciseModelExtension.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/Models/Extensions/TrainingModelExtension.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/Models/TrainingModel.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/ViewModels/TrainingDetailsViewModel.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/ViewModels/TrainingListViewModel.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.iOs/Assets.xcassets/Colors/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.iOs/Assets.xcassets/Colors/ExerciseItem/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.iOs/Assets.xcassets/Colors/ExerciseItem/ExerciseItemBackgroundColor.colorset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.iOs/Assets.xcassets/Colors/ExerciseItem/ExerciseItemBackgroundShadowColor.colorset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.iOs/Views/Exercise/ExerciseHeader.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.iOs/Views/Exercise/ExerciseLoop.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WD.Api/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WD.Api/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WD.Data/Entities/ExerciseLoop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/WD.Data/Entities/ExerciseLoop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WD.Data/Extensions/SeedDataExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/WD.Data/Extensions/SeedDataExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WD.Data/Migrations/WdDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/WD.Data/Migrations/WdDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Managers/Dto/ExerciseDto.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/Dto/ExerciseDto.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Managers/Dto/ExerciseLoopDto.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/Dto/ExerciseLoopDto.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Managers/Dto/TrainingDto.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/Dto/TrainingDto.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Managers/TrainingsManager.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/TrainingsStore.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/Dto/ExerciseDto.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/Dto/ExerciseLoopDto.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/Dto/TrainingDto.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/ExerciseStore.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/TestData.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/TestData.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/TrainingsStore.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.Stores/TrainingsStore.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.iOs.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.iOs.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.iOs/ContentView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.iOs/ContentView.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.iOs/SceneDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.iOs/SceneDelegate.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.iOs/Views/Exercise/ExerciseDetails.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.iOs/Views/Exercise/ExerciseDetails.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.iOs/Views/Training/TrainingDetails.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.iOs/Views/Training/TrainingDetails.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.iOs/Views/Training/TrainingList.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../WD.Client.iOs/WD.Client.iOs/Views/Training/TrainingList.swift" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,10 +80,10 @@
         <option value="$PROJECT_DIR$/src/WD.Data/WdDbContext.cs" />
         <option value="$PROJECT_DIR$/src/WD.WebApi/Controllers/TrainingController.cs" />
         <option value="$PROJECT_DIR$/src/WD.WebApi/Startup.cs" />
-        <option value="$PROJECT_DIR$/src/WD.WebApi/Properties/launchSettings.json" />
         <option value="$PROJECT_DIR$/src/WD.Data/Entities/ExerciseLoop.cs" />
         <option value="$PROJECT_DIR$/src/WD.Data/Extensions/SeedDataExtension.cs" />
         <option value="$PROJECT_DIR$/src/WD.WebApi/Controllers/ExerciseController.cs" />
+        <option value="$PROJECT_DIR$/src/WD.WebApi/Properties/launchSettings.json" />
       </list>
     </option>
   </component>
@@ -173,7 +182,7 @@
       <workItem from="1574246351143" duration="1099000" />
       <workItem from="1574247514742" duration="3000" />
       <workItem from="1574247547560" duration="28000" />
-      <workItem from="1574288010565" duration="10664000" />
+      <workItem from="1574288010565" duration="17018000" />
     </task>
     <servers />
   </component>
