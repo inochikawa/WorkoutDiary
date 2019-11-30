@@ -16,6 +16,11 @@ struct TrainingListViewModel: Identifiable {
         
     }
     
+    init(id: String, date: Date) {
+        self.id = id;
+        self.date = date;
+    }
+    
     init(model: TrainingModel) {
         self.id = model.id ?? "";
         self.date = model.createdDate ?? Date();

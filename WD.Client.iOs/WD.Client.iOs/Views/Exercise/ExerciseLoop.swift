@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ExerciseLoop: View {
-    var exerciseLoopItem: ExerciseLoopModel;
+    var exerciseLoopItem: ExerciseLoopViewModel;
     
     var body: some View {
         VStack {
@@ -23,6 +23,6 @@ struct ExerciseLoop: View {
 
 struct ExerciseLoop_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseLoop(exerciseLoopItem: testData[0].exercises[0].loops[0])
+        ExerciseLoop(exerciseLoopItem: testTrainingDetails[0].exercises[0].loops[0])
     }
 }

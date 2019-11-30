@@ -8,6 +8,8 @@
 
 import Foundation
 
-struct TrainingDetailsViewModel {
-    
+struct TrainingDetailsViewModel : Identifiable {
+    var id: String;
+    var createdDate:Date?;
+    var exercises: [ExerciseViewModel] = [];
 }

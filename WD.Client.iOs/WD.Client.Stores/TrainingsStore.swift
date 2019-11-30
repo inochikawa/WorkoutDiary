@@ -13,14 +13,13 @@ class TrainingsStore: ObservableObject {
     
     @Published var trainings: [TrainingListViewModel] = [];
     
-    init(with hui: AppStore ) {
-        self.appStore = hui;
+    init(with appStore: AppStore ) {
+        self.appStore = appStore;
         
-        self.trainings = hui.data.map { TrainingListViewModel(model: $0) };
+        self.trainings = appStore.data.map { TrainingListViewModel(model: $0) };
     }
     
-    init() {
-        self.trainings = [];
-        self.appStore = nil;
+    public func getTrainingViewModelBy(id: String) -> TrainingDetailsViewModel {
+        return TrainingDetailsViewModel(id: id);
     }
 }

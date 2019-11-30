@@ -8,8 +8,8 @@
 
 import Foundation
 
-class AppStore: ObservableObject {
-    @Published var data: [TrainingModel] = [];
+class AppStore {
+    var data: [TrainingModel] = [];
     
     init() {
         self.reloadData();

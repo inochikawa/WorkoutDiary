@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ExerciseDetails: View {
-    var exerciseItem: ExerciseModel;
+    var exerciseItem: ExerciseViewModel;
 
     
     var body: some View {
@@ -37,9 +37,9 @@ struct ExerciseDetails: View {
 struct ExerciseDetails_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            ExerciseDetails(exerciseItem: testData[0].exercises[0])
-            ExerciseDetails(exerciseItem: testData[0].exercises[1])
-            ExerciseDetails(exerciseItem: testData[0].exercises[2])
+            ExerciseDetails(exerciseItem: testTrainingDetails[0].exercises[0])
+            ExerciseDetails(exerciseItem: testTrainingDetails[0].exercises[1])
+            ExerciseDetails(exerciseItem: testTrainingDetails[0].exercises[2])
         }
                 .previewLayout(.fixed(width: 500, height: 600))
 //        .environment(\.colorScheme, ColorScheme.dark)

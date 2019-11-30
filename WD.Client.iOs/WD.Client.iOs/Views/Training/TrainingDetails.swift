@@ -7,10 +7,22 @@
 //
 
 import SwiftUI
+import Resolver
 
 struct TrainingDetails: View {
-    var trainingItem: TrainingModel;
+    var trainingItem: TrainingDetailsViewModel;
+    var trainingStore: TrainingsStore;
     
+    init(trainingItem: TrainingDetailsViewModel) {
+        self.trainingStore = Resolver.resolve();
+        self.trainingItem = trainingItem;
+    }
+    
+    init(trainingId: String) {
+        self.trainingStore = Resolver.resolve();
+        self.trainingItem = self.trainingStore.getTrainingViewModelBy(id: trainingId);
+    }
+
     var body: some View {
         VStack(alignment: HorizontalAlignment.leading) {
             TrainingDetailsTitle(exercisesCount: trainingItem.exercisesCount)
@@ -28,7 +40,7 @@ struct TrainingDetails: View {
 struct TrainingDetails_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            TrainingDetails(trainingItem: testData[0])
+            TrainingDetails(trainingItem: testTrainingDetails[0])
         }
     }
 }

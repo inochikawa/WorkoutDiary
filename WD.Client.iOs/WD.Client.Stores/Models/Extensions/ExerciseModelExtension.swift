@@ -9,11 +9,6 @@
 import Foundation
 
 extension ExerciseModel {
-    public var loopsCount: Int {
-        get {
-            return loops != nil && loops.count > 0 ? loops.count : 0;
-        }
-    }
     
     public static func mapFromDictionary(dictionary: Dictionary<String, Any>) -> ExerciseModel {
         var exerciseItem = ExerciseModel();
