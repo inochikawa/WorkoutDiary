@@ -29,15 +29,17 @@ struct TrainingList: View {
             
             List {
                 Section {
-                    NavigationLink(destination: TrainingDetails(trainingId: nil)) {
+                    Button(action: {
+                        self.store.createNewTraining();
+                    }) {
                         HStack {
-                            Image(systemName: "play.circle.fill")
-                            Text("start new training")
+                            Image(systemName: "plus.circle.fill")
+                            Text("new training")
                         }
                     }
                 }
             
-                Section(header: Text("Finished on this weekend")) {
+                Section(header: Text("Finished today")) {
                     
                     if self.trainingsToday.count > 0 {
                         ForEach(self.trainingsToday)  {

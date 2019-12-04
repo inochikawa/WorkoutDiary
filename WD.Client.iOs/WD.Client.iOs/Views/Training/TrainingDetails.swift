@@ -15,19 +15,19 @@ struct TrainingDetails: View {
     @ObservedObject  var trainingItem: TrainingDetailsViewModel = TrainingDetailsViewModel();
     @ObservedObject private var selectedExerciseLoop: ExerciseLoopViewModel = ExerciseLoopViewModel();
     
-    private var trainingId: String? = nil;
-    
+
     @State private var isLoopModalDisplayed: Bool = false;
     @State private var isAddExerciseLoop: Bool = false;
     @State private var selectedExerciseName: String = "";
     @State private var selectedExerciseId: String = "";
     
+    private var trainingId: String = "";
     
     init(trainingItem: TrainingDetailsViewModel) {
         self.trainingItem = trainingItem;
     }
     
-    init(trainingId: String?) {
+    init(trainingId: String) {
         self.trainingId = trainingId;
     }
     
@@ -38,7 +38,8 @@ struct TrainingDetails: View {
                     exercisesCount: trainingItem.exercisesCount,
                     onAddExerciseClick: {
                         self.trainingItem.exercises.append(ExerciseViewModel(id: "\(UUID())", name: "Test", loops: []));
-                    }
+                    },
+                    isEditMode: self.trainingStore.isEditMode
                 )
                 Divider()
                 if self.trainingItem.exercisesCount > 0 {
@@ -101,22 +102,15 @@ struct TrainingDetails: View {
         }
         .navigationBarTitle("Training at \(self.trainingItem.createdDate?.toString() ?? "")", displayMode: .inline)
         .navigationBarItems(trailing: Button(action: {
-            self.trainingStore.isEditMode.toggle()
-        }) {
-            Text(self.trainingStore.isEditMode ? "Done" : "Edit")
-        })
-        .onAppear(perform: {
-            if self.trainingId == nil {
-                self.trainingItem.id = "\(UUID())";
-                self.trainingItem.createdDate = Date();
-                self.trainingItem.exercises = [];
-            } else {
-                self.trainingItem.copyFrom(viewModel: self.trainingStore.getTrainingViewModelBy(id: self.trainingId!))
-            }
-        })
-        .onDisappear(perform: {
+            withAnimation {self.trainingStore.isEditMode.toggle()}
+        }) { Text(self.trainingStore.isEditMode ? "Done" : "Edit") })
+        .onAppear {
+            self.trainingItem.copyFrom(viewModel: self.trainingStore.getTrainingViewModelBy(id: self.trainingId));
+        }
+        .onDisappear {
+            self.trainingStore.isEditMode = false;
             self.trainingStore.updateTraining(from: self.trainingItem);
-        })
+        }
     }
 }
 
@@ -131,18 +125,21 @@ struct TrainingDetails_Previews: PreviewProvider {
 struct TrainingDetailsTitle: View {
     var exercisesCount: Int = 0;
     var onAddExerciseClick: () -> Void;
+    var isEditMode: Bool;
     
     var body: some View {
         HStack {
             Text("Completed exercises: ")
             Text("\(exercisesCount)")
             Spacer()
-            Button(action: {
-                withAnimation(.spring()) { self.onAddExerciseClick() }
-            }) {
-                Image(systemName: "plus.square")
-                    .font(.system(size: 26))
-                    .frame(width: 30, height: 30, alignment: .center)
+            if self.isEditMode {
+                Button(action: {
+                    withAnimation(.spring()) { self.onAddExerciseClick() }
+                }) {
+                    Image(systemName: "plus.square")
+                        .font(.system(size: 26))
+                        .frame(width: 30, height: 30, alignment: .center)
+                }
             }
         }
         .padding(.horizontal, 12)

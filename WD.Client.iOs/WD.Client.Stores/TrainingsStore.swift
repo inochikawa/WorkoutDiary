@@ -35,19 +35,10 @@ class TrainingsStore: ObservableObject {
         self.resortTrainings();
     }
     
-    public func createAndGetNewTraining() -> TrainingDetailsViewModel {
+    public func createNewTraining() {
         let training = TrainingModel();
 
         self.appStore.data.append(training)
-        self.refreshTrainingsList();
-
-        return TrainingDetailsViewModel(model: training);
-    }
-    
-    public func appendCreatedItem(trainingViewModel: TrainingDetailsViewModel) {
-        let training = TrainingModel(viewModel: trainingViewModel);
-        self.appStore.data.append(training);
-        
         self.refreshTrainingsList();
     }
     
