@@ -12,14 +12,15 @@ class TrainingsStore: ObservableObject {
     private var appStore: DataSource;
     
     @Published var trainings: [TrainingListViewModel] = [];
+    @Published var isEditMode: Bool = true;
     
     init(with appStore: DataSource ) {
         self.appStore = appStore;
-        self.reloalTrainingsList(forceReload: true);
     }
     
     public func getTrainingViewModelBy(id: String) -> TrainingDetailsViewModel {
-        return TrainingDetailsViewModel(id: id);
+        let training = self.appStore.getTrainingBy(id: id)!;
+        return TrainingDetailsViewModel(model: training);
     }
     
     public func reloalTrainingsList(forceReload: Bool = false) {
@@ -29,9 +30,32 @@ class TrainingsStore: ObservableObject {
         };
     }
     
-    public func createNewTraining() {
-//        self.trainings.append(TrainingModel());
-//        self.resortTrainings();
+    public func refreshTrainingsList() {
+        self.trainings = self.appStore.data.map { TrainingListViewModel(model: $0) };
+        self.resortTrainings();
+    }
+    
+    public func createAndGetNewTraining() -> TrainingDetailsViewModel {
+        let training = TrainingModel();
+
+        self.appStore.data.append(training)
+        self.refreshTrainingsList();
+
+        return TrainingDetailsViewModel(model: training);
+    }
+    
+    public func appendCreatedItem(trainingViewModel: TrainingDetailsViewModel) {
+        let training = TrainingModel(viewModel: trainingViewModel);
+        self.appStore.data.append(training);
+        
+        self.refreshTrainingsList();
+    }
+    
+    public func updateTraining(from viewModel: TrainingDetailsViewModel) {
+        self.appStore.data = self.appStore.data.filter { i in i.id! != viewModel.id };
+        self.appStore.data.append(TrainingModel(viewModel: viewModel));
+
+        self.refreshTrainingsList();
     }
     
     public func resortTrainings() {

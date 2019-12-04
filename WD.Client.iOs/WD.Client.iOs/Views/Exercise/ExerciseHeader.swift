@@ -12,21 +12,33 @@ struct ExerciseHeader: View {
     var exerciseName: String;
     var totalLoops: Int;
     
+    var onAddLoopClick: () -> Void;
+    
     var body: some View {
-        HStack {
-            Text(self.exerciseName)
-                .font(.system(size: 20))
-                .fontWeight(.light)
+        HStack(alignment: .top) {
+            VStack(alignment: .leading) {
+                Text(self.exerciseName)
+                    .font(.system(size: 20))
+                    .fontWeight(.light)
+
+                Text("Total loops: \(self.totalLoops)")
+                    .font(.system(size: 12))
+                    .fontWeight(.light)
+            }
             Spacer()
-            Text("Total loops: \(self.totalLoops)")
-                .font(.system(size: 12))
-                .fontWeight(.light)
+            Button(action: {
+                self.onAddLoopClick();
+            }) {
+                Image(systemName: "plus.square")
+                    .font(.system(size: 26))
+                    .frame(width: 30, height: 30, alignment: .center)
+            }
         }
     }
 }
 
 struct ExerciseHeader_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseHeader(exerciseName: "Pepka", totalLoops: 10)
+        ExerciseHeader(exerciseName: "Pepka", totalLoops: 10, onAddLoopClick: {})
     }
 }

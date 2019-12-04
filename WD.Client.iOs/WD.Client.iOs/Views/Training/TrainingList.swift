@@ -10,35 +10,68 @@ import SwiftUI
 import Resolver
 
 struct TrainingList: View {
-    @ObservedObject var store: TrainingsStore  = Resolver.resolve();
+    @EnvironmentObject var store: TrainingsStore;
+    
+    private var trainingsToday: [TrainingListViewModel] {
+        get {
+            return self.store.trainings.filter { i in i.date.isInThisWeekend()}
+        }
+    }
+    
+    private var trainingsLater: [TrainingListViewModel] {
+        get {
+            return self.store.trainings.filter { i in !i.date.isInThisWeekend()}
+        }
+    }
     
     var body: some View {
         NavigationView {
+            
             List {
-                ForEach(self.store.trainings)  {
-                    item in
-                    TrainingRow(item: item)
+                Section {
+                    NavigationLink(destination: TrainingDetails(trainingId: nil)) {
+                        HStack {
+                            Image(systemName: "play.circle.fill")
+                            Text("start new training")
+                        }
+                    }
+                }
+            
+                Section(header: Text("Finished on this weekend")) {
+                    
+                    if self.trainingsToday.count > 0 {
+                        ForEach(self.trainingsToday)  {
+                            item in
+                            TrainingRow(item: item)
+                        }
+                    } else {
+                        Text("Nothing")
+                    }
+                }
+                
+                Section(header: Text("Finished later")) {
+                    
+                    if self.trainingsLater.count > 0 {
+                        ForEach(self.trainingsLater)  {
+                            item in
+                            TrainingRow(item: item)
+                        }
+                    } else {
+                        Text("Nothing")
+                    }
                 }
             }
             .navigationBarTitle(Text("Trainings history"))
             .navigationBarItems(
                 leading: Button(action: {
-                    self.store.reloalTrainingsList();
+                    self.store.reloalTrainingsList(forceReload: true);
                 }) {
                     Image(systemName: "arrow.clockwise")
-                },
-                trailing:
-                Button(action: {
-//                    self.appStore.createNewTraining();
-                }) {
-                    HStack {
-                        Image(systemName: "plus")
-                        Text("training")
-                    }
                 }
             )
+            .listStyle(GroupedListStyle())
         }
-        .animation(.spring())
+    .   navigationViewStyle(DoubleColumnNavigationViewStyle())
     }
 }
 
@@ -47,7 +80,12 @@ struct TrainingRow: View {
     
     var body: some View {
         NavigationLink(destination: TrainingDetails(trainingId: item.id)) {
-            Text("Training at \(item.date.toString())")
+            VStack (alignment: .leading) {
+                Text("Training at \(item.date.toString())")
+                Text("Exercises: \(item.exercisesCount)")
+                    .font(.system(size: 10))
+                    .foregroundColor(Color.gray)
+            }
         }
     }
 }

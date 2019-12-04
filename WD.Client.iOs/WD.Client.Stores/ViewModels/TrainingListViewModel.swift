@@ -8,9 +8,10 @@
 
 import Foundation
 
-struct TrainingListViewModel: Identifiable {
+class TrainingListViewModel: Identifiable {
     var id: String = "";
     var date: Date = Date();
+    var exercisesCount: Int = 0;
     
     init() {
         
@@ -24,5 +25,6 @@ struct TrainingListViewModel: Identifiable {
     init(model: TrainingModel) {
         self.id = model.id ?? "";
         self.date = model.createdDate ?? Date();
+        self.exercisesCount = model.exercises.count;
     }
 }

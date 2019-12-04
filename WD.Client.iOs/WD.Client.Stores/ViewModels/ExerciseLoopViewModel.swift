@@ -8,8 +8,41 @@
 
 import Foundation
 
-struct ExerciseLoopViewModel : Identifiable {
-        var id: String;
-        var repeats: Int?;
-        var weight: Int?;
+class ExerciseLoopViewModel : Identifiable, ObservableObject {
+    var id: String;
+    @Published var repeats: Int;
+    @Published var weight: Int;
+    var exerciseId: String?;
+    
+    init() {
+        self.id = "\(UUID())";
+        self.weight = 0;
+        self.repeats = 0;
+    }
+    
+    init(id: String, repeats: Int, weight: Int) {
+        self.id = id;
+        self.repeats = repeats;
+        self.weight = weight;
+    }
+    
+    init(model: ExerciseLoopModel) {
+        self.id = model.id ?? "";
+        self.repeats = model.repeats ?? 0;
+        self.weight = model.weight ?? 0;
+    }
+    
+    init(viewModel: ExerciseLoopViewModel) {
+        self.id = viewModel.id;
+        self.repeats = viewModel.repeats;
+        self.weight = viewModel.weight;
+        self.exerciseId = viewModel.exerciseId;
+    }
+    
+    public func copyFrom(viewModel: ExerciseLoopViewModel) {
+        self.id = viewModel.id;
+        self.repeats = viewModel.repeats;
+        self.weight = viewModel.weight;
+        self.exerciseId = viewModel.exerciseId;
+    }
 }

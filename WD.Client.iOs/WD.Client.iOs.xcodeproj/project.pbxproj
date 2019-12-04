@@ -11,6 +11,7 @@
 		6463E2DB238DBAF600A52792 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6463E2DA238DBAF600A52792 /* DateUtil.swift */; };
 		6463E2DD238DBF7700A52792 /* TrainingDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6463E2DC238DBF7700A52792 /* TrainingDetails.swift */; };
 		6463E2E0238DD5E200A52792 /* ExerciseDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6463E2DF238DD5E200A52792 /* ExerciseDetails.swift */; };
+		64652128239711CE00A1154F /* StringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64652127239711CE00A1154F /* StringUtil.swift */; };
 		6484642423908E2600F3290D /* TrainingModelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6484642323908E2600F3290D /* TrainingModelExtension.swift */; };
 		6484642623908E5300F3290D /* ExerciseModelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6484642523908E5300F3290D /* ExerciseModelExtension.swift */; };
 		6484642823908E8000F3290D /* ExerciseLoopModelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6484642723908E8000F3290D /* ExerciseLoopModelExtension.swift */; };
@@ -39,6 +40,10 @@
 		64A7A1542384384400870687 /* ExerciseLoopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A1532384384400870687 /* ExerciseLoopModel.swift */; };
 		64A7A15823844C1C00870687 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A15723844C1C00870687 /* Api.swift */; };
 		64A7A15E2384938C00870687 /* JsonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A7A15D2384938C00870687 /* JsonUtil.swift */; };
+		64D9617223959A3C00C36EC6 /* WDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9617123959A3C00C36EC6 /* WDButton.swift */; };
+		64D9617423959A4C00C36EC6 /* WDPrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9617323959A4C00C36EC6 /* WDPrimaryButton.swift */; };
+		64D9617623959A5800C36EC6 /* WDWarningButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9617523959A5800C36EC6 /* WDWarningButton.swift */; };
+		64D961782395E26A00C36EC6 /* ExerciseLoopEditModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D961772395E26A00C36EC6 /* ExerciseLoopEditModal.swift */; };
 		64E3AB70238DE74600B37599 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E3AB6F238DE74600B37599 /* TestData.swift */; };
 		DF2E04FC27117711D02B4A5D /* Pods_WD_Client_iOs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC57C74FE1CB94C544BD0684 /* Pods_WD_Client_iOs.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +70,7 @@
 		6463E2DA238DBAF600A52792 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		6463E2DC238DBF7700A52792 /* TrainingDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDetails.swift; sourceTree = "<group>"; };
 		6463E2DF238DD5E200A52792 /* ExerciseDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetails.swift; sourceTree = "<group>"; usesTabs = 0; };
+		64652127239711CE00A1154F /* StringUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtil.swift; sourceTree = "<group>"; };
 		6484642323908E2600F3290D /* TrainingModelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModelExtension.swift; sourceTree = "<group>"; };
 		6484642523908E5300F3290D /* ExerciseModelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModelExtension.swift; sourceTree = "<group>"; };
 		6484642723908E8000F3290D /* ExerciseLoopModelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseLoopModelExtension.swift; sourceTree = "<group>"; };
@@ -99,6 +105,10 @@
 		64A7A1532384384400870687 /* ExerciseLoopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseLoopModel.swift; sourceTree = "<group>"; };
 		64A7A15723844C1C00870687 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		64A7A15D2384938C00870687 /* JsonUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonUtil.swift; sourceTree = "<group>"; };
+		64D9617123959A3C00C36EC6 /* WDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDButton.swift; sourceTree = "<group>"; };
+		64D9617323959A4C00C36EC6 /* WDPrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDPrimaryButton.swift; sourceTree = "<group>"; };
+		64D9617523959A5800C36EC6 /* WDWarningButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDWarningButton.swift; sourceTree = "<group>"; };
+		64D961772395E26A00C36EC6 /* ExerciseLoopEditModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseLoopEditModal.swift; sourceTree = "<group>"; };
 		64E3AB6F238DE74600B37599 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		9B38C5728D98362776C878FC /* Pods-WD.Client.iOs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WD.Client.iOs.debug.xcconfig"; path = "Target Support Files/Pods-WD.Client.iOs/Pods-WD.Client.iOs.debug.xcconfig"; sourceTree = "<group>"; };
 		CC57C74FE1CB94C544BD0684 /* Pods_WD_Client_iOs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WD_Client_iOs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +165,7 @@
 				6463E2DF238DD5E200A52792 /* ExerciseDetails.swift */,
 				6484642A23908F2F00F3290D /* ExerciseHeader.swift */,
 				6484642C23908F4000F3290D /* ExerciseLoop.swift */,
+				64D961772395E26A00C36EC6 /* ExerciseLoopEditModal.swift */,
 			);
 			path = Exercise;
 			sourceTree = "<group>";
@@ -271,6 +282,7 @@
 		64A7A15523844BCC00870687 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				64D9616F23959A1600C36EC6 /* Shared */,
 				6463E2DE238DC1CB00A52792 /* Exercise */,
 				6463E2D72386060400A52792 /* Training */,
 			);
@@ -303,8 +315,27 @@
 			children = (
 				64A7A15D2384938C00870687 /* JsonUtil.swift */,
 				6463E2DA238DBAF600A52792 /* DateUtil.swift */,
+				64652127239711CE00A1154F /* StringUtil.swift */,
 			);
 			path = WD.Client.Utils;
+			sourceTree = "<group>";
+		};
+		64D9616F23959A1600C36EC6 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				64D9617023959A2200C36EC6 /* Buttons */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		64D9617023959A2200C36EC6 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				64D9617123959A3C00C36EC6 /* WDButton.swift */,
+				64D9617323959A4C00C36EC6 /* WDPrimaryButton.swift */,
+				64D9617523959A5800C36EC6 /* WDWarningButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		793CA5D11E3A553B3D5E6AF4 /* Frameworks */ = {
@@ -507,6 +538,7 @@
 				6463E2DD238DBF7700A52792 /* TrainingDetails.swift in Sources */,
 				648464422392AC7300F3290D /* ExerciseViewModelExtension.swift in Sources */,
 				648464442392ACBE00F3290D /* ExerciseLoopViewModel.swift in Sources */,
+				64652128239711CE00A1154F /* StringUtil.swift in Sources */,
 				6463E2D92386064E00A52792 /* TrainingList.swift in Sources */,
 				64A7A1232383E99000870687 /* ContentView.swift in Sources */,
 				648464372390A37E00F3290D /* TrainingDetailsViewModel.swift in Sources */,
@@ -514,10 +546,14 @@
 				6484642F239097BF00F3290D /* TrainingsStore.swift in Sources */,
 				6463E2E0238DD5E200A52792 /* ExerciseDetails.swift in Sources */,
 				6496A7CE239087AB009DCC61 /* TrainingsApiClient.swift in Sources */,
+				64D9617623959A5800C36EC6 /* WDWarningButton.swift in Sources */,
 				64A7A15823844C1C00870687 /* Api.swift in Sources */,
+				64D9617423959A4C00C36EC6 /* WDPrimaryButton.swift in Sources */,
+				64D961782395E26A00C36EC6 /* ExerciseLoopEditModal.swift in Sources */,
 				64A7A15E2384938C00870687 /* JsonUtil.swift in Sources */,
 				64A7A1502384302800870687 /* TrainingModel.swift in Sources */,
 				6484642B23908F2F00F3290D /* ExerciseHeader.swift in Sources */,
+				64D9617223959A3C00C36EC6 /* WDButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

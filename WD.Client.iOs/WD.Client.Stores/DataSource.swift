@@ -18,10 +18,21 @@ class DataSource {
         if forceReload {
             TrainingsApiClient.loadAll { items in
                 self.data = items;
-                onLoad(items)
+                onLoad(items);
             };
         } else {
-            onLoad(self.data)
+            onLoad(self.data);
+        }
+    }
+    
+    public func getTrainingBy(id: String) -> TrainingModel? {
+        return self.data.filter { i in return i.id == id }.first;
+    }
+    
+    public func printInfo() {
+        self.data.forEach {
+            i in
+            print("ID: \(i.id)")
         }
     }
 }

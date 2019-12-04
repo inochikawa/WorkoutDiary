@@ -8,9 +8,27 @@
 
 import Foundation;
 
-struct ExerciseLoopModel : Identifiable {
+class ExerciseLoopModel : Identifiable {
     var id: String?;
     var repeats: Int?;
     var weight: Int?;
     var exerciseId: String?;
+    
+    init() {
+        self.id = "\(UUID())";
+    }
+    
+    init(id: String, repeats: Int, weight: Int, exerciseId: String) {
+        self.id = id;
+        self.repeats = repeats;
+        self.weight = weight;
+        self.exerciseId = exerciseId;
+    }
+    
+    init(viewModel: ExerciseLoopViewModel) {
+        self.id = viewModel.id;
+        self.repeats = viewModel.repeats;
+        self.weight = viewModel.weight;
+        self.exerciseId = viewModel.exerciseId;
+    }
 }

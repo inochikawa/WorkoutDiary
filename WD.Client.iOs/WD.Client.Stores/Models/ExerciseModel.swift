@@ -8,9 +8,26 @@
 
 import Foundation;
 
-struct ExerciseModel : Identifiable {
+class ExerciseModel : Identifiable {
     var id: String?;
     var name: String?;
     var loops: [ExerciseLoopModel] = [ExerciseLoopModel]();
     var trainingId: String?;
+    
+    init() {
+        self.id = "\(UUID())";
+    }
+    
+    init(id: String, name: String?, loops: [ExerciseLoopModel]) {
+        self.id = id;
+        self.loops = loops;
+        self.name = name;
+    }
+    
+    init(viewModel: ExerciseViewModel) {
+        self.id = viewModel.id;
+        self.name = viewModel.name;
+        self.loops = viewModel.loops.map { i in return ExerciseLoopModel(viewModel: i) };
+        self.trainingId = viewModel.trainingId;
+    }
 }

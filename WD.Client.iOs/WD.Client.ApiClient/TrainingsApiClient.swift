@@ -23,7 +23,7 @@ class TrainingsApiClient {
                 
                 if jsonArray != nil {
                     for dict in jsonArray! {
-                        resultList.append(TrainingModel.mapFromDictionary(dictionary: dict));
+                        resultList.append(TrainingModel.mapFrom(dictionary: dict));
                     }
                     
                     loadCallback(resultList);
@@ -46,7 +46,7 @@ class TrainingsApiClient {
                 let dict = JsonUtil.toDictionary(jsonString: result ?? "");
                 
                 if dict != nil {
-                    loadCallback(TrainingModel.mapFromDictionary(dictionary: dict!));
+                    loadCallback(TrainingModel.mapFrom(dictionary: dict!));
                 }
                 
                 break;

@@ -9,10 +9,14 @@
 import Foundation
 
 extension Date {
-    public func toString(formatString: String = "MMM dd, yyyy") -> String {
+    public func toString(formatString: String = "dd.MM.yyyy HH:mm") -> String {
         let formatter = DateFormatter();
         formatter.dateFormat = formatString;
         
         return formatter.string(from: self);
+    }
+    
+    public func isInThisWeekend() -> Bool {
+        return Calendar.current.isDateInToday(self);
     }
 }

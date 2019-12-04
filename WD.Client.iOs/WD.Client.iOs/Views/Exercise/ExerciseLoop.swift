@@ -9,20 +9,41 @@
 import SwiftUI
 
 struct ExerciseLoop: View {
-    var exerciseLoopItem: ExerciseLoopViewModel;
+    @ObservedObject var exerciseLoopItem: ExerciseLoopViewModel;
+    @EnvironmentObject var store: TrainingsStore;
+    
+    var onLoopEditClick: () -> Void;
     
     var body: some View {
-        VStack {
-            Text("\(self.exerciseLoopItem.weight!) kg")
-            Divider()
-            Text("\(self.exerciseLoopItem.repeats!)")
+        HStack{
+            VStack {
+                Text("\(self.exerciseLoopItem.weight) kg")
+                Divider()
+                Text("\(self.exerciseLoopItem.repeats)")
+            }
+            .frame(width: 80, alignment: .center)
+            if self.store.isEditMode {
+                VStack {
+                    Button(action: {
+                        self.onLoopEditClick();
+                    }) {
+                        Image(systemName: "square.and.pencil")
+                            .foregroundColor(.gray)
+                    }
+                    Spacer()
+                    Button(action: {}) {
+                        Image(systemName: "trash")
+                        .foregroundColor(.red)
+                    }
+                }
+            }
         }
-        .frame(width: 80, alignment: .center)
+        .padding(.all, 12)
     }
 }
 
 struct ExerciseLoop_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseLoop(exerciseLoopItem: testTrainingDetails[0].exercises[0].loops[0])
+        ExerciseLoop(exerciseLoopItem: testTrainingDetails[0].exercises[0].loops[0], onLoopEditClick: {})
     }
 }

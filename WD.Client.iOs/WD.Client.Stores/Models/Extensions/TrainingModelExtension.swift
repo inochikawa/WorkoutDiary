@@ -10,7 +10,7 @@ import Foundation
 
 extension TrainingModel {
 
-    public static func mapFromDictionary(dictionary: Dictionary<String, Any>) -> TrainingModel {
+    public static func mapFrom(dictionary: Dictionary<String, Any>) -> TrainingModel {
         var item = TrainingModel();
         if dictionary.keys.firstIndex(of: "createdDate") != nil
         {
@@ -34,5 +34,5 @@ extension TrainingModel {
         
         return item;
     }
-    
+
 }
