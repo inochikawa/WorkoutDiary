@@ -1,0 +1,10 @@
+use_frameworks!
+
+workspace "WorkoutDiary" 
+
+project "Workout Diary/Workout Diary.xcodeproj"
+
+target "Workout Diary" do
+	pod 'ReSwift'
+	pod "Resolver" 
+end

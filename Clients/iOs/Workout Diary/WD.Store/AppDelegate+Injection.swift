@@ -13,6 +13,6 @@ extension Resolver: ResolverRegistering {
         register { DataSource() }.scope(application)
         
         // by default scope is Unique
-        register { TrainingsStore(with: resolve()) }
+//        register { TrainingsStore(with: resolve()) }
     }
 }
