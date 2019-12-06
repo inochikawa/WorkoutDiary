@@ -8,10 +8,10 @@
 
 import Foundation
 
-class ExerciseLoopViewModel : Identifiable, ObservableObject {
+class ExerciseLoopViewModel : Identifiable {
     var id: String;
-    @Published var repeats: Int;
-    @Published var weight: Int;
+    var repeats: Int;
+    var weight: Int;
     var exerciseId: String?;
     
     init() {
@@ -33,13 +33,6 @@ class ExerciseLoopViewModel : Identifiable, ObservableObject {
     }
     
     init(viewModel: ExerciseLoopViewModel) {
-        self.id = viewModel.id;
-        self.repeats = viewModel.repeats;
-        self.weight = viewModel.weight;
-        self.exerciseId = viewModel.exerciseId;
-    }
-    
-    public func copyFrom(viewModel: ExerciseLoopViewModel) {
         self.id = viewModel.id;
         self.repeats = viewModel.repeats;
         self.weight = viewModel.weight;

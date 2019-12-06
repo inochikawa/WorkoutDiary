@@ -8,10 +8,10 @@
 
 import Foundation
 
-class ExerciseViewModel : Identifiable, ObservableObject {
+class ExerciseViewModel : Identifiable {
     var id: String;
-    @Published var name: String?;
-    @Published var loops: [ExerciseLoopViewModel] = [];
+    var name: String?;
+    var loops: [ExerciseLoopViewModel] = [];
     var trainingId: String?;
     
     init() {

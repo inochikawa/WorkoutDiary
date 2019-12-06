@@ -18,10 +18,11 @@ class ExerciseModel : Identifiable {
         self.id = "\(UUID())";
     }
     
-    init(id: String, name: String?, loops: [ExerciseLoopModel]) {
+    init(id: String, name: String?, loops: [ExerciseLoopModel], trainingId: String) {
         self.id = id;
         self.loops = loops;
         self.name = name;
+        self.trainingId = trainingId;
     }
     
     init(viewModel: ExerciseViewModel) {

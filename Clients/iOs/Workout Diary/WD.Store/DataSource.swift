@@ -9,13 +9,17 @@
 import Foundation
 
 class DataSource {
-    var data: [TrainingModel] = [];
+    //TODO: for test purposes
+//    var data: [TrainingModel] = [];
+    var data: [TrainingModel] = testData;
     
     init() {
     }
     
     public func reloadData(forceReload: Bool = false, onLoad: @escaping ([TrainingModel]) -> Void)  {
-        if forceReload {
+//        if forceReload {
+        //TODO: for test purposes
+        if false {
             TrainingsApiClient.loadAll { items in
                 self.data = items;
                 onLoad(items);

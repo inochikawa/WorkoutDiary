@@ -16,12 +16,4 @@ extension TrainingDetailsViewModel {
         }
     }
     
-//    public func resetInfo() {
-//        self.id = "\(UUID())";
-//        self.createdDate = Date();
-//        self.exercises = [];
-//    }
-    
-    
-    
 }

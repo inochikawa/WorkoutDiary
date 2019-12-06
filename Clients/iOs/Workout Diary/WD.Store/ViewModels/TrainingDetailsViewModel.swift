@@ -8,10 +8,10 @@
 
 import Foundation
 
-class TrainingDetailsViewModel : Identifiable, ObservableObject {
+class TrainingDetailsViewModel : Identifiable {
     var id: String;
-    @Published var createdDate: Date?;
-    @Published var exercises: [ExerciseViewModel] = [];
+    var createdDate: Date?;
+    var exercises: [ExerciseViewModel] = [];
     
     init() {
         self.id = "\(UUID())";
@@ -31,12 +31,6 @@ class TrainingDetailsViewModel : Identifiable, ObservableObject {
     }
     
     init(viewModel: TrainingDetailsViewModel) {
-        self.id = viewModel.id;
-        self.createdDate = viewModel.createdDate;
-        self.exercises = viewModel.exercises.map { i in return ExerciseViewModel(viewModel: i) };
-    }
-    
-    public func copyFrom(viewModel: TrainingDetailsViewModel) {
         self.id = viewModel.id;
         self.createdDate = viewModel.createdDate;
         self.exercises = viewModel.exercises.map { i in return ExerciseViewModel(viewModel: i) };
