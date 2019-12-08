@@ -14,11 +14,17 @@ class TrainingDetailsViewController: UIViewController {
     var store: AppStore = Resolver.resolve();
     var trainingDetailsViewModel: TrainingDetailsViewModel?;
 
+    @IBOutlet weak var exerciseListView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.exerciseListView.dataSource = self;
+        self.exerciseListView.delegate = self;
+        self.exerciseListView.register(UINib(nibName: ConstantData.Nib.ExerciseCellNibName, bundle: nil), forCellReuseIdentifier: ConstantData.Cell.ExerciseCellId);
+        
         if self.trainingDetailsViewModel == nil {
-            print("TRAINING WITH NOT FOUND. RETURNING TO PREVIOUS SCREEN.")
+            print("TRAINING NOT FOUND. RETURNING TO PREVIOUS SCREEN.")
             self.dismiss(animated: true, completion: nil)
         } else {
             self.navigationItem.largeTitleDisplayMode = .never;

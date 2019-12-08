@@ -10,10 +10,21 @@ import Foundation
 
 
 struct ConstantData {
-    public static let TrainingListCellId = "TrainingListCell";
-    public static let TrainingListCellNibName = "TrainingListCell";
+    
+    struct Cell {
+        public static let TrainingListCellId = "TrainingListCell";
+        public static let ExerciseCellId = "ExerciseCell";
+        public static let ExerciseLoopCellId = "ExerciseLoopCell";
+    }
+    
+    struct Nib {
+        public static let TrainingListCellNibName = "TrainingListCell";
+        public static let ExerciseCellNibName = "ExerciseCell";
+        public static let ExerciseLoopCellNibName = "ExerciseLoopCell";
+    }
     
     struct Segue {
         public static let ToTrainingDetailsSequeId = "ToTrainingDetailsSeque";
     }
+    
 }

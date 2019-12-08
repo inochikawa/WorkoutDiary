@@ -23,12 +23,11 @@ class TrainingListViewController: UIViewController {
         
         self.listTableView.dataSource = self;
         self.listTableView.delegate = self;
-        self.listTableView.register(UINib(nibName: ConstantData.TrainingListCellNibName, bundle: nil), forCellReuseIdentifier: ConstantData.TrainingListCellId);
+        self.listTableView.register(UINib(nibName: ConstantData.Nib.TrainingListCellNibName, bundle: nil), forCellReuseIdentifier: ConstantData.Cell.TrainingListCellId);
         
         self.navigationController?.navigationBar.prefersLargeTitles = true;
         
         self.setUpRefreshControl();
-//        self.setUpLeftButton();
         self.setUpRightButton();
         self.reloadListViewDataAsync(forceRefreshControl: true);
     }
@@ -119,19 +118,7 @@ class TrainingListViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button);
         self.navigationItem.rightBarButtonItem?.isEnabled = true;
     }
-    
-    private func setUpLeftButton() {
-        let button = UIButton(type: .system);
-        button.setImage(UIImage(systemName: "arrow.clockwise.circle.fill"), for: .normal);
-        
-        button.frame = CGRect(x: 0, y: 0, width: 30, height: 30);
-        
-        button.addTarget(self, action: #selector(self.onSyncButtonTouchDown), for: .touchDown);
-        
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button);
-        self.navigationItem.leftBarButtonItem?.isEnabled = true;
-    }
-    
+
     private func startRefreshControl() {
         self.listTableView.setContentOffset(CGPoint(x: 0, y: -(listTableView.refreshControl?.frame.size.height ?? 0)), animated: true);
         self.listTableView.refreshControl?.beginRefreshing();
