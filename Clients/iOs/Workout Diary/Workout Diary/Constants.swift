@@ -25,6 +25,7 @@ struct ConstantData {
     
     struct Segue {
         public static let ToTrainingDetailsSequeId = "ToTrainingDetailsSeque";
+        public static let FromTrainingDetail_ToEditExerciseLoop = "FromTrainingDetail_ToEditExerciseLoop";
     }
     
 }

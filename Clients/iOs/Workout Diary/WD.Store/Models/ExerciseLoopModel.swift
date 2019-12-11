@@ -11,14 +11,14 @@ import Foundation;
 class ExerciseLoopModel : Identifiable {
     var id: String?;
     var repeats: Int?;
-    var weight: Int?;
+    var weight: Double?;
     var exerciseId: String?;
     
     init() {
         self.id = "\(UUID())";
     }
     
-    init(id: String, repeats: Int, weight: Int, exerciseId: String) {
+    init(id: String, repeats: Int, weight: Double, exerciseId: String) {
         self.id = id;
         self.repeats = repeats;
         self.weight = weight;

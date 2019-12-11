@@ -18,7 +18,7 @@ extension ExerciseLoopModel {
         }
         if dictionary.keys.firstIndex(of: "weight") != nil
         {
-            exerciseLoopItem.weight = (dictionary["weight"] as! Int);
+            exerciseLoopItem.weight = (dictionary["weight"] as! Double);
         }
         if dictionary.keys.firstIndex(of: "repeats") != nil
         {

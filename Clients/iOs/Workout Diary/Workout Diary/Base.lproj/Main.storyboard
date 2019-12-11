@@ -102,11 +102,175 @@
                     <navigationItem key="navigationItem" id="Vdv-4O-6j3"/>
                     <connections>
                         <outlet property="exerciseListView" destination="AFf-27-7IJ" id="VF4-ay-V4R"/>
+                        <segue destination="8fl-kr-zMQ" kind="presentation" identifier="FromTrainingDetail_ToEditExerciseLoop" id="ORD-CY-sii"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pnn-xm-MyC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2037.68115942029" y="137.94642857142856"/>
+        </scene>
+        <!--Edit exercise loop modal-->
+        <scene sceneID="J6E-AQ-ZVK">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="8fl-kr-zMQ" userLabel="Edit exercise loop modal" customClass="EditExerciseLoopModalViewController" customModule="Workout_Diary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Sy8-Tk-pux">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pkt-au-mit">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="U0a-Ud-zfM" userLabel="Blur view">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPg-SH-YZt" userLabel="Modal view">
+                                            <rect key="frame" x="27" y="99" width="322" height="290"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oRb-ch-4Fw" userLabel="Root Stack View">
+                                                    <rect key="frame" x="24" y="24" width="274.5" height="241.5"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="8wo-Fx-8Xp" userLabel="Exercise name and Weight step Stack View">
+                                                            <rect key="frame" x="23.5" y="0.0" width="227" height="79.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Otzhym blya!!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkw-em-jne">
+                                                                    <rect key="frame" x="58.5" y="0.0" width="110.5" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="mhf-Kc-cJj" userLabel="Weight step stack">
+                                                                    <rect key="frame" x="0.0" y="32.5" width="227" height="47"/>
+                                                                    <subviews>
+                                                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dcw-Zs-Kll" userLabel="Weight segment control">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="227" height="32"/>
+                                                                            <segments>
+                                                                                <segment title="1 kg"/>
+                                                                                <segment title="2.5 kg"/>
+                                                                                <segment title="5 kg"/>
+                                                                                <segment title="10 kg"/>
+                                                                            </segments>
+                                                                            <connections>
+                                                                                <action selector="onWeightStepChanged:" destination="8fl-kr-zMQ" eventType="valueChanged" id="ep4-bY-uy3"/>
+                                                                            </connections>
+                                                                        </segmentedControl>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight step" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rq-Z5-Msv">
+                                                                            <rect key="frame" x="84.5" y="35" width="58" height="12"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="UEf-0c-cqW" userLabel="Pickers and Buttons Stack View">
+                                                            <rect key="frame" x="0.0" y="79.5" width="274.5" height="162"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rI8-I4-uLW" userLabel="Pickers Stack View">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="274.5" height="120"/>
+                                                                    <subviews>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dQI-jO-70J" userLabel="Weight picker stack">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="139" height="120"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfz-08-kQ5" userLabel="Weight:">
+                                                                                    <rect key="frame" x="0.0" y="50" width="54" height="20.5"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <pickerView clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q45-K3-uzW" userLabel="Weight picker">
+                                                                                    <rect key="frame" x="59" y="0.0" width="80" height="120"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" constant="80" id="NHz-hc-F3g"/>
+                                                                                        <constraint firstAttribute="height" constant="120" id="gxZ-jA-wGy"/>
+                                                                                    </constraints>
+                                                                                </pickerView>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZPH-IO-TDT" userLabel="Repeats picker stack">
+                                                                            <rect key="frame" x="147" y="0.0" width="127.5" height="120"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repeats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKZ-Oo-Z4p">
+                                                                                    <rect key="frame" x="0.0" y="50" width="62.5" height="20.5"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <pickerView clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9iY-xo-f36" userLabel="Repeats picker">
+                                                                                    <rect key="frame" x="67.5" y="0.0" width="60" height="120"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" constant="60" id="3x0-s7-aQ3"/>
+                                                                                        <constraint firstAttribute="height" constant="120" id="8RU-1c-1X7"/>
+                                                                                    </constraints>
+                                                                                </pickerView>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ENX-9y-bDs" userLabel="Buttons Stack View">
+                                                                    <rect key="frame" x="0.0" y="132" width="274.5" height="30"/>
+                                                                    <subviews>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ash-nk-lZK">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="137" height="30"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                            <state key="normal" title="Cancel">
+                                                                                <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            </state>
+                                                                            <connections>
+                                                                                <action selector="onCancelTap:" destination="8fl-kr-zMQ" eventType="touchUpInside" id="45P-zQ-C79"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fp-lL-nTu">
+                                                                            <rect key="frame" x="137" y="0.0" width="137.5" height="30"/>
+                                                                            <state key="normal" title="Ok"/>
+                                                                            <connections>
+                                                                                <action selector="onOkTap:" destination="8fl-kr-zMQ" eventType="touchUpInside" id="mdj-IT-WSK"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="oRb-ch-4Fw" secondAttribute="bottom" constant="24" id="2mq-6A-Q4l"/>
+                                                <constraint firstItem="oRb-ch-4Fw" firstAttribute="top" secondItem="aPg-SH-YZt" secondAttribute="top" constant="24" id="NaU-rm-F9h"/>
+                                                <constraint firstItem="oRb-ch-4Fw" firstAttribute="leading" secondItem="aPg-SH-YZt" secondAttribute="leading" constant="24" id="bkm-Cm-awE"/>
+                                                <constraint firstAttribute="trailing" secondItem="oRb-ch-4Fw" secondAttribute="trailing" constant="24" id="pJO-Mn-3v8"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="aPg-SH-YZt" firstAttribute="centerX" secondItem="U0a-Ud-zfM" secondAttribute="centerX" id="3FP-Dc-eQp"/>
+                                        <constraint firstItem="aPg-SH-YZt" firstAttribute="top" secondItem="U0a-Ud-zfM" secondAttribute="top" constant="99" id="oyl-D4-mac"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Pkt-au-mit" firstAttribute="leading" secondItem="Sy8-Tk-pux" secondAttribute="leading" id="7qA-4i-e52"/>
+                            <constraint firstItem="Pkt-au-mit" firstAttribute="top" secondItem="Sy8-Tk-pux" secondAttribute="top" id="lYS-oz-OQI"/>
+                            <constraint firstAttribute="bottom" secondItem="Pkt-au-mit" secondAttribute="bottom" id="v8d-tZ-yXG"/>
+                            <constraint firstAttribute="trailing" secondItem="Pkt-au-mit" secondAttribute="trailing" id="wKA-R7-Hh6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3q2-h7-k2H"/>
+                    </view>
+                    <connections>
+                        <outlet property="exerciseNameLabel" destination="rkw-em-jne" id="tc3-aK-asJ"/>
+                        <outlet property="modalView" destination="aPg-SH-YZt" id="bL2-oy-gqB"/>
+                        <outlet property="repeatsPicker" destination="9iY-xo-f36" id="l11-6u-Cuc"/>
+                        <outlet property="weightPicker" destination="q45-K3-uzW" id="RB4-jD-jz8"/>
+                        <outlet property="weightStepControl" destination="dcw-Zs-Kll" id="42L-rp-ss0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qt0-XR-H7R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2872.8000000000002" y="136.28185907046478"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hjB-Et-gHC">

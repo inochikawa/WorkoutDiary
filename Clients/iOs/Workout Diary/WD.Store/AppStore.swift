@@ -44,11 +44,20 @@ class AppStore {
         self.refreshTrainingsList();
     }
     
-    public func appendCreatedItem(trainingViewModel: TrainingDetailsViewModel) {
-        let training = TrainingModel(viewModel: trainingViewModel);
-        self.dataSource.data.append(training);
+    public func getExerciseLoopViewModel(_ trainingId: String, _ exerciseId: String, _ exerciseLoopId: String?) -> ExerciseLoopViewModel {
         
-        self.refreshTrainingsList();
+        let training: TrainingModel = dataSource.data.filter {i in i.id == trainingId}.first!;
+        let exercise = training.exercises.filter {i in i.id == exerciseId}.first!;
+        
+        if exerciseLoopId == nil {
+            let model = ExerciseLoopViewModel();
+            model.exerciseId = exerciseId;
+            model.exerciseName = exercise.name;
+            return model;
+        } else {
+            let loop = exercise.loops.filter {i in i.id == exerciseLoopId!}.first!;
+            return ExerciseLoopViewModel(model: loop);
+        }
     }
     
     public func updateTraining(from viewModel: TrainingDetailsViewModel) {

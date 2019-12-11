@@ -11,19 +11,14 @@ import Foundation
 class ExerciseLoopViewModel : Identifiable {
     var id: String;
     var repeats: Int;
-    var weight: Int;
+    var weight: Double;
     var exerciseId: String?;
+    var exerciseName: String?;
     
     init() {
         self.id = "\(UUID())";
         self.weight = 0;
         self.repeats = 0;
-    }
-    
-    init(id: String, repeats: Int, weight: Int) {
-        self.id = id;
-        self.repeats = repeats;
-        self.weight = weight;
     }
     
     init(model: ExerciseLoopModel) {
@@ -37,5 +32,6 @@ class ExerciseLoopViewModel : Identifiable {
         self.repeats = viewModel.repeats;
         self.weight = viewModel.weight;
         self.exerciseId = viewModel.exerciseId;
+        self.exerciseName = viewModel.exerciseName;
     }
 }

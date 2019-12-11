@@ -13,6 +13,9 @@ class TrainingDetailsViewController: UIViewController {
     
     var store: AppStore = Resolver.resolve();
     var trainingDetailsViewModel: TrainingDetailsViewModel?;
+    
+    var selectedExerciseId: String!;
+    var selectedExerciseLoopId: String?;
 
     @IBOutlet weak var exerciseListView: UITableView!
     

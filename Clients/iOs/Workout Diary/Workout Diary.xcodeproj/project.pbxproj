@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		640513D423A0203800303AB0 /* EditExerciseLoopModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640513D323A0203800303AB0 /* EditExerciseLoopModalViewController.swift */; };
+		640513D623A0328000303AB0 /* EditExerciseLoopModalViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640513D523A0328000303AB0 /* EditExerciseLoopModalViewControllerExtension.swift */; };
 		646521362397399A00A1154F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646521352397399A00A1154F /* AppDelegate.swift */; };
 		646521382397399A00A1154F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646521372397399A00A1154F /* SceneDelegate.swift */; };
 		6465213D2397399A00A1154F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6465213B2397399A00A1154F /* Main.storyboard */; };
@@ -49,6 +51,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		640513D323A0203800303AB0 /* EditExerciseLoopModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseLoopModalViewController.swift; sourceTree = "<group>"; };
+		640513D523A0328000303AB0 /* EditExerciseLoopModalViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseLoopModalViewControllerExtension.swift; sourceTree = "<group>"; };
 		646521322397399A00A1154F /* Workout Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workout Diary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		646521352397399A00A1154F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		646521372397399A00A1154F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 				6465218B239994FE00A1154F /* Extensions */,
 				646521892399918F00A1154F /* TrainingListViewController.swift */,
 				64652180239950A100A1154F /* TrainingDetailsViewController.swift */,
+				640513D323A0203800303AB0 /* EditExerciseLoopModalViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 			children = (
 				6465218C239995A000A1154F /* TrainingListViewControllerExtension.swift */,
 				647A1DE1239BD656004D9D89 /* TrainingDetailsViewControllerExtension.swift */,
+				640513D523A0328000303AB0 /* EditExerciseLoopModalViewControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -439,8 +445,10 @@
 				6465216F23973CCB00A1154F /* ExerciseViewModel.swift in Sources */,
 				6465217023973CCB00A1154F /* TrainingDetailsViewModel.swift in Sources */,
 				6465215123973B5D00A1154F /* DataSource.swift in Sources */,
+				640513D423A0203800303AB0 /* EditExerciseLoopModalViewController.swift in Sources */,
 				6465216823973CBC00A1154F /* ExerciseLoopModelExtension.swift in Sources */,
 				6465216323973CB400A1154F /* ExerciseLoopModel.swift in Sources */,
+				640513D623A0328000303AB0 /* EditExerciseLoopModalViewControllerExtension.swift in Sources */,
 				6465217123973CCB00A1154F /* ExerciseLoopViewModel.swift in Sources */,
 				6465215523973B9200A1154F /* TrainingsApiClient.swift in Sources */,
 				6465217A23994E1400A1154F /* TestDataSourse.swift in Sources */,

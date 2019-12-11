@@ -33,6 +33,9 @@
                         <state key="normal" title="loop" image="plus.app" catalog="system">
                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="bold"/>
                         </state>
+                        <connections>
+                            <action selector="onAddExerciseLoopTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="vNh-1Q-U25"/>
+                        </connections>
                     </button>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="LLR-oo-SQs" userLabel="ExerciseLoops collection view">
                         <rect key="frame" x="0.0" y="32.5" width="377" height="177.5"/>

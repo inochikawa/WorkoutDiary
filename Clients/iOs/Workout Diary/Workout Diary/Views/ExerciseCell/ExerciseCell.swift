@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ExerciseCellDelegate {
+    func onAddExerciseLoop(exerciseId: String) -> Void;
+}
+
 class ExerciseCell: UITableViewCell {
 
     @IBOutlet weak var exerciseNameLabel: UILabel!
@@ -15,13 +19,12 @@ class ExerciseCell: UITableViewCell {
     @IBOutlet weak var exerciseLoopCollectionView: UICollectionView!
     
     var exerciseViewModel: ExerciseViewModel?;
+    var delegate: ExerciseCellDelegate?;
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         self.exerciseLoopCollectionView.register(UINib(nibName: ConstantData.Nib.ExerciseLoopCellNibName, bundle: nil), forCellWithReuseIdentifier: ConstantData.Cell.ExerciseLoopCellId);
-        
-//        self.exerciseLoopCollectionView.register(ExerciseLoopCell.self, forCellWithReuseIdentifier: ConstantData.Cell.ExerciseLoopCellId)
         
         self.exerciseLoopCollectionView.dataSource = self;
         self.exerciseLoopCollectionView.delegate = self;
@@ -39,6 +42,11 @@ class ExerciseCell: UITableViewCell {
         self.exerciseNameLabel.text = exerciseViewModel.name;
     }
     
+    @IBAction func onAddExerciseLoopTap(_ sender: UIButton) {
+        if let safeDelegate = self.delegate {
+            safeDelegate.onAddExerciseLoop(exerciseId: self.exerciseViewModel!.id);
+        }
+    }
     
     
 }
