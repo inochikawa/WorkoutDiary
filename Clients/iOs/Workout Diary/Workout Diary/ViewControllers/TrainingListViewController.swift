@@ -51,7 +51,9 @@ class TrainingListViewController: UIViewController {
     }
     
     public func performRemoveTraining(at indexPath: IndexPath) {
-        print("performRemoveTraining")
+        let trainingId = self.store.trainings[indexPath.row].id;
+        self.store.removeTraining(by: trainingId);
+        self.reloadListViewDataAsync();
     }
     
     public func navigateToDetails(selectedIndexPath: IndexPath) {

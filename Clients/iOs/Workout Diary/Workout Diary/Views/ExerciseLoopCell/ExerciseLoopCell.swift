@@ -20,14 +20,12 @@ class ExerciseLoopCell: UICollectionViewCell {
         super.awakeFromNib()
         
         self.dividerView.layer.cornerRadius = 0.5; // half of height
-        
-        if let safeViewModel = self.exerciseLoopViewModel {
-            self.weightLabel.text = "\(safeViewModel.weight) kg";
-            self.repeatsLabel.text = "\(safeViewModel.repeats)";
-        }
     }
 
-    public func setViewModel(_ exerciseLoopViewModel: ExerciseLoopViewModel) {
+    public func prepareCell(_ exerciseLoopViewModel: ExerciseLoopViewModel) {
         self.exerciseLoopViewModel = exerciseLoopViewModel;
+        
+        self.weightLabel.text = "\(exerciseLoopViewModel.weight) kg";
+        self.repeatsLabel.text = "\(exerciseLoopViewModel.repeats)";
     }
 }

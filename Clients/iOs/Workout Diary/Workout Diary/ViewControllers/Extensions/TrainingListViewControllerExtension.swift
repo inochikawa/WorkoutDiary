@@ -26,25 +26,11 @@ extension TrainingListViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         
-        let config = UIContextMenuConfiguration(
-            identifier: nil,
-            previewProvider: nil,
-            actionProvider: {_ in
-                let editAction = UIAction(title: "Edit", image: UIImage(systemName: "slider.horizontal.3")) {(uiAction) in
-                    self.performEditTraining(at: indexPath);
-                }
-                
-                let removeAction = UIAction(title: "Remove", image: UIImage(systemName: "trash"), attributes: [
-                    UIMenuElement.Attributes.destructive
-                ]) {(uiAction) in
-                    self.performRemoveTraining(at: indexPath);
-                }
-                
-                let menu = UIMenu(title: "Training's actions", identifier: nil, options: [], children: [editAction, removeAction]);
-                
-                return menu;
-            }
-        );
+        let config = newActionItemContextMenuConfiguration(onEditTap: {
+            self.performEditTraining(at: indexPath);
+        }, onDeleteTap: {
+            self.performRemoveTraining(at: indexPath);
+        });
         
         return config;
     }

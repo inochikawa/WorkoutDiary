@@ -17,6 +17,7 @@ class TrainingDetailsViewController: UIViewController {
     var selectedExerciseId: String!;
     var selectedExerciseLoopId: String?;
 
+    @IBOutlet weak var completedExercisesLabel: UILabel!
     @IBOutlet weak var exerciseListView: UITableView!
     
     override func viewDidLoad() {
@@ -32,12 +33,36 @@ class TrainingDetailsViewController: UIViewController {
         } else {
             self.navigationItem.largeTitleDisplayMode = .never;
             self.navigationItem.title = "Training at \(self.trainingDetailsViewModel!.createdDate!.toString())";
+            self.refreshCompletedExercisesCountLabel();
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated);
+        print("View did appear")
+    }
 
-    public func setTrainingId(_ trainingId: String?) {
+    @IBAction func onAddExerciseTap(_ sender: UIButton) {
+        self.selectedExerciseLoopId = nil;
+        self.selectedExerciseId = nil;
+        self.navigateToEditExerciseModal();
+    }
+
+    func setTrainingId(_ trainingId: String?) {
         if let safeId = trainingId {
             self.trainingDetailsViewModel = self.store.getTrainingViewModelBy(id: safeId);
         }
+    }
+    
+    func refreshCompletedExercisesCountLabel() {
+        self.completedExercisesLabel.text = "\(self.trainingDetailsViewModel!.exercisesCount)";
+    }
+    
+    func navigateToEditExerciseModal() {
+        self.performSegue(withIdentifier: ConstantData.Segue.FromTrainingDetail_ToEditExercise, sender: self);
+    }
+    
+    func navigateToEditExerciseLoopModal() {
+        self.performSegue(withIdentifier: ConstantData.Segue.FromTrainingDetail_ToEditExerciseLoop, sender: self);
     }
 }

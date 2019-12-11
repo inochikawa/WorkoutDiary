@@ -12,8 +12,8 @@ class ExerciseLoopViewModel : Identifiable {
     var id: String;
     var repeats: Int;
     var weight: Double;
-    var exerciseId: String?;
-    var exerciseName: String?;
+    var exerciseId: String!;
+    var exerciseName: String!;
     
     init() {
         self.id = "\(UUID())";
@@ -23,8 +23,10 @@ class ExerciseLoopViewModel : Identifiable {
     
     init(model: ExerciseLoopModel) {
         self.id = model.id ?? "";
+        self.exerciseId = model.exerciseId ?? "";
         self.repeats = model.repeats ?? 0;
         self.weight = model.weight ?? 0;
+        self.exerciseName = "";
     }
     
     init(viewModel: ExerciseLoopViewModel) {

@@ -10,7 +10,19 @@ import Foundation
 import UIKit
 
 extension EditExerciseLoopModalViewController : UIPickerViewDelegate {
-    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch pickerView.tag {
+        case self.weightPickerTag:
+            self.exerciseLoopViewModel!.weight = self.weightPickerRange[row];
+            break;
+        case self.repeatsPickerTag:
+            self.exerciseLoopViewModel!.repeats = self.repeatsPickerRange[row];
+            break;
+        default:
+            // ignore
+            break;
+        }
+    }
 }
 
 extension EditExerciseLoopModalViewController : UIPickerViewDataSource {

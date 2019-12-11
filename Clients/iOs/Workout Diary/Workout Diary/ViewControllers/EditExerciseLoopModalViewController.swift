@@ -9,8 +9,14 @@
 import UIKit
 import Resolver;
 
+protocol EditExerciseLoopModalDelegate {
+    func onOkModalTap(exerciseLoopViewModel: ExerciseLoopViewModel) -> Void;
+}
+
 class EditExerciseLoopModalViewController: UIViewController {
 
+    var delegate: EditExerciseLoopModalDelegate?;
+    
     @IBOutlet weak var modalView: UIView!
     @IBOutlet weak var weightPicker: UIPickerView!
     @IBOutlet weak var repeatsPicker: UIPickerView!
@@ -70,6 +76,9 @@ class EditExerciseLoopModalViewController: UIViewController {
     }
     
     @IBAction func onOkTap(_ sender: Any) {
+        if let safeDelegate = self.delegate {
+            safeDelegate.onOkModalTap(exerciseLoopViewModel: self.exerciseLoopViewModel!);
+        }
         self.dismiss(animated: true, completion: nil);
     }
     

@@ -10,6 +10,8 @@ import UIKit
 
 protocol ExerciseCellDelegate {
     func onAddExerciseLoop(exerciseId: String) -> Void;
+    func onEditExerciseLoop(exerciseId: String, exerciseLoopId: String) -> Void;
+    func onRemoveExerciseLoop(exerciseId: String, exerciseLoopId: String) -> Void;
 }
 
 class ExerciseCell: UITableViewCell {

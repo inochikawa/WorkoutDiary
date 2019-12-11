@@ -60,11 +60,30 @@ class AppStore {
         }
     }
     
+    public func getExerciseViewModel(_ trainingId: String, _ exerciseId: String?) -> ExerciseViewModel {
+    
+        let training: TrainingModel = dataSource.data.filter {i in i.id == trainingId}.first!;
+        
+        if exerciseId == nil {
+            let model = ExerciseViewModel();
+            model.trainingId = trainingId;
+            return model;
+        } else {
+            let exercise = training.exercises.filter {i in i.id == exerciseId!}.first!;
+            return ExerciseViewModel(model: exercise);
+        }
+    }
+    
     public func updateTraining(from viewModel: TrainingDetailsViewModel) {
         self.dataSource.data = self.dataSource.data.filter { i in i.id! != viewModel.id };
         self.dataSource.data.append(TrainingModel(viewModel: viewModel));
 
         self.refreshTrainingsList();
+    }
+    
+    public func removeTraining(by id:String) {
+        self.trainings = self.trainings.filter{i in i.id != id};
+        self.dataSource.data = self.dataSource.data.filter{i in i.id != id};
     }
     
     public func resortTrainings() {
