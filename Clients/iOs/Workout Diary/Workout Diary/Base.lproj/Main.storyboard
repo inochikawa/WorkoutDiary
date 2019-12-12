@@ -93,7 +93,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="oSV-Hr-kZj">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="test cell 2" id="oSV-Hr-kZj">
                                         <rect key="frame" x="0.0" y="100" width="375" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oSV-Hr-kZj" id="In1-ei-af0">
@@ -442,7 +442,7 @@
                                 <color key="backgroundColor" name="AppBackgroundColor"/>
                                 <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="k6N-lA-T7o">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="test cell 1" id="k6N-lA-T7o">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k6N-lA-T7o" id="YPZ-aA-cYn">
@@ -483,10 +483,10 @@
             <color red="0.89800000190734863" green="0.94599997997283936" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="AppTextColor">
-            <color red="0.13699999451637268" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.1371591687" green="0.12549456950000001" blue="0.12549003959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="AppTextColor">
-            <color red="0.1371591687" green="0.12549456950000001" blue="0.12549003959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.13699999451637268" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="CancelButtonColor">
             <color red="1" green="0.28099998831748962" blue="0.29899999499320984" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
