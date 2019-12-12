@@ -16,6 +16,7 @@ protocol ExerciseCellDelegate {
 
 class ExerciseCell: UITableViewCell {
 
+    @IBOutlet weak var rootView: UIView!
     @IBOutlet weak var exerciseNameLabel: UILabel!
     @IBOutlet weak var addExerciseLoopButton: UIButton!
     @IBOutlet weak var exerciseLoopCollectionView: UICollectionView!
@@ -30,6 +31,11 @@ class ExerciseCell: UITableViewCell {
         
         self.exerciseLoopCollectionView.dataSource = self;
         self.exerciseLoopCollectionView.delegate = self;
+        self.rootView.layer.cornerRadius = 12;
+        self.rootView.layer.shadowColor = UIColor(named: "PanelShadowColor")?.cgColor;
+        self.rootView.layer.shadowOpacity = 1;
+        self.rootView.layer.shadowRadius = 4;
+        self.rootView.layer.shadowOffset = CGSize.init(width: 0, height: 4);
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -10,6 +10,7 @@ import UIKit
 
 class ExerciseLoopCell: UICollectionViewCell {
 
+    @IBOutlet weak var rootView: UIView!
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var dividerView: UIView!
     @IBOutlet weak var repeatsLabel: UILabel!
@@ -20,6 +21,8 @@ class ExerciseLoopCell: UICollectionViewCell {
         super.awakeFromNib()
         
         self.dividerView.layer.cornerRadius = 0.5; // half of height
+        self.rootView.layer.cornerRadius = 10;
+        self.layer.cornerRadius = 12;
     }
 
     public func prepareCell(_ exerciseLoopViewModel: ExerciseLoopViewModel) {

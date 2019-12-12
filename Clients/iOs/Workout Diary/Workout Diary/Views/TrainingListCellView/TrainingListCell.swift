@@ -24,12 +24,10 @@ class TrainingListCell: UITableViewCell {
         self.rootView.layer.cornerRadius = 8;
         self.rootView.layer.cornerRadius = 8;
         self.rootView.layer.masksToBounds = false;
-        self.rootView.layer.shadowOffset = CGSize.init(width: 0, height: 0);
-        self.rootView.layer.shadowColor = UIColor.black.cgColor;
-        self.rootView.layer.shadowOpacity = 0.15;
-        self.rootView.layer.shadowRadius = 8;
-        
-        self.accessoryType = .disclosureIndicator;
+        self.rootView.layer.shadowOffset = CGSize.init(width: 0, height: 4);
+        self.rootView.layer.shadowColor = UIColor(named: "PanelShadowColor")?.cgColor;
+        self.rootView.layer.shadowOpacity = 1;
+        self.rootView.layer.shadowRadius = 4;
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
