@@ -75,7 +75,7 @@ class AppStore {
     }
     
     public func updateTraining(from viewModel: TrainingDetailsViewModel) {
-        self.dataSource.data = self.dataSource.data.filter { i in i.id! != viewModel.id };
+        self.dataSource.data = self.dataSource.data.filter { i in i.id != viewModel.id };
         self.dataSource.data.append(TrainingModel(viewModel: viewModel));
 
         self.refreshTrainingsList();

@@ -22,10 +22,10 @@ class ExerciseLoopViewModel : Identifiable {
     }
     
     init(model: ExerciseLoopModel) {
-        self.id = model.id ?? "";
+        self.id = model.id;
         self.exerciseId = model.exerciseId ?? "";
-        self.repeats = model.repeats ?? 0;
-        self.weight = model.weight ?? 0;
+        self.repeats = model.repeats;
+        self.weight = model.weight;
         self.exerciseName = "";
     }
     

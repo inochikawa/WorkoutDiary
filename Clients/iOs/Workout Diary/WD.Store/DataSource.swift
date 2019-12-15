@@ -10,8 +10,8 @@ import Foundation
 
 class DataSource {
     //TODO: for test purposes
-//    var data: [TrainingModel] = [];
-    var data: [TrainingModel] = testData;
+    var data: [TrainingModel] = [];
+//    var data: [TrainingModel] = testData;
     
     init() {
     }
@@ -32,11 +32,5 @@ class DataSource {
     public func getTrainingBy(id: String) -> TrainingModel? {
         return self.data.filter { i in return i.id == id }.first;
     }
-    
-    public func printInfo() {
-        self.data.forEach {
-            i in
-            print("ID: \(i.id ?? "")")
-        }
-    }
+
 }

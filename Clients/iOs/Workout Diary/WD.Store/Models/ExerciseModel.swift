@@ -7,28 +7,33 @@
 //
 
 import Foundation;
+import RealmSwift;
 
-class ExerciseModel : Identifiable {
-    var id: String?;
-    var name: String?;
-    var loops: [ExerciseLoopModel] = [ExerciseLoopModel]();
-    var trainingId: String?;
+class ExerciseModel : Object, Identifiable {
+    @objc dynamic var id: String;
+    @objc dynamic var name: String;
+    var loops: List<ExerciseLoopModel>;
+    @objc dynamic var trainingId: String?;
     
-    init() {
+    required init() {
         self.id = "\(UUID())";
-    }
-    
-    init(id: String, name: String?, loops: [ExerciseLoopModel], trainingId: String) {
-        self.id = id;
-        self.loops = loops;
-        self.name = name;
-        self.trainingId = trainingId;
+        self.name = "";
+        self.loops = List<ExerciseLoopModel>();
     }
     
     init(viewModel: ExerciseViewModel) {
         self.id = viewModel.id;
-        self.name = viewModel.name;
-        self.loops = viewModel.loops.map { i in return ExerciseLoopModel(viewModel: i) };
+        self.name = viewModel.name ?? "";
         self.trainingId = viewModel.trainingId;
+        
+        self.loops = List<ExerciseLoopModel>();
+        
+        for loopViewModel in viewModel.loops {
+            self.loops.append(ExerciseLoopModel(viewModel: loopViewModel))
+        }
+    }
+    
+    override class func primaryKey() -> String? {
+        return "id";
     }
 }

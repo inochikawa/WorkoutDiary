@@ -7,26 +7,31 @@
 //
 
 import Foundation;
+import RealmSwift;
 
-class TrainingModel : Identifiable {
-    var id: String?;
-    var createdDate:Date?;
-    var exercises: [ExerciseModel] = [ExerciseModel]();
+class TrainingModel : Object, Identifiable {
+    @objc dynamic var id: String;
+    @objc dynamic var createdDate:Date;
+    var exercises: List<ExerciseModel>;
     
-    init() {
+    required init() {
         self.id = "\(UUID())";
         self.createdDate = Date();
+        self.exercises = List<ExerciseModel>();
     }
     
-    init(id: String, createdDate: Date, exercises: [ExerciseModel]) {
-        self.id = id;
-        self.createdDate = createdDate;
-        self.exercises = exercises;
-    }
     
     init(viewModel: TrainingDetailsViewModel) {
         self.id = viewModel.id;
-        self.createdDate = viewModel.createdDate;
-        self.exercises = viewModel.exercises.map { i in return ExerciseModel(viewModel: i) };
+        self.createdDate = viewModel.createdDate ?? Date();
+        self.exercises = List<ExerciseModel>();
+        
+        for exerciseViewModel in viewModel.exercises {
+            self.exercises.append(ExerciseModel(viewModel: exerciseViewModel))
+        }
+    }
+    
+    override class func primaryKey() -> String? {
+        return "id";
     }
 }
