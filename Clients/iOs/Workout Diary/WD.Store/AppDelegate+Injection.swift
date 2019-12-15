@@ -11,7 +11,7 @@ import Resolver
 extension Resolver: ResolverRegistering {
     public static func registerAllServices() {
         // by default scope is Unique
-        register { DataSource() }.scope(application)
-        register { AppStore(with: resolve()) }.scope(application)
+        register { DataSource() }
+        register { AppStore() }.scope(application)
     }
 }

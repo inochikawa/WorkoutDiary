@@ -12,11 +12,11 @@ import UIKit
 extension TrainingListViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.store.trainings.count;
+        return self.trainings.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let trainingListViewModel = self.store.trainings[indexPath.row];
+        let trainingListViewModel = self.trainings[indexPath.row];
         
         let cell = tableView.dequeueReusableCell(withIdentifier: ConstantData.Cell.TrainingListCellId, for: indexPath) as! TrainingListCell;
         cell.setInfo(trainingListViewModel.date, trainingListViewModel.exercisesCount);

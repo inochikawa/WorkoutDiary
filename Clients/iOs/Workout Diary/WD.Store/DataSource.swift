@@ -7,30 +7,77 @@
 //
 
 import Foundation
+import RealmSwift
+import Resolver
 
+// TODO: should be registered as Unique
 class DataSource {
-    //TODO: for test purposes
-    var data: [TrainingModel] = [];
-//    var data: [TrainingModel] = testData;
-    
-    init() {
+    private var _realmConfig: Realm.Configuration {
+        return Realm.Configuration(
+            fileURL: Bundle.main.url(forResource: "WorkoutDiaryDB", withExtension: "realm"),
+            readOnly: false
+        );
     }
     
-    public func reloadData(forceReload: Bool = false, onLoad: @escaping ([TrainingModel]) -> Void)  {
-//        if forceReload {
-        //TODO: for test purposes
-        if false {
-            TrainingsApiClient.loadAll { items in
-                self.data = items;
-                onLoad(items);
-            };
-        } else {
-            onLoad(self.data);
-        }
+    private var _realm: Realm!;
+    
+    var trainings: Results<TrainingModel> {
+        return self._realm.objects(TrainingModel.self);
+    };
+    
+    var exercises: Results<ExerciseModel> {
+        return self._realm.objects(ExerciseModel.self);
+    };
+    
+    var exerciseLoops: Results<ExerciseLoopModel> {
+        return self._realm.objects(ExerciseLoopModel.self);
+    };
+    
+    init() {
+        self._realm = try! Realm(configuration: self._realmConfig);
     }
     
     public func getTrainingBy(id: String) -> TrainingModel? {
-        return self.data.filter { i in return i.id == id }.first;
+        return self.trainings.filter { i in return i.id == id }.first;
+    }
+    
+    public func getExerciseBy(id: String) -> ExerciseModel? {
+        return self.exercises.filter { i in return i.id == id }.first;
+    }
+    
+    public func getExerciseLoopBy(id: String) -> ExerciseLoopModel? {
+        return self.exerciseLoops.filter { i in return i.id == id }.first;
+    }
+    
+    func addItem<TItem: Object>(item: TItem) {
+        do {
+            try self._realm.write {
+                self._realm.add(item);
+            }
+        } catch {
+            print("Error while adding new item: \(error)")
+        }
+    }
+    
+    func removeItem<TItem: Object>(item: TItem) {
+        do {
+            try self._realm.write {
+                self._realm.delete(item);
+            }
+        } catch {
+            print("Error while removing new item: \(error)")
+        }
     }
 
+    func saveChanges() {
+        do {
+            try self._realm.commitWrite();
+        } catch {
+            print("Error while updating data: \(error)")
+        }
+    }
+    
+    static func newInstanse() -> DataSource {
+        return Resolver.resolve() as DataSource;
+    }
 }
