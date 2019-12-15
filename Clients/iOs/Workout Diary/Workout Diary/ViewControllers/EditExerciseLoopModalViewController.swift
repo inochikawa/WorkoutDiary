@@ -47,27 +47,38 @@ class EditExerciseLoopModalViewController: UIViewController {
         super.viewDidLoad()
         
         self.exerciseNameLabel.text = self.exerciseLoopViewModel!.exerciseName;
+        self.selectedWeightStep = self.weightStepRange[self.store.lastWeightStepSelected];
         
         self.setupPickers();
-        self.modalView.layer.cornerRadius = 12;
         
-        self.selectedWeightStep = self.weightStepRange[0];
+        self.modalView.layer.cornerRadius = 12;
     }
     
     func prepareExerciseLoopViewModel(trainingId: String, exerciseId: String, exerciseLoopId: String?) {
         self.exerciseLoopViewModel = self.store.getExerciseLoopViewModel(trainingId, exerciseId, exerciseLoopId);
         
-        if let weightIndex = self.weightPickerRange.firstIndex(of: self.exerciseLoopViewModel!.weight) {
-            self.selectedWeightPickedIndex = weightIndex;
-        }
-        
-        if let repeatsIndex = self.repeatsPickerRange.firstIndex(of: self.exerciseLoopViewModel!.repeats) {
-            self.selectedRepeatsPickedIndex = repeatsIndex;
+        let isNew = exerciseLoopId == nil;
+
+        if isNew {
+
+            self.selectedWeightPickedIndex = self.store.lastWeightIndexSelected;
+            self.selectedRepeatsPickedIndex = self.store.lastRepeatsIndexSelected;
+
+        } else {
+            
+            if let weightIndex = self.weightPickerRange.firstIndex(of: self.exerciseLoopViewModel!.weight) {
+                self.selectedWeightPickedIndex = weightIndex;
+            }
+            
+            if let repeatsIndex = self.repeatsPickerRange.firstIndex(of: self.exerciseLoopViewModel!.repeats) {
+                self.selectedRepeatsPickedIndex = repeatsIndex;
+            }
         }
     }
 
     @IBAction func onWeightStepChanged(_ sender: UISegmentedControl) {
         self.selectedWeightStep = self.weightStepRange[sender.selectedSegmentIndex];
+        self.store.lastWeightStepSelected = sender.selectedSegmentIndex;
         self.weightPicker.reloadComponent(0);
     }
     
@@ -105,6 +116,8 @@ class EditExerciseLoopModalViewController: UIViewController {
         
         self.weightPicker.selectRow(self.selectedWeightPickedIndex, inComponent: 0, animated: true);
         self.repeatsPicker.selectRow(self.selectedRepeatsPickedIndex, inComponent: 0, animated: true);
+        
+        self.weightStepControl.selectedSegmentIndex = self.store.lastWeightStepSelected;
     }
     
     

@@ -7,22 +7,18 @@
 //
 
 import Foundation;
+import RealmSwift;
 
-class ExerciseLoopModel : Identifiable {
-    var id: String?;
-    var repeats: Int?;
-    var weight: Double?;
-    var exerciseId: String?;
+class ExerciseLoopModel : Object, Identifiable {
+    @objc dynamic var id: String;
+    @objc dynamic var repeats: Int;
+    @objc dynamic var weight: Double;
+    @objc dynamic var exerciseId: String!;
     
-    init() {
+    required init() {
         self.id = "\(UUID())";
-    }
-    
-    init(id: String, repeats: Int, weight: Double, exerciseId: String) {
-        self.id = id;
-        self.repeats = repeats;
-        self.weight = weight;
-        self.exerciseId = exerciseId;
+        self.repeats = 0;
+        self.weight = 0;
     }
     
     init(viewModel: ExerciseLoopViewModel) {
@@ -30,5 +26,9 @@ class ExerciseLoopModel : Identifiable {
         self.repeats = viewModel.repeats;
         self.weight = viewModel.weight;
         self.exerciseId = viewModel.exerciseId;
+    }
+    
+    override class func primaryKey() -> String? {
+        return "id";
     }
 }

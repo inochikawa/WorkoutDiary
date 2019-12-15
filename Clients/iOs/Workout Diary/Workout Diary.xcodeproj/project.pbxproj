@@ -35,7 +35,6 @@
 		6465217523973CD400A1154F /* ExerciseViewModelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6465217323973CD400A1154F /* ExerciseViewModelExtension.swift */; };
 		6465217623973CD400A1154F /* TrainingDetailsViewModelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6465217423973CD400A1154F /* TrainingDetailsViewModelExtension.swift */; };
 		6465217823973F9200A1154F /* AppDelegate+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6465217723973F9200A1154F /* AppDelegate+Injection.swift */; };
-		6465217A23994E1400A1154F /* TestDataSourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6465217923994E1400A1154F /* TestDataSourse.swift */; };
 		64652181239950A100A1154F /* TrainingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64652180239950A100A1154F /* TrainingDetailsViewController.swift */; };
 		646521852399514200A1154F /* TrainingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646521832399514200A1154F /* TrainingListCell.swift */; };
 		646521862399514200A1154F /* TrainingListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 646521842399514200A1154F /* TrainingListCell.xib */; };
@@ -84,7 +83,6 @@
 		6465217323973CD400A1154F /* ExerciseViewModelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseViewModelExtension.swift; sourceTree = "<group>"; };
 		6465217423973CD400A1154F /* TrainingDetailsViewModelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingDetailsViewModelExtension.swift; sourceTree = "<group>"; };
 		6465217723973F9200A1154F /* AppDelegate+Injection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Injection.swift"; sourceTree = "<group>"; };
-		6465217923994E1400A1154F /* TestDataSourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataSourse.swift; sourceTree = "<group>"; };
 		64652180239950A100A1154F /* TrainingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDetailsViewController.swift; sourceTree = "<group>"; };
 		646521832399514200A1154F /* TrainingListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingListCell.swift; sourceTree = "<group>"; };
 		646521842399514200A1154F /* TrainingListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainingListCell.xib; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 				6465215B23973BA700A1154F /* Models */,
 				6465218E239996EC00A1154F /* AppStore.swift */,
 				6465215023973B5D00A1154F /* DataSource.swift */,
-				6465217923994E1400A1154F /* TestDataSourse.swift */,
 				6465217723973F9200A1154F /* AppDelegate+Injection.swift */,
 			);
 			path = WD.Store;
@@ -463,7 +460,6 @@
 				640513D623A0328000303AB0 /* EditExerciseLoopModalViewControllerExtension.swift in Sources */,
 				6465217123973CCB00A1154F /* ExerciseLoopViewModel.swift in Sources */,
 				6465215523973B9200A1154F /* TrainingsApiClient.swift in Sources */,
-				6465217A23994E1400A1154F /* TestDataSourse.swift in Sources */,
 				646521382397399A00A1154F /* SceneDelegate.swift in Sources */,
 				6465216223973CB400A1154F /* ExerciseModel.swift in Sources */,
 				6465216923973CBC00A1154F /* ExerciseModelExtension.swift in Sources */,

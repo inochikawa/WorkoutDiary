@@ -1,20 +1,26 @@
 PODS:
-  - Resolver (1.0.7)
-  - ReSwift (5.0.0)
+  - Realm (4.1.1):
+    - Realm/Headers (= 4.1.1)
+  - Realm/Headers (4.1.1)
+  - RealmSwift (4.1.1):
+    - Realm (= 4.1.1)
+  - Resolver (1.1.1)
 
 DEPENDENCIES:
+  - RealmSwift
   - Resolver
-  - ReSwift
 
 SPEC REPOS:
   trunk:
+    - Realm
+    - RealmSwift
     - Resolver
-    - ReSwift
 
 SPEC CHECKSUMS:
-  Resolver: da30396fcabb46790959209430a4a0a9e6e39849
-  ReSwift: 628f1a9b3ee52e3b3ca2a644435472fd77afafe1
+  Realm: 25f0a8244cbb1c2271c922963ea8666fc2d8104d
+  RealmSwift: 9e2657b33764f80e4a4dffd6d440e24715782052
+  Resolver: 13bf2462d6790f67fa6fa45f3753db8199706fc3
 
-PODFILE CHECKSUM: 54a46a344f16cbde4216a852d9b322ed34e41b4c
+PODFILE CHECKSUM: 5e684fe3fab0fec877798ed10000b943dd9f3755
 
 COCOAPODS: 1.8.4

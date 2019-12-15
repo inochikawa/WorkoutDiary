@@ -7,36 +7,91 @@
 //
 
 import Foundation
+import RealmSwift
+import Resolver
 
+// TODO: should be registered as Unique
 class DataSource {
-    //TODO: for test purposes
-//    var data: [TrainingModel] = [];
-    var data: [TrainingModel] = testData;
-    
-    init() {
+    private var _realmConfig: Realm.Configuration {
+        var config = Realm.Configuration.defaultConfiguration;
+        
+        config.schemaVersion = 1;
+        config.migrationBlock = { migration, oldSchemaVersion in
+            if oldSchemaVersion < 1 {
+                // Nothing to do!
+                // Realm will automatically detect new properties and removed properties
+                // And will update the schema on disk automatically
+            }
+        }
+        
+        config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent("WorkoutDiaryDB.realm")
+        
+        return config;
     }
     
-    public func reloadData(forceReload: Bool = false, onLoad: @escaping ([TrainingModel]) -> Void)  {
-//        if forceReload {
-        //TODO: for test purposes
-        if false {
-            TrainingsApiClient.loadAll { items in
-                self.data = items;
-                onLoad(items);
-            };
-        } else {
-            onLoad(self.data);
+    private var _realm: Realm!;
+    
+    var trainings: Results<TrainingModel> {
+        return self._realm.objects(TrainingModel.self);
+    };
+    
+    var exercises: Results<ExerciseModel> {
+        return self._realm.objects(ExerciseModel.self);
+    };
+    
+    var exerciseLoops: Results<ExerciseLoopModel> {
+        return self._realm.objects(ExerciseLoopModel.self);
+    };
+    
+    init() {
+        do {
+            self._realm = try Realm(configuration: self._realmConfig);
+        } catch {
+            print("Error while initializing DB: \(error)")
         }
     }
     
     public func getTrainingBy(id: String) -> TrainingModel? {
-        return self.data.filter { i in return i.id == id }.first;
+        return self.trainings.filter { i in return i.id == id }.first;
     }
     
-    public func printInfo() {
-        self.data.forEach {
-            i in
-            print("ID: \(i.id ?? "")")
+    public func getExerciseBy(id: String) -> ExerciseModel? {
+        return self.exercises.filter { i in return i.id == id }.first;
+    }
+    
+    public func getExerciseLoopBy(id: String) -> ExerciseLoopModel? {
+        return self.exerciseLoops.filter { i in return i.id == id }.first;
+    }
+    
+    func addItem<TItem: Object>(item: TItem) {
+        do {
+            try self._realm.write {
+                self._realm.add(item, update: .all);
+            }
+        } catch {
+            print("Error while adding new item: \(error)")
         }
+    }
+    
+    func removeItem<TItem: Object>(item: TItem) {
+        do {
+            try self._realm.write {
+                self._realm.delete(item);
+            }
+        } catch {
+            print("Error while removing new item: \(error)")
+        }
+    }
+
+    func saveChanges() {
+        do {
+            try self._realm.commitWrite();
+        } catch {
+            print("Error while updating data: \(error)")
+        }
+    }
+    
+    static func newInstanse() -> DataSource {
+        return Resolver.resolve() as DataSource;
     }
 }

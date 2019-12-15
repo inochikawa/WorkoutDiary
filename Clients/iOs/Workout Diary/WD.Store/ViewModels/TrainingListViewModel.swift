@@ -23,8 +23,8 @@ class TrainingListViewModel: Identifiable {
     }
     
     init(model: TrainingModel) {
-        self.id = model.id ?? "";
-        self.date = model.createdDate ?? Date();
+        self.id = model.id;
+        self.date = model.createdDate;
         self.exercisesCount = model.exercises.count;
     }
 }

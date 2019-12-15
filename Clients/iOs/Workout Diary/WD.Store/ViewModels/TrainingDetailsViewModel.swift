@@ -25,7 +25,7 @@ class TrainingDetailsViewModel : Identifiable {
     }
     
     init(model: TrainingModel) {
-        self.id = model.id ?? "";
+        self.id = model.id;
         self.createdDate = model.createdDate;
         self.exercises = model.exercises.map { i in return ExerciseViewModel(model: i) };
     }

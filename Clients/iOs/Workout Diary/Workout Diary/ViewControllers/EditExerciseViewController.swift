@@ -31,7 +31,6 @@ class EditExerciseViewController: UIViewController {
 
         self.exerciseNameTextField.delegate = self;
         self.exerciseNameTextField.text = self.exerciseViewModel!.name;
-//        self.exerciseNameTextField.becomeFirstResponder();
         
         self.modalView.layer.cornerRadius = 12;
     }
