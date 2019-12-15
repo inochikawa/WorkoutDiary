@@ -47,7 +47,6 @@ class EditExerciseLoopModalViewController: UIViewController {
         super.viewDidLoad()
         
         self.exerciseNameLabel.text = self.exerciseLoopViewModel!.exerciseName;
-        self.selectedWeightStep = self.weightStepRange[self.store.lastWeightStepSelected];
         
         self.setupPickers();
         
@@ -55,6 +54,8 @@ class EditExerciseLoopModalViewController: UIViewController {
     }
     
     func prepareExerciseLoopViewModel(trainingId: String, exerciseId: String, exerciseLoopId: String?) {
+        self.selectedWeightStep = self.weightStepRange[self.store.lastWeightStepSelected];
+
         self.exerciseLoopViewModel = self.store.getExerciseLoopViewModel(trainingId, exerciseId, exerciseLoopId);
         
         let isNew = exerciseLoopId == nil;
@@ -63,6 +64,9 @@ class EditExerciseLoopModalViewController: UIViewController {
 
             self.selectedWeightPickedIndex = self.store.lastWeightIndexSelected;
             self.selectedRepeatsPickedIndex = self.store.lastRepeatsIndexSelected;
+            
+            self.exerciseLoopViewModel!.weight = self.weightPickerRange[self.store.lastWeightIndexSelected];
+            self.exerciseLoopViewModel!.repeats = self.repeatsPickerRange[self.store.lastRepeatsIndexSelected];
 
         } else {
             
