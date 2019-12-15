@@ -1,0 +1,20 @@
+PODS:
+  - Resolver (1.0.7)
+  - ReSwift (5.0.0)
+
+DEPENDENCIES:
+  - Resolver
+  - ReSwift
+
+SPEC REPOS:
+  trunk:
+    - Resolver
+    - ReSwift
+
+SPEC CHECKSUMS:
+  Resolver: da30396fcabb46790959209430a4a0a9e6e39849
+  ReSwift: 628f1a9b3ee52e3b3ca2a644435472fd77afafe1
+
+PODFILE CHECKSUM: 54a46a344f16cbde4216a852d9b322ed34e41b4c
+
+COCOAPODS: 1.8.4

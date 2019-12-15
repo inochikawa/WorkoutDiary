@@ -10,9 +10,8 @@ import Resolver
 
 extension Resolver: ResolverRegistering {
     public static func registerAllServices() {
-        register { DataSource() }.scope(application)
-        
         // by default scope is Unique
-        register { TrainingsStore(with: resolve()) }
+        register { DataSource() }.scope(application)
+        register { AppStore(with: resolve()) }.scope(application)
     }
 }
