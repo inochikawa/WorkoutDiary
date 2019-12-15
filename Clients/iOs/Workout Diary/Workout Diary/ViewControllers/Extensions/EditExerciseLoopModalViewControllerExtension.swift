@@ -14,9 +14,11 @@ extension EditExerciseLoopModalViewController : UIPickerViewDelegate {
         switch pickerView.tag {
         case self.weightPickerTag:
             self.exerciseLoopViewModel!.weight = self.weightPickerRange[row];
+            self.store.lastWeightIndexSelected = row;
             break;
         case self.repeatsPickerTag:
             self.exerciseLoopViewModel!.repeats = self.repeatsPickerRange[row];
+            self.store.lastRepeatsIndexSelected = row;
             break;
         default:
             // ignore

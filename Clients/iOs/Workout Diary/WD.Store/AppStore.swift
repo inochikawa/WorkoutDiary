@@ -10,9 +10,9 @@ import Foundation;
 import Resolver;
 
 class AppStore {
-    var lastWeightSelected: Int = 0;
-    var lastRepeatsSelected: Int = 0;
-    var lastWeightStepSelected: Double = 0;
+    var lastWeightIndexSelected: Int = 0;
+    var lastRepeatsIndexSelected: Int = 0;
+    var lastWeightStepSelected: Int = 0;
     
     init() {
     }
@@ -84,5 +84,10 @@ class AppStore {
         
         let training = dataSource.getTrainingBy(id: id)!;
         dataSource.removeItem(item: training);
+    }
+    
+    public func saveChanges() {
+        let dataSource = DataSource.newInstanse();
+        dataSource.saveChanges();
     }
 }

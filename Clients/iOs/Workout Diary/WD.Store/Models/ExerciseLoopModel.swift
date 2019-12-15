@@ -27,4 +27,8 @@ class ExerciseLoopModel : Object, Identifiable {
         self.weight = viewModel.weight;
         self.exerciseId = viewModel.exerciseId;
     }
+    
+    override class func primaryKey() -> String? {
+        return "id";
+    }
 }

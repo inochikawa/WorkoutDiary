@@ -13,10 +13,20 @@ import Resolver
 // TODO: should be registered as Unique
 class DataSource {
     private var _realmConfig: Realm.Configuration {
-        return Realm.Configuration(
-            fileURL: Bundle.main.url(forResource: "WorkoutDiaryDB", withExtension: "realm"),
-            readOnly: false
-        );
+        var config = Realm.Configuration.defaultConfiguration;
+        
+        config.schemaVersion = 1;
+        config.migrationBlock = { migration, oldSchemaVersion in
+            if oldSchemaVersion < 1 {
+                // Nothing to do!
+                // Realm will automatically detect new properties and removed properties
+                // And will update the schema on disk automatically
+            }
+        }
+        
+        config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent("WorkoutDiaryDB.realm")
+        
+        return config;
     }
     
     private var _realm: Realm!;
@@ -34,7 +44,11 @@ class DataSource {
     };
     
     init() {
-        self._realm = try! Realm(configuration: self._realmConfig);
+        do {
+            self._realm = try Realm(configuration: self._realmConfig);
+        } catch {
+            print("Error while initializing DB: \(error)")
+        }
     }
     
     public func getTrainingBy(id: String) -> TrainingModel? {
@@ -52,7 +66,7 @@ class DataSource {
     func addItem<TItem: Object>(item: TItem) {
         do {
             try self._realm.write {
-                self._realm.add(item);
+                self._realm.add(item, update: .all);
             }
         } catch {
             print("Error while adding new item: \(error)")

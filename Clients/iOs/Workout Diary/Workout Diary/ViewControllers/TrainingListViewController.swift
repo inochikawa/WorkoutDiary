@@ -83,6 +83,7 @@ class TrainingListViewController: UIViewController {
     
     @objc private func onAddTrainingButtonTouchDown() {
         self.store.createNewTraining();
+        self.trainings = self.store.getTrainingListViewModels();
         self.finishUpdatingUI();
         
         // By default all trainings are sorted by Date DESC.
