@@ -11,8 +11,10 @@ import RealmSwift;
 
 class TrainingModel : Object, Identifiable {
     @objc dynamic var id: String;
+    @objc dynamic var isInProgress: Bool;
     @objc dynamic var createdDate: Date;
     @objc dynamic var finishedDate: Date;
+    @objc dynamic var spentTime: Int;
     var exercises: List<ExerciseModel>;
     
     required init() {
@@ -20,11 +22,15 @@ class TrainingModel : Object, Identifiable {
         self.createdDate = Date();
         self.finishedDate = Date();
         self.exercises = List<ExerciseModel>();
+        self.isInProgress = true;
+        self.spentTime = 0;
     }
     
     
     init(viewModel: TrainingDetailsViewModel) {
         self.id = viewModel.id;
+        self.spentTime = viewModel.spentTime;
+        self.isInProgress = viewModel.isInProgress;
         self.createdDate = viewModel.createdDate ?? Date();
         self.finishedDate = viewModel.finishedDate ?? Date();
         self.exercises = List<ExerciseModel>();

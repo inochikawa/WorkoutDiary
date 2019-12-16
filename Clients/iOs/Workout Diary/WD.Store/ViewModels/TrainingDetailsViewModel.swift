@@ -10,6 +10,8 @@ import Foundation
 
 class TrainingDetailsViewModel : Identifiable {
     var id: String;
+    var spentTime: Int;
+    var isInProgress: Bool;
     var createdDate: Date?;
     var finishedDate: Date?;
     var exercises: [ExerciseViewModel] = [];
@@ -17,12 +19,16 @@ class TrainingDetailsViewModel : Identifiable {
     init() {
         self.id = "\(UUID())";
         self.createdDate = Date();
+        self.isInProgress = true;
+        self.spentTime = 0;
     }
     
     init(model: TrainingModel) {
         self.id = model.id;
         self.createdDate = model.createdDate;
         self.finishedDate = model.finishedDate;
+        self.isInProgress = model.isInProgress;
+        self.spentTime = model.spentTime;
         self.exercises = model.exercises.map { i in return ExerciseViewModel(model: i) };
     }
     
@@ -30,6 +36,8 @@ class TrainingDetailsViewModel : Identifiable {
         self.id = viewModel.id;
         self.createdDate = viewModel.createdDate;
         self.finishedDate = viewModel.finishedDate;
+        self.isInProgress = viewModel.isInProgress;
+        self.spentTime = viewModel.spentTime;
         self.exercises = viewModel.exercises.map { i in return ExerciseViewModel(viewModel: i) };
     }
 }

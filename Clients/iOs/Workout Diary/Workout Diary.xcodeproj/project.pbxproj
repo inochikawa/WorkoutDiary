@@ -49,6 +49,8 @@
 		647A1DE0239BCD3C004D9D89 /* ExerciseLoopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 647A1DDE239BCD3C004D9D89 /* ExerciseLoopCell.xib */; };
 		647A1DE2239BD656004D9D89 /* TrainingDetailsViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647A1DE1239BD656004D9D89 /* TrainingDetailsViewControllerExtension.swift */; };
 		647A1DE5239BD866004D9D89 /* ExerciseCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647A1DE4239BD866004D9D89 /* ExerciseCellExtension.swift */; };
+		64D7ABF423A804B50017147F /* TimeIntervalUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D7ABF323A804B50017147F /* TimeIntervalUtil.swift */; };
+		64D7ABF623A807840017147F /* IntUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D7ABF523A807840017147F /* IntUtil.swift */; };
 		C1648AFED7131D96D4FBD0C6 /* Pods_Workout_Diary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A374B748E0304397AD04175 /* Pods_Workout_Diary.framework */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +99,8 @@
 		647A1DDE239BCD3C004D9D89 /* ExerciseLoopCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseLoopCell.xib; sourceTree = "<group>"; };
 		647A1DE1239BD656004D9D89 /* TrainingDetailsViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDetailsViewControllerExtension.swift; sourceTree = "<group>"; };
 		647A1DE4239BD866004D9D89 /* ExerciseCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCellExtension.swift; sourceTree = "<group>"; };
+		64D7ABF323A804B50017147F /* TimeIntervalUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalUtil.swift; sourceTree = "<group>"; };
+		64D7ABF523A807840017147F /* IntUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntUtil.swift; sourceTree = "<group>"; };
 		8A374B748E0304397AD04175 /* Pods_Workout_Diary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Workout_Diary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		936E7D7912FA252830CCE68E /* Pods-Workout Diary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workout Diary.release.xcconfig"; path = "Target Support Files/Pods-Workout Diary/Pods-Workout Diary.release.xcconfig"; sourceTree = "<group>"; };
 		C1D27A9E54CD3B0FDAF44EE9 /* Pods-Workout Diary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workout Diary.debug.xcconfig"; path = "Target Support Files/Pods-Workout Diary/Pods-Workout Diary.debug.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +170,8 @@
 			children = (
 				6465215723973B9D00A1154F /* DateUtil.swift */,
 				6465215823973B9D00A1154F /* JsonUtil.swift */,
+				64D7ABF323A804B50017147F /* TimeIntervalUtil.swift */,
+				64D7ABF523A807840017147F /* IntUtil.swift */,
 			);
 			path = WD.Utils;
 			sourceTree = "<group>";
@@ -455,11 +461,13 @@
 				6465215123973B5D00A1154F /* DataSource.swift in Sources */,
 				640513D423A0203800303AB0 /* EditExerciseLoopModalViewController.swift in Sources */,
 				6465216823973CBC00A1154F /* ExerciseLoopModelExtension.swift in Sources */,
+				64D7ABF423A804B50017147F /* TimeIntervalUtil.swift in Sources */,
 				640513D823A1138600303AB0 /* ItemActionContextMenuConfiguration.swift in Sources */,
 				6465216323973CB400A1154F /* ExerciseLoopModel.swift in Sources */,
 				640513D623A0328000303AB0 /* EditExerciseLoopModalViewControllerExtension.swift in Sources */,
 				6465217123973CCB00A1154F /* ExerciseLoopViewModel.swift in Sources */,
 				6465215523973B9200A1154F /* TrainingsApiClient.swift in Sources */,
+				64D7ABF623A807840017147F /* IntUtil.swift in Sources */,
 				646521382397399A00A1154F /* SceneDelegate.swift in Sources */,
 				6465216223973CB400A1154F /* ExerciseModel.swift in Sources */,
 				6465216923973CBC00A1154F /* ExerciseModelExtension.swift in Sources */,

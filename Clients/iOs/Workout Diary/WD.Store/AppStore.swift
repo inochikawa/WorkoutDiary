@@ -79,6 +79,14 @@ class AppStore {
         dataSource.addItem(item: training);
     }
     
+    public func updateTrainingSpentTime(trainingId: String, spentTime: Int) {
+        let dataSource = DataSource.newInstanse();
+        let training = dataSource.trainings.filter {i in i.id == trainingId}.first!;
+        dataSource.updatePropertyInScope {
+            training.spentTime = spentTime;
+        }
+    }
+    
     public func removeTraining(by id:String) {
         let dataSource = DataSource.newInstanse();
         
