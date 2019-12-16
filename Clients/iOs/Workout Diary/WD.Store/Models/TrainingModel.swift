@@ -11,12 +11,14 @@ import RealmSwift;
 
 class TrainingModel : Object, Identifiable {
     @objc dynamic var id: String;
-    @objc dynamic var createdDate:Date;
+    @objc dynamic var createdDate: Date;
+    @objc dynamic var finishedDate: Date;
     var exercises: List<ExerciseModel>;
     
     required init() {
         self.id = "\(UUID())";
         self.createdDate = Date();
+        self.finishedDate = Date();
         self.exercises = List<ExerciseModel>();
     }
     
@@ -24,6 +26,7 @@ class TrainingModel : Object, Identifiable {
     init(viewModel: TrainingDetailsViewModel) {
         self.id = viewModel.id;
         self.createdDate = viewModel.createdDate ?? Date();
+        self.finishedDate = viewModel.finishedDate ?? Date();
         self.exercises = List<ExerciseModel>();
         
         for exerciseViewModel in viewModel.exercises {

@@ -18,6 +18,7 @@ class TrainingDetailsViewController: UIViewController {
     var selectedExerciseLoopId: String?;
 
     @IBOutlet weak var completedExercisesLabel: UILabel!
+    @IBOutlet weak var spentTimeLabel: UILabel!
     @IBOutlet weak var exerciseListView: UITableView!
     
     override func viewDidLoad() {

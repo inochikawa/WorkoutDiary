@@ -49,16 +49,16 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="NJn-Ew-1nZ" userLabel="Total duration Stack View">
-                                                            <rect key="frame" x="0.0" y="30" width="170.33333333333334" height="18"/>
+                                                            <rect key="frame" x="0.0" y="30" width="153" height="18"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Total duration:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHP-PK-Wwe">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="109.66666666666667" height="18"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Spent Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHP-PK-Wwe">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="92.333333333333329" height="18"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                     <color key="textColor" name="AppTextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1h 28m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cuS-w9-yEq">
-                                                                    <rect key="frame" x="113.66666666666667" y="0.0" width="56.666666666666671" height="18"/>
+                                                                    <rect key="frame" x="96.333333333333329" y="0.0" width="56.666666666666671" height="18"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                     <color key="textColor" name="AppTextColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -144,10 +144,14 @@
                     </view>
                     <navigationItem key="navigationItem" title="Test" prompt="Your training info" id="Vdv-4O-6j3">
                         <barButtonItem key="backBarButtonItem" title="Back" id="EKS-Jj-a7v"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="pause" id="Mge-GN-ACc">
+                            <color key="tintColor" name="OkButtonColor"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="completedExercisesLabel" destination="Ves-zj-zAQ" id="ODo-kD-1P8"/>
                         <outlet property="exerciseListView" destination="AFf-27-7IJ" id="VF4-ay-V4R"/>
+                        <outlet property="spentTimeLabel" destination="cuS-w9-yEq" id="aHf-L3-pzK"/>
                         <segue destination="8fl-kr-zMQ" kind="presentation" identifier="FromTrainingDetail_ToEditExerciseLoop" id="ORD-CY-sii"/>
                         <segue destination="w4q-16-ER3" kind="presentation" identifier="FromTrainingDetail_ToEditExercise" id="ZNG-eb-gQ6"/>
                     </connections>
@@ -552,10 +556,10 @@
             <color red="0.94527465109999997" green="0.94863206150000001" blue="0.96470874549999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="AppTextColor">
-            <color red="0.1371591687" green="0.12549456950000001" blue="0.12549003959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.13699999451637268" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="AppTextColor">
-            <color red="0.13699999451637268" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.1371591687" green="0.12549456950000001" blue="0.12549003959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="CancelButtonColor">
             <color red="1" green="0.28099998831748962" blue="0.29899999499320984" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

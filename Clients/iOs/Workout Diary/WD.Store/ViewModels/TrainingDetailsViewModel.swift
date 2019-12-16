@@ -11,6 +11,7 @@ import Foundation
 class TrainingDetailsViewModel : Identifiable {
     var id: String;
     var createdDate: Date?;
+    var finishedDate: Date?;
     var exercises: [ExerciseViewModel] = [];
     
     init() {
@@ -18,21 +19,17 @@ class TrainingDetailsViewModel : Identifiable {
         self.createdDate = Date();
     }
     
-    init(id: String, createdDate: Date, exercises: [ExerciseViewModel]) {
-        self.id = id;
-        self.createdDate = createdDate;
-        self.exercises = exercises;
-    }
-    
     init(model: TrainingModel) {
         self.id = model.id;
         self.createdDate = model.createdDate;
+        self.finishedDate = model.finishedDate;
         self.exercises = model.exercises.map { i in return ExerciseViewModel(model: i) };
     }
     
     init(viewModel: TrainingDetailsViewModel) {
         self.id = viewModel.id;
         self.createdDate = viewModel.createdDate;
+        self.finishedDate = viewModel.finishedDate;
         self.exercises = viewModel.exercises.map { i in return ExerciseViewModel(viewModel: i) };
     }
 }

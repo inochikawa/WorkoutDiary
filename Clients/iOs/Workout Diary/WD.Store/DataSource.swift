@@ -15,12 +15,18 @@ class DataSource {
     private var _realmConfig: Realm.Configuration {
         var config = Realm.Configuration.defaultConfiguration;
         
-        config.schemaVersion = 1;
+        config.schemaVersion = 2;
         config.migrationBlock = { migration, oldSchemaVersion in
             if oldSchemaVersion < 1 {
                 // Nothing to do!
                 // Realm will automatically detect new properties and removed properties
                 // And will update the schema on disk automatically
+            }
+            if oldSchemaVersion < 2 {
+                // set finished date to default value
+                migration.enumerateObjects(ofType: TrainingModel.className()) { oldObject, newObject in
+                    newObject!["finishedDate"] = Date();
+                }
             }
         }
         
