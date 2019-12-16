@@ -21,6 +21,7 @@ class TrainingDetailsViewController: UIViewController {
 
     var changeProgressStateButton: UIBarButtonItem!;
     @IBOutlet weak var completedExercisesLabel: UILabel!
+    @IBOutlet weak var noExercisesLabel: UILabel!
     @IBOutlet weak var generalInfoView: UIView!
     @IBOutlet weak var spentTimeLabel: UILabel!
     @IBOutlet weak var exerciseListView: UITableView!
@@ -42,6 +43,8 @@ class TrainingDetailsViewController: UIViewController {
         } else {
             self.navigationItem.largeTitleDisplayMode = .never;
             self.navigationItem.title = "\(self.trainingDetailsViewModel!.createdDate!.toString())";
+            
+            self.setupNoExercisesLabel();
             
             self.setupChangeProgressStateButton();
 
@@ -131,5 +134,9 @@ class TrainingDetailsViewController: UIViewController {
     
     func refreshSpentTimeLabel() {
         self.spentTimeLabel.text = self.trainingDetailsViewModel!.spentTime.toTimeString();
+    }
+    
+    func setupNoExercisesLabel() {
+        self.noExercisesLabel.isHidden = self.trainingDetailsViewModel!.exercisesCount != 0;
     }
 }

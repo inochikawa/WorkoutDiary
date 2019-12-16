@@ -39,6 +39,7 @@ extension TrainingDetailsViewController : UITableViewDelegate  {
             self.store.updateTraining(from: self.trainingDetailsViewModel!);
             self.exerciseListView.reloadData();
             self.refreshCompletedExercisesCountLabel();
+            self.setupNoExercisesLabel();
         });
         return config;
     }
@@ -124,5 +125,6 @@ extension TrainingDetailsViewController : EditExerciseModalViewDelegate {
         self.store.updateTraining(from: self.trainingDetailsViewModel!);
         self.exerciseListView.reloadData();
         self.refreshCompletedExercisesCountLabel();
+        self.setupNoExercisesLabel();
     }
 }

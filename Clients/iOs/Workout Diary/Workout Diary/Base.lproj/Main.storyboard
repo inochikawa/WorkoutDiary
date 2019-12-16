@@ -100,6 +100,12 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No exercises" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9lM-yQ-dU1">
+                                <rect key="frame" x="138.66666666666666" y="396" width="98" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" name="AppSecondaryTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVj-Rz-MUM" userLabel="View with Blur">
                                 <rect key="frame" x="0.0" y="712" width="375" height="100"/>
                                 <subviews>
@@ -142,8 +148,10 @@
                             <constraint firstAttribute="trailing" secondItem="AFf-27-7IJ" secondAttribute="trailing" id="PwR-Bc-I8h"/>
                             <constraint firstAttribute="bottom" secondItem="rVj-Rz-MUM" secondAttribute="bottom" id="Xx5-0B-6pf"/>
                             <constraint firstAttribute="bottom" secondItem="AFf-27-7IJ" secondAttribute="bottom" id="dJf-K5-30C"/>
+                            <constraint firstItem="9lM-yQ-dU1" firstAttribute="centerX" secondItem="n3C-DI-GUA" secondAttribute="centerX" id="dY2-bQ-dHM"/>
                             <constraint firstAttribute="trailing" secondItem="rVj-Rz-MUM" secondAttribute="trailing" id="frl-0s-hYQ"/>
                             <constraint firstItem="AFf-27-7IJ" firstAttribute="top" secondItem="ABW-mU-23j" secondAttribute="top" id="grC-9n-kJU"/>
+                            <constraint firstItem="9lM-yQ-dU1" firstAttribute="centerY" secondItem="n3C-DI-GUA" secondAttribute="centerY" id="qat-Bs-xaL"/>
                             <constraint firstItem="rVj-Rz-MUM" firstAttribute="leading" secondItem="n3C-DI-GUA" secondAttribute="leading" id="rok-nW-JKh"/>
                             <constraint firstItem="AFf-27-7IJ" firstAttribute="leading" secondItem="ABW-mU-23j" secondAttribute="leading" id="xDg-8Y-kTP"/>
                         </constraints>
@@ -156,6 +164,7 @@
                         <outlet property="completedExercisesLabel" destination="Ves-zj-zAQ" id="ODo-kD-1P8"/>
                         <outlet property="exerciseListView" destination="AFf-27-7IJ" id="VF4-ay-V4R"/>
                         <outlet property="generalInfoView" destination="BxH-mD-gB5" id="tEL-BJ-U8t"/>
+                        <outlet property="noExercisesLabel" destination="9lM-yQ-dU1" id="5Uj-hg-b3z"/>
                         <outlet property="spentTimeLabel" destination="cuS-w9-yEq" id="aHf-L3-pzK"/>
                         <segue destination="8fl-kr-zMQ" kind="presentation" identifier="FromTrainingDetail_ToEditExerciseLoop" id="ORD-CY-sii"/>
                         <segue destination="w4q-16-ER3" kind="presentation" identifier="FromTrainingDetail_ToEditExercise" id="ZNG-eb-gQ6"/>
@@ -560,6 +569,9 @@
         <image name="stopwatch.fill" catalog="system" width="60" height="64"/>
         <namedColor name="AppBackgroundColor">
             <color red="0.94499999284744263" green="0.94900000095367432" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="AppSecondaryTextColor">
+            <color white="0.42162430286407471" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
         <namedColor name="AppTextColor">
             <color red="0.13699999451637268" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

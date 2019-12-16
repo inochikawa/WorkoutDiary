@@ -17,6 +17,7 @@ protocol ExerciseCellDelegate {
 class ExerciseCell: UITableViewCell {
 
     @IBOutlet weak var rootView: UIView!
+    @IBOutlet weak var noLoopsLabel: UILabel!
     @IBOutlet weak var exerciseNameLabel: UILabel!
     @IBOutlet weak var addExerciseLoopButton: UIButton!
     @IBOutlet weak var exerciseLoopCollectionView: UICollectionView!
@@ -48,6 +49,7 @@ class ExerciseCell: UITableViewCell {
         self.exerciseViewModel = exerciseViewModel;
         
         self.exerciseNameLabel.text = exerciseViewModel.name;
+        self.noLoopsLabel.isHidden = self.exerciseViewModel!.loopsCount != 0;
     }
     
     @IBAction func onAddExerciseLoopTap(_ sender: UIButton) {
