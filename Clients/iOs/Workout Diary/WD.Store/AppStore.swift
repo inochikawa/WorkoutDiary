@@ -53,7 +53,10 @@ class AppStore {
             return model;
         } else {
             let loop = exercise.loops.filter {i in i.id == exerciseLoopId!}.first!;
-            return ExerciseLoopViewModel(model: loop);
+            let model = ExerciseLoopViewModel(model: loop);
+            model.exerciseId = exerciseId;
+            model.exerciseName = exercise.name;
+            return model;
         }
     }
     
@@ -68,7 +71,9 @@ class AppStore {
             return model;
         } else {
             let exercise = training.exercises.filter {i in i.id == exerciseId!}.first!;
-            return ExerciseViewModel(model: exercise);
+            let model = ExerciseViewModel(model: exercise);
+            model.trainingId = trainingId;
+            return model;
         }
     }
     

@@ -27,6 +27,7 @@ class ExerciseViewModel : Identifiable {
     init(model: ExerciseModel) {
         self.id = model.id;
         self.name = model.name;
+        self.trainingId = model.trainingId;
         self.loops = model.loops.map { i in return ExerciseLoopViewModel(model: i) };
     }
     

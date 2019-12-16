@@ -120,6 +120,8 @@ extension TrainingDetailsViewController : EditExerciseModalViewDelegate {
         } else {
             let exercise = self.trainingDetailsViewModel!.exercises.filter {i in i.id == self.selectedExerciseId!}.first!;
             exercise.name = exerciseViewModel.name;
+            exercise.trainingId = exerciseViewModel.trainingId;
+
         }
         
         self.store.updateTraining(from: self.trainingDetailsViewModel!);

@@ -37,12 +37,12 @@ class ExerciseLoopCell: UICollectionViewCell {
             self.mainLoopView.isHidden = false;
             
             self.weightLabel.text = "\(exerciseLoopViewModel.weight) kg";
-            self.repeatsLabel.text = "\(exerciseLoopViewModel.repeats)";
+            self.repeatsLabel.text = "\(exerciseLoopViewModel.repeats) reps";
         } else  {
             self.reservedRepeatsLabel.isHidden = false;
             self.mainLoopView.isHidden = true;
             
-            self.reservedRepeatsLabel.text = "\(exerciseLoopViewModel.repeats) Reps";
+            self.reservedRepeatsLabel.text = "\(exerciseLoopViewModel.repeats) reps";
         }
     }
 }
