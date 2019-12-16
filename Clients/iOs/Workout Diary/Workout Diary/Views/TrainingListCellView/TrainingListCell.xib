@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,20 +24,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="340" height="201"/>
                                 <subviews>
                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="center" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PSF-LP-1BP" userLabel="Date stack">
-                                        <rect key="frame" x="6" y="6" width="328" height="17"/>
+                                        <rect key="frame" x="6" y="6" width="328" height="24"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Training at:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="h52-pG-vq8">
-                                                <rect key="frame" x="0.0" y="0.0" width="72" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="96" height="24"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="72" id="Yjz-Qz-9sp"/>
+                                                    <constraint firstAttribute="width" constant="96" id="Yjz-Qz-9sp"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                 <color key="textColor" name="AppTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02.12.2019 18:00" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="eXs-8z-CjI">
-                                                <rect key="frame" x="77" y="0.0" width="251" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <rect key="frame" x="101" y="0.0" width="227" height="24"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                 <color key="textColor" name="AppTextColor"/>
                                                 <nil key="highlightedColor"/>
                                                 <size key="shadowOffset" width="0.0" height="0.0"/>
@@ -46,22 +46,22 @@
                                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X1E-ez-cQJ" userLabel="ExerciseWrapper">
-                                        <rect key="frame" x="6" y="29" width="328" height="16"/>
+                                        <rect key="frame" x="6" y="36" width="328" height="16"/>
                                         <subviews>
                                             <stackView opaque="NO" userInteractionEnabled="NO" contentMode="left" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5nv-zG-cXR" userLabel="Exercises stack">
                                                 <rect key="frame" x="6" y="0.0" width="322" height="16"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed exercises:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfS-KX-hHI">
-                                                        <rect key="frame" x="0.0" y="2" width="104" height="12"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="147.5" height="16"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                         <color key="textColor" name="PanelFooterTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rux-Li-Ytk">
-                                                        <rect key="frame" x="109" y="2" width="213" height="12"/>
+                                                        <rect key="frame" x="152.5" y="0.0" width="169.5" height="16"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                         <color key="textColor" name="PanelFooterTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -124,19 +124,19 @@
     </objects>
     <resources>
         <namedColor name="AppBackgroundColor">
-            <color red="0.89770683653939465" green="0.94634678937515149" blue="0.94866297760542573" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.94527465109999997" green="0.94863206150000001" blue="0.96470874549999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="AppTextColor">
-            <color red="0.13725490196078433" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.13699999451637268" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="PanelBackgroundColor">
-            <color red="0.57647058823529407" green="0.80784313725490198" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.99993997810000002" green="1" blue="0.99215644599999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="PanelFooterBackgroundColor">
-            <color red="0.37794205210757581" green="0.56339486691831997" blue="0.58030934296307368" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color white="0.97448450326919556" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
         <namedColor name="PanelFooterTextColor">
-            <color red="0.94422192258883253" green="0.94422192258883253" blue="0.94422192258883253" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color white="0.24929344654083252" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
     </resources>
 </document>
