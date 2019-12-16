@@ -26,15 +26,6 @@
                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="center" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PSF-LP-1BP" userLabel="Date stack">
                                         <rect key="frame" x="6" y="6" width="328" height="20.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="h52-pG-vq8">
-                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="20.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" id="Yjz-Qz-9sp"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <color key="textColor" name="AppTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02.12.2019 18:00" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eXs-8z-CjI">
                                                 <rect key="frame" x="0.0" y="0.0" width="328" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -124,19 +115,19 @@
     </objects>
     <resources>
         <namedColor name="AppBackgroundColor">
-            <color red="0.94527465109999997" green="0.94863206150000001" blue="0.96470874549999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.94499999284744263" green="0.94900000095367432" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="AppTextColor">
             <color red="0.13699999451637268" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="PanelBackgroundColor">
-            <color red="0.99993997810000002" green="1" blue="0.99215644599999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="1" green="1" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="PanelFooterBackgroundColor">
-            <color white="0.97448450326919556" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color white="0.97399997711181641" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
         <namedColor name="PanelFooterTextColor">
-            <color white="0.24929344654083252" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color white="0.24899999797344208" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
     </resources>
 </document>

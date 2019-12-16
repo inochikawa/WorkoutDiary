@@ -20,37 +20,57 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9t0-vq-UjU">
                         <rect key="frame" x="6" y="6" width="100" height="78"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvL-jm-G6y">
-                                <rect key="frame" x="29.5" y="6" width="41" height="28.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" name="AppTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5T-sO-1v2">
-                                <rect key="frame" x="45" y="43.5" width="10" height="28.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" name="AppTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Er-NS-5ED" userLabel="DividerView">
-                                <rect key="frame" x="0.0" y="38.5" width="100" height="1"/>
-                                <color key="backgroundColor" name="AppTextColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gXf-p4-WK9" userLabel="Main View">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="78"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvL-jm-G6y">
+                                        <rect key="frame" x="29.5" y="12" width="41" height="22.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" name="AppTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5T-sO-1v2">
+                                        <rect key="frame" x="45" y="43.5" width="10" height="22.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" name="AppTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Er-NS-5ED" userLabel="DividerView">
+                                        <rect key="frame" x="0.0" y="38.5" width="100" height="1"/>
+                                        <color key="backgroundColor" name="AppTextColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="DUV-go-wHh"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="DUV-go-wHh"/>
+                                    <constraint firstItem="mvL-jm-G6y" firstAttribute="top" secondItem="gXf-p4-WK9" secondAttribute="top" constant="12" id="5mq-lY-9B4"/>
+                                    <constraint firstItem="5Er-NS-5ED" firstAttribute="centerX" secondItem="gXf-p4-WK9" secondAttribute="centerX" id="6Ux-Y1-bZ2"/>
+                                    <constraint firstItem="5Er-NS-5ED" firstAttribute="centerX" secondItem="mvL-jm-G6y" secondAttribute="centerX" id="FU9-1Z-MAW"/>
+                                    <constraint firstItem="5Er-NS-5ED" firstAttribute="centerY" secondItem="gXf-p4-WK9" secondAttribute="centerY" id="Pzh-T5-m3a"/>
+                                    <constraint firstItem="H5T-sO-1v2" firstAttribute="top" secondItem="5Er-NS-5ED" secondAttribute="bottom" constant="4" id="RF7-7h-x2n"/>
+                                    <constraint firstAttribute="bottom" secondItem="H5T-sO-1v2" secondAttribute="bottom" constant="12" id="VtO-OP-TFD"/>
+                                    <constraint firstItem="5Er-NS-5ED" firstAttribute="top" secondItem="mvL-jm-G6y" secondAttribute="bottom" constant="4" id="bNZ-pP-5RM"/>
+                                    <constraint firstItem="5Er-NS-5ED" firstAttribute="centerX" secondItem="H5T-sO-1v2" secondAttribute="centerX" id="hzu-ph-Wwu"/>
+                                    <constraint firstItem="5Er-NS-5ED" firstAttribute="leading" secondItem="gXf-p4-WK9" secondAttribute="leading" id="wv9-Mt-vWO"/>
                                 </constraints>
                             </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9b-s8-Sjs">
+                                <rect key="frame" x="41" y="28.5" width="18" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" name="AppTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="SubPanelBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="5Er-NS-5ED" firstAttribute="top" secondItem="mvL-jm-G6y" secondAttribute="bottom" constant="4" id="9E2-4K-rJi"/>
-                            <constraint firstItem="5Er-NS-5ED" firstAttribute="centerX" secondItem="9t0-vq-UjU" secondAttribute="centerX" id="Dkq-uZ-7n0"/>
-                            <constraint firstItem="5Er-NS-5ED" firstAttribute="centerX" secondItem="mvL-jm-G6y" secondAttribute="centerX" id="H0q-Ov-duN"/>
-                            <constraint firstItem="H5T-sO-1v2" firstAttribute="top" secondItem="5Er-NS-5ED" secondAttribute="bottom" constant="4" id="JyQ-Fe-q5B"/>
-                            <constraint firstItem="5Er-NS-5ED" firstAttribute="leading" secondItem="9t0-vq-UjU" secondAttribute="leading" id="Sa7-H2-JdR"/>
-                            <constraint firstItem="5Er-NS-5ED" firstAttribute="centerY" secondItem="9t0-vq-UjU" secondAttribute="centerY" id="YQG-Rh-fSM"/>
-                            <constraint firstItem="5Er-NS-5ED" firstAttribute="centerX" secondItem="H5T-sO-1v2" secondAttribute="centerX" id="nSV-uX-gaA"/>
-                            <constraint firstItem="mvL-jm-G6y" firstAttribute="top" secondItem="9t0-vq-UjU" secondAttribute="top" constant="6" id="p1Z-bL-4yl"/>
-                            <constraint firstAttribute="bottom" secondItem="H5T-sO-1v2" secondAttribute="bottom" constant="6" id="tfC-gd-g52"/>
+                            <constraint firstItem="B9b-s8-Sjs" firstAttribute="centerX" secondItem="9t0-vq-UjU" secondAttribute="centerX" id="HWB-wb-Gvw"/>
+                            <constraint firstAttribute="bottom" secondItem="gXf-p4-WK9" secondAttribute="bottom" id="U7R-MU-x8j"/>
+                            <constraint firstItem="B9b-s8-Sjs" firstAttribute="centerY" secondItem="9t0-vq-UjU" secondAttribute="centerY" id="bCX-U7-TMo"/>
+                            <constraint firstItem="gXf-p4-WK9" firstAttribute="top" secondItem="9t0-vq-UjU" secondAttribute="top" id="j6Y-tz-q8f"/>
+                            <constraint firstItem="gXf-p4-WK9" firstAttribute="leading" secondItem="9t0-vq-UjU" secondAttribute="leading" id="ldm-AS-bFL"/>
+                            <constraint firstAttribute="trailing" secondItem="gXf-p4-WK9" secondAttribute="trailing" id="nBd-jL-1Lc"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -68,7 +88,12 @@
                 <outlet property="DividerView" destination="5Er-NS-5ED" id="ZWh-0I-cKc"/>
                 <outlet property="RepeatsLabel" destination="H5T-sO-1v2" id="nGz-CT-m5C"/>
                 <outlet property="WeightLabel" destination="mvL-jm-G6y" id="2CP-mS-kNC"/>
+                <outlet property="dividerView" destination="5Er-NS-5ED" id="0yq-4h-cJh"/>
+                <outlet property="mainLoopView" destination="gXf-p4-WK9" id="2js-Oc-gKk"/>
+                <outlet property="repeatsLabel" destination="H5T-sO-1v2" id="5aY-HQ-IPl"/>
+                <outlet property="reservedRepeatsLabel" destination="B9b-s8-Sjs" id="Yg1-5G-XT1"/>
                 <outlet property="rootView" destination="9t0-vq-UjU" id="TP0-sW-1Td"/>
+                <outlet property="weightLabel" destination="mvL-jm-G6y" id="jU8-VA-AnN"/>
             </connections>
             <point key="canvasLocation" x="0.0" y="112.5"/>
         </collectionViewCell>
@@ -78,7 +103,7 @@
             <color red="0.13699999451637268" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SubPanelBackgroundColor">
-            <color red="0.99608534569999996" green="1" blue="0.99607867000000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.99599999189376831" green="1" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

@@ -41,7 +41,7 @@ class TrainingListCell: UITableViewCell {
     }
     
     public func setInfo(_ date: Date, _ completedExercise: Int) {
-        self.trainingDateLabel.text = date.toString();
+        self.trainingDateLabel.text = date.toUserFriendlyString();
         self.completedExercisesLabel.text = String(completedExercise);
     }
     

@@ -40,6 +40,8 @@ class TrainingListViewController: UIViewController {
         if let selectedIndexPath = self.listTableView.indexPathForSelectedRow {
             self.listTableView.deselectRow(at: selectedIndexPath, animated: animated)
         }
+        self.trainings = self.store.getTrainingListViewModels();
+        self.listTableView.reloadData();
     }
     
     public func performEditTraining(at indexPath: IndexPath) {
@@ -92,7 +94,7 @@ class TrainingListViewController: UIViewController {
     }
     
     
-    private func finishUpdatingUI(animateOnlyFirstRow: Bool = false, with animation: UITableView.RowAnimation = .top) {
+    private func finishUpdatingUI(animateOnlyFirstRow: Bool = false, with animation: UITableView.RowAnimation = .bottom) {
         self.listTableView.refreshControl?.endRefreshing();
         self.listTableView.reloadData();
         

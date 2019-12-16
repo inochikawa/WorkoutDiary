@@ -10,6 +10,10 @@ import UIKit
 
 class ExerciseLoopCell: UICollectionViewCell {
 
+    // this label should be displayed when no weight is entered
+    @IBOutlet weak var reservedRepeatsLabel: UILabel!
+    // this view should be hiden when no weight is entered
+    @IBOutlet weak var mainLoopView: UIView!
     @IBOutlet weak var rootView: UIView!
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var dividerView: UIView!
@@ -28,7 +32,17 @@ class ExerciseLoopCell: UICollectionViewCell {
     public func prepareCell(_ exerciseLoopViewModel: ExerciseLoopViewModel) {
         self.exerciseLoopViewModel = exerciseLoopViewModel;
         
-        self.weightLabel.text = "\(exerciseLoopViewModel.weight) kg";
-        self.repeatsLabel.text = "\(exerciseLoopViewModel.repeats)";
+        if exerciseLoopViewModel.weight != 0 {
+            self.reservedRepeatsLabel.isHidden = true;
+            self.mainLoopView.isHidden = false;
+            
+            self.weightLabel.text = "\(exerciseLoopViewModel.weight) kg";
+            self.repeatsLabel.text = "\(exerciseLoopViewModel.repeats)";
+        } else  {
+            self.reservedRepeatsLabel.isHidden = false;
+            self.mainLoopView.isHidden = true;
+            
+            self.reservedRepeatsLabel.text = "\(exerciseLoopViewModel.repeats) Reps";
+        }
     }
 }

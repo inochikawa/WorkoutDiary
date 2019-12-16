@@ -9,11 +9,15 @@
 import Foundation
 
 extension Date {
-    public func toString(formatString: String = "dd.MM.yyyy HH:mm") -> String {
+    public func toString(formatString: String = "dd MMM, yyyy HH:mm") -> String {
         let formatter = DateFormatter();
         formatter.dateFormat = formatString;
         
         return formatter.string(from: self);
+    }
+    
+    public func toUserFriendlyString() -> String {
+        return "\(self.toString(formatString: "dd MMM, yyyy")) at \(self.toString(formatString: "HH:mm"))";
     }
     
     public func isInThisWeekend() -> Bool {
