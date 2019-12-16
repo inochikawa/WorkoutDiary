@@ -157,8 +157,8 @@
 				646521352397399A00A1154F /* AppDelegate.swift */,
 				646521372397399A00A1154F /* SceneDelegate.swift */,
 				6465213B2397399A00A1154F /* Main.storyboard */,
-				6465213E2397399D00A1154F /* Assets.xcassets */,
 				646521402397399D00A1154F /* LaunchScreen.storyboard */,
+				6465213E2397399D00A1154F /* Assets.xcassets */,
 				646521432397399D00A1154F /* Info.plist */,
 				6465218723998F2C00A1154F /* Constants.swift */,
 			);
