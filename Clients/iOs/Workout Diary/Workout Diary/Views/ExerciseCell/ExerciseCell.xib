@@ -18,24 +18,24 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ezT-Oj-qXu" userLabel="Root View">
-                        <rect key="frame" x="24" y="12" width="329" height="236"/>
+                        <rect key="frame" x="12" y="12" width="353" height="236"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnC-hG-OKw" userLabel="ExerciseName label">
-                                <rect key="frame" x="12" y="12" width="48" height="24"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <rect key="frame" x="12" y="12" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" name="AppTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bkg-XX-TQJ" userLabel="Add exercise btn">
-                                <rect key="frame" x="287" y="12" width="30" height="24"/>
+                                <rect key="frame" x="311" y="12" width="30" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="SsF-C7-Ew2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="tintColor" name="OkButtonColor"/>
                                 <inset key="titleEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="6" maxY="0.0"/>
-                                <state key="normal" image="plus.app" catalog="system">
+                                <state key="normal" image="plus.circle.fill" catalog="system">
                                     <color key="titleColor" name="OkButtonColor"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="bold"/>
                                 </state>
@@ -44,7 +44,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="LLR-oo-SQs" userLabel="ExerciseLoops collection view">
-                                <rect key="frame" x="0.0" y="48" width="329" height="176"/>
+                                <rect key="frame" x="0.0" y="44.5" width="353" height="179.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xlN-6S-4RA">
@@ -71,9 +71,9 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="ezT-Oj-qXu" secondAttribute="bottom" constant="12" id="baJ-Py-TIM"/>
-                    <constraint firstAttribute="trailing" secondItem="ezT-Oj-qXu" secondAttribute="trailing" constant="24" id="hfn-5V-qxf"/>
+                    <constraint firstAttribute="trailing" secondItem="ezT-Oj-qXu" secondAttribute="trailing" constant="12" id="hfn-5V-qxf"/>
                     <constraint firstItem="ezT-Oj-qXu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="nd3-5j-xBP"/>
-                    <constraint firstItem="ezT-Oj-qXu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="tLr-mC-L4m"/>
+                    <constraint firstItem="ezT-Oj-qXu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="tLr-mC-L4m"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -88,7 +88,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="plus.app" catalog="system" width="64" height="56"/>
+        <image name="plus.circle.fill" catalog="system" width="64" height="60"/>
         <namedColor name="AppTextColor">
             <color red="0.13699999451637268" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

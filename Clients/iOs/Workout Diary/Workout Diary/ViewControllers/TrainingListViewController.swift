@@ -26,11 +26,11 @@ class TrainingListViewController: UIViewController {
         self.listTableView.dataSource = self;
         self.listTableView.delegate = self;
         self.listTableView.register(UINib(nibName: ConstantData.Nib.TrainingListCellNibName, bundle: nil), forCellReuseIdentifier: ConstantData.Cell.TrainingListCellId);
+        self.listTableView.contentInset = UIEdgeInsets(top: 25, left: 0, bottom: 100, right: 0);
         
         self.navigationController?.navigationBar.prefersLargeTitles = true;
         
         self.setUpRefreshControl();
-        self.setUpRightButton();
         self.reloadListViewDataAsync(forceRefreshControl: true);
     }
     
@@ -81,22 +81,23 @@ class TrainingListViewController: UIViewController {
         self.reloadListViewDataAsync(forceRefreshControl: true);
     }
     
-    @objc private func onAddTrainingButtonTouchDown() {
+    @IBAction func onAddTrainingButtonTouchDown(_ sender: UIButton) {
         self.store.createNewTraining();
         self.trainings = self.store.getTrainingListViewModels();
-        self.finishUpdatingUI();
+        self.finishUpdatingUI(animateOnlyFirstRow: true, with: .right);
         
         // By default all trainings are sorted by Date DESC.
         // So we just navigate to first item in the list after creation
         self.performEditTraining(at: IndexPath(row: 0, section: 0));
     }
     
-    private func finishUpdatingUI() {
+    
+    private func finishUpdatingUI(animateOnlyFirstRow: Bool = false, with animation: UITableView.RowAnimation = .top) {
         self.listTableView.refreshControl?.endRefreshing();
         self.listTableView.reloadData();
         
-        let indexRows = self.trainings.indices.map {index in IndexPath(row: index, section: 0)};
-        self.listTableView.reloadRows(at: indexRows, with: .right);
+        let indexRows = animateOnlyFirstRow ? [IndexPath(row: 0, section: 0)] : self.trainings.indices.map {index in IndexPath(row: index, section: 0)};
+        self.listTableView.reloadRows(at: indexRows, with: animation);
     }
     
     private func setUpRefreshControl() {
@@ -105,23 +106,6 @@ class TrainingListViewController: UIViewController {
         self.listTableView.refreshControl?.attributedTitle = NSAttributedString(string: "Refreshing data");
         self.listTableView.refreshControl?.tintColor = .red;
         self.listTableView.refreshControl?.addTarget(self, action: #selector(self.reloadListViewDataAsync), for: .valueChanged)
-    }
-    
-    private func setUpRightButton() {
-        let button = UIButton(type: .system);
-        button.setTitle("Start training", for: .normal);
-        button.setImage(UIImage(systemName: "play.fill"), for: .normal);
-        
-        let spacing: CGFloat = 10.0;
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: spacing);
-        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: 0);
-        
-        button.frame = CGRect(x: 0, y: 0, width: 130, height: 30);
-        
-        button.addTarget(self, action: #selector(self.onAddTrainingButtonTouchDown), for: .touchDown);
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button);
-        self.navigationItem.rightBarButtonItem?.isEnabled = true;
     }
 
     private func startRefreshControl() {

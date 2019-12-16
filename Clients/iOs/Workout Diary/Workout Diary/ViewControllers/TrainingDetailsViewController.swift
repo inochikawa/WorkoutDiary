@@ -27,12 +27,14 @@ class TrainingDetailsViewController: UIViewController {
         self.exerciseListView.delegate = self;
         self.exerciseListView.register(UINib(nibName: ConstantData.Nib.ExerciseCellNibName, bundle: nil), forCellReuseIdentifier: ConstantData.Cell.ExerciseCellId);
         
+        self.exerciseListView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0);
+        
         if self.trainingDetailsViewModel == nil {
             print("TRAINING NOT FOUND. RETURNING TO PREVIOUS SCREEN.")
             self.dismiss(animated: true, completion: nil)
         } else {
             self.navigationItem.largeTitleDisplayMode = .never;
-            self.navigationItem.title = "Training at \(self.trainingDetailsViewModel!.createdDate!.toString())";
+            self.navigationItem.title = "\(self.trainingDetailsViewModel!.createdDate!.toString())";
             self.refreshCompletedExercisesCountLabel();
         }
     }
