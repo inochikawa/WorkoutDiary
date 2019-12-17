@@ -20,4 +20,12 @@ extension TimeInterval{
 
         return String(format: "%0.2d:%0.2d:%0.2d",hours,minutes,seconds)
     }
+    
+    func getSeconds() -> Int {
+
+        let time = NSInteger(self)
+        let seconds = time % 60
+
+        return seconds;
+    }
 }

@@ -84,11 +84,12 @@ class AppStore {
         dataSource.addItem(item: training);
     }
     
-    public func updateTrainingSpentTime(trainingId: String, spentTime: Int) {
+    public func updateTrainingSpentTimeAndFinishedDate(trainingId: String, spentTime: Int, finishedDate: Date) {
         let dataSource = DataSource.newInstanse();
         let training = dataSource.trainings.filter {i in i.id == trainingId}.first!;
         dataSource.updatePropertyInScope {
             training.spentTime = spentTime;
+            training.finishedDate = finishedDate;
         }
     }
     

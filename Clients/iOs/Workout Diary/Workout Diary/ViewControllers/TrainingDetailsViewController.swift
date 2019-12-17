@@ -28,6 +28,7 @@ class TrainingDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        print("viewDidLoad")
         
         self.generalInfoView.layer.cornerRadius = 12;
         
@@ -51,6 +52,9 @@ class TrainingDetailsViewController: UIViewController {
             self.refreshSpentTimeLabel();
             
             if self.trainingDetailsViewModel!.isInProgress {
+                // calculate difference of spent time if User closed this view but training was in progress
+                let timeDiff = Date().timeIntervalSince(self.trainingDetailsViewModel!.finishedDate!).getSeconds();
+                self.trainingDetailsViewModel!.spentTime += timeDiff;
                 self.setupProgressTimer();
             }
             
@@ -58,14 +62,9 @@ class TrainingDetailsViewController: UIViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated);
-        print("View did appear")
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated);
-        self.finishTraining();
+        self.prepareTrainingBeforeCloseView();
     }
 
     @IBAction func onAddExerciseTap(_ sender: UIButton) {
@@ -118,16 +117,27 @@ class TrainingDetailsViewController: UIViewController {
     }
     
     func finishTraining() {
+        self.trainingDetailsViewModel!.isInProgress = false;
+        self.prepareTrainingBeforeCloseView();
+    }
+    
+    func prepareTrainingBeforeCloseView() {
         self.progressTimer?.invalidate();
         self.trainingDetailsViewModel!.finishedDate = Date();
-        self.trainingDetailsViewModel!.isInProgress = false;
         self.store.updateTraining(from: self.trainingDetailsViewModel!);
     }
     
     func setupProgressTimer() {
         self.progressTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: {t in
             self.trainingDetailsViewModel!.spentTime += 1;
-            self.store.updateTrainingSpentTime(trainingId: self.trainingDetailsViewModel!.id, spentTime: self.trainingDetailsViewModel!.spentTime);
+            self.trainingDetailsViewModel!.finishedDate = Date();
+            
+            self.store.updateTrainingSpentTimeAndFinishedDate(
+                trainingId: self.trainingDetailsViewModel!.id,
+                spentTime: self.trainingDetailsViewModel!.spentTime,
+                finishedDate: self.trainingDetailsViewModel!.finishedDate!
+            );
+            
             self.refreshSpentTimeLabel();
         });
     }
