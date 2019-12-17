@@ -478,7 +478,7 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
-        <!--History-->
+        <!--Workout Diary-->
         <scene sceneID="nAi-bE-UTr">
             <objects>
                 <viewController id="I19-Iy-TJb" customClass="TrainingListViewController" customModule="Workout_Diary" customModuleProvider="target" sceneMemberID="viewController">
@@ -551,7 +551,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Udv-gE-O0F"/>
                     </view>
-                    <navigationItem key="navigationItem" title="History" id="eui-Jx-sZX">
+                    <navigationItem key="navigationItem" title="Workout Diary" id="eui-Jx-sZX">
                         <barButtonItem key="backBarButtonItem" title="Back" id="aDt-ND-Kjm"/>
                     </navigationItem>
                     <connections>
