@@ -27,8 +27,8 @@
                                         <rect key="frame" x="12" y="0.0" width="339" height="22"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnC-hG-OKw" userLabel="ExerciseName label">
-                                                <rect key="frame" x="0.0" y="0.0" width="42" height="22"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="43.5" height="22"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <color key="textColor" name="AppTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -103,7 +103,7 @@
     <resources>
         <image name="plus" catalog="system" width="64" height="56"/>
         <namedColor name="AppSecondaryTextColor">
-            <color white="0.42162430286407471" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color white="0.42199999094009399" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
         <namedColor name="AppTextColor">
             <color red="0.13699999451637268" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

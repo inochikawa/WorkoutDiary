@@ -12,13 +12,11 @@ import Resolver
 class TrainingListViewController: UIViewController {
 
     @IBOutlet weak var listTableView: UITableView!;
-    
-    var trainings: [TrainingListViewModel] = [];
+
+    var sections: [TrainingListSection] = [];
     
     var store: AppStore = Resolver.resolve();
     var selectedTrainingId: String?;
-    
-    var sections: [TrainingListSectionsViewModel] = [];
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +38,15 @@ class TrainingListViewController: UIViewController {
         if let selectedIndexPath = self.listTableView.indexPathForSelectedRow {
             self.listTableView.deselectRow(at: selectedIndexPath, animated: animated)
         }
-        self.trainings = self.store.getTrainingListViewModels();
+        self.refreshSections();
         self.listTableView.reloadData();
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated);
+        for cell in self.listTableView.visibleCells as! [TrainingListCell] {
+            cell.stopTrainingProgressTimer();
+        }
     }
     
     public func performEditTraining(at indexPath: IndexPath) {
@@ -55,13 +60,13 @@ class TrainingListViewController: UIViewController {
     }
     
     public func performRemoveTraining(at indexPath: IndexPath) {
-        let trainingId = self.trainings[indexPath.row].id;
+        let trainingId = self.sections[indexPath.section].trainings[indexPath.row].id;
         self.store.removeTraining(by: trainingId);
         self.reloadListViewDataAsync();
     }
     
     public func navigateToDetails(selectedIndexPath: IndexPath) {
-        let trainingListViewModel = self.trainings[selectedIndexPath.row];
+        let trainingListViewModel = self.sections[selectedIndexPath.section].trainings[selectedIndexPath.row];
         self.selectedTrainingId = trainingListViewModel.id;
         
         self.performSegue(withIdentifier: ConstantData.Segue.ToTrainingDetailsSequeId, sender: self)
@@ -72,7 +77,7 @@ class TrainingListViewController: UIViewController {
             self.startRefreshControl();
         }
         
-        self.trainings = self.store.getTrainingListViewModels();
+        self.refreshSections();
         
         DispatchQueue.main.asyncAfter(wallDeadline: .now() + .milliseconds(200)) {
             self.finishUpdatingUI();
@@ -85,7 +90,7 @@ class TrainingListViewController: UIViewController {
     
     @IBAction func onAddTrainingButtonTouchDown(_ sender: UIButton) {
         self.store.createNewTraining();
-        self.trainings = self.store.getTrainingListViewModels();
+        self.refreshSections();
         self.finishUpdatingUI(animateOnlyFirstRow: true, with: .right);
         
         // By default all trainings are sorted by Date DESC.
@@ -98,7 +103,18 @@ class TrainingListViewController: UIViewController {
         self.listTableView.refreshControl?.endRefreshing();
         self.listTableView.reloadData();
         
-        let indexRows = animateOnlyFirstRow ? [IndexPath(row: 0, section: 0)] : self.trainings.indices.map {index in IndexPath(row: index, section: 0)};
+        var indexRows: [IndexPath] = [];
+        
+        if animateOnlyFirstRow {
+            indexRows.append(IndexPath(row: 0, section: 0));
+        } else {
+            for i in 0..<self.sections.count {
+                for j in 0..<self.sections[i].trainings.count {
+                    indexRows.append(IndexPath(row: j, section: i));
+                }
+            }
+        }
+        
         self.listTableView.reloadRows(at: indexRows, with: animation);
     }
     
@@ -106,12 +122,41 @@ class TrainingListViewController: UIViewController {
         self.listTableView.refreshControl = UIRefreshControl();
         
         self.listTableView.refreshControl?.attributedTitle = NSAttributedString(string: "Refreshing data");
-        self.listTableView.refreshControl?.tintColor = .red;
+        self.listTableView.refreshControl?.tintColor = UIColor(named: ConstantData.Color.CancelButton);
         self.listTableView.refreshControl?.addTarget(self, action: #selector(self.reloadListViewDataAsync), for: .valueChanged)
     }
 
     private func startRefreshControl() {
         self.listTableView.setContentOffset(CGPoint(x: 0, y: -(listTableView.refreshControl?.frame.size.height ?? 0)), animated: true);
         self.listTableView.refreshControl?.beginRefreshing();
+    }
+    
+    private func refreshSections() {
+        let trainings: [TrainingListViewModel] = self.store.getTrainingListViewModels();
+        var res = [TrainingListSection]();
+        
+        let todaysTrainings = trainings.filter {i in i.date.isToday()};
+        let yesterdaysTrainings = trainings.filter {i in i.date.isYesterday()};
+        let onThisWeekTrainings = trainings.filter {i in !i.date.isToday() && !i.date.isYesterday() && i.date.isYesterday()};
+        
+        let olderTrainings = trainings.filter {i in !i.date.isToday() && !i.date.isYesterday() && !i.date.isOnThisWeek()};
+        
+        if todaysTrainings.count > 0 {
+            res.append(TrainingListSection(name: "Today", trainings: todaysTrainings));
+        }
+        
+        if yesterdaysTrainings.count > 0 {
+            res.append(TrainingListSection(name: "Yesterday", trainings: yesterdaysTrainings));
+        }
+        
+        if onThisWeekTrainings.count > 0 {
+            res.append(TrainingListSection(name: "Last 7 days", trainings: onThisWeekTrainings));
+        }
+        
+        if olderTrainings.count > 0 {
+            res.append(TrainingListSection(name: "Older", trainings: olderTrainings));
+        }
+        
+        self.sections = res;
     }
 }

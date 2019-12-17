@@ -20,7 +20,15 @@ extension Date {
         return "\(self.toString(formatString: "dd MMM, yyyy")) at \(self.toString(formatString: "HH:mm"))";
     }
     
-    public func isInThisWeekend() -> Bool {
+    public func isToday() -> Bool {
         return Calendar.current.isDateInToday(self);
+    }
+    
+    public func isYesterday() -> Bool {
+        return Calendar.current.isDateInYesterday(self);
+    }
+    
+    public func isOnThisWeek() -> Bool {
+        return Calendar.current.isDateInWeekend(self);
     }
 }

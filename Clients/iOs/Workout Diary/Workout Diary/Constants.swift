@@ -29,4 +29,9 @@ struct ConstantData {
         public static let FromTrainingDetail_ToEditExercise = "FromTrainingDetail_ToEditExercise";
     }
     
+    struct Color {
+        public static let OkButton = "OkButtonColor";
+        public static let CancelButton = "CancelButtonColor";
+    }
+    
 }

@@ -20,6 +20,7 @@ class TrainingDetailsViewController: UIViewController {
     var progressTimer: Timer?;
 
     var changeProgressStateButton: UIBarButtonItem!;
+    @IBOutlet weak var stopwatchImage: UIImageView!
     @IBOutlet weak var completedExercisesLabel: UILabel!
     @IBOutlet weak var noExercisesLabel: UILabel!
     @IBOutlet weak var generalInfoView: UIView!
@@ -48,6 +49,8 @@ class TrainingDetailsViewController: UIViewController {
             self.setupNoExercisesLabel();
             
             self.setupChangeProgressStateButton();
+            
+            self.setupStopwatchImage();
 
             self.refreshSpentTimeLabel();
             
@@ -95,11 +98,11 @@ class TrainingDetailsViewController: UIViewController {
         if self.trainingDetailsViewModel!.isInProgress {
             self.changeProgressStateButton = UIBarButtonItem(barButtonSystemItem: .pause, target: self, action: #selector(onChangeProgressButtonTap));
             
-            self.changeProgressStateButton.tintColor = UIColor(named: "CancelButtonColor");
+            self.changeProgressStateButton.tintColor = UIColor(named: ConstantData.Color.CancelButton);
         } else {
             self.changeProgressStateButton = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(onChangeProgressButtonTap));
             
-            self.changeProgressStateButton.tintColor = UIColor(named: "OkButtonColor");
+            self.changeProgressStateButton.tintColor = UIColor(named: ConstantData.Color.OkButton);
         }
         
         self.navigationItem.rightBarButtonItem = self.changeProgressStateButton;
@@ -108,6 +111,7 @@ class TrainingDetailsViewController: UIViewController {
     @objc func onChangeProgressButtonTap() {
         self.trainingDetailsViewModel!.isInProgress = !self.trainingDetailsViewModel!.isInProgress;
         self.setupChangeProgressStateButton();
+        self.setupStopwatchImage();
         
         if self.trainingDetailsViewModel!.isInProgress {
             self.setupProgressTimer();
@@ -148,5 +152,13 @@ class TrainingDetailsViewController: UIViewController {
     
     func setupNoExercisesLabel() {
         self.noExercisesLabel.isHidden = self.trainingDetailsViewModel!.exercisesCount != 0;
+    }
+    
+    func setupStopwatchImage() {
+        if self.trainingDetailsViewModel!.isInProgress {
+            self.stopwatchImage.tintColor = UIColor(named: ConstantData.Color.CancelButton);
+        } else {
+            self.stopwatchImage.tintColor = UIColor(named: ConstantData.Color.OkButton);
+        }
     }
 }

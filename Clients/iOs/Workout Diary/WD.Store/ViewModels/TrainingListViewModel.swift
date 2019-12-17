@@ -8,23 +8,30 @@
 
 import Foundation
 
+class TrainingListSection {
+    var name: String = "";
+    var trainings: [TrainingListViewModel] = [];
+    
+    init(name: String, trainings: [TrainingListViewModel]) {
+        self.name = name;
+        self.trainings = trainings;
+    }
+}
+
 class TrainingListViewModel: Identifiable {
     var id: String = "";
     var date: Date = Date();
+    var finishedDate: Date = Date();
     var exercisesCount: Int = 0;
-    
-    init() {
-        
-    }
-    
-    init(id: String, date: Date) {
-        self.id = id;
-        self.date = date;
-    }
+    var spentTime: Int = 0;
+    var isInProgress: Bool = false;
     
     init(model: TrainingModel) {
         self.id = model.id;
         self.date = model.createdDate;
+        self.finishedDate = model.finishedDate;
+        self.spentTime = model.spentTime;
         self.exercisesCount = model.exercises.count;
+        self.isInProgress = model.isInProgress;
     }
 }

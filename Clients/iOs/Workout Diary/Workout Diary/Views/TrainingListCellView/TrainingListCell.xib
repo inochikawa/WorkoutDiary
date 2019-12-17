@@ -18,17 +18,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AsS-R8-Ocw" userLabel="Root view">
-                        <rect key="frame" x="12" y="8" width="340" height="207"/>
+                        <rect key="frame" x="0.0" y="0.0" width="364" height="223"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jEt-fk-lUY" userLabel="Info stack">
-                                <rect key="frame" x="0.0" y="0.0" width="340" height="201"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="jEt-fk-lUY" userLabel="Info stack">
+                                <rect key="frame" x="12" y="12" width="340" height="199"/>
                                 <subviews>
                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="center" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PSF-LP-1BP" userLabel="Date stack">
-                                        <rect key="frame" x="6" y="6" width="328" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="340" height="96.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02.12.2019 18:00" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eXs-8z-CjI">
-                                                <rect key="frame" x="0.0" y="0.0" width="328" height="20.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <rect key="frame" x="0.0" y="38" width="340" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <color key="textColor" name="AppTextColor"/>
                                                 <nil key="highlightedColor"/>
                                                 <size key="shadowOffset" width="0.0" height="0.0"/>
@@ -36,69 +36,65 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X1E-ez-cQJ" userLabel="ExerciseWrapper">
-                                        <rect key="frame" x="6" y="32.5" width="328" height="24"/>
+                                    <stackView opaque="NO" userInteractionEnabled="NO" contentMode="left" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5nv-zG-cXR" userLabel="Exercises stack">
+                                        <rect key="frame" x="0.0" y="102.5" width="340" height="96.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" userInteractionEnabled="NO" contentMode="left" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5nv-zG-cXR" userLabel="Exercises stack">
-                                                <rect key="frame" x="6" y="0.0" width="322" height="24"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="veC-tY-sU7">
+                                                <rect key="frame" x="0.0" y="38" width="216.5" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercises:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfS-KX-hHI">
-                                                        <rect key="frame" x="0.0" y="2" width="77" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="77" height="20.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <color key="textColor" name="PanelFooterTextColor"/>
+                                                        <color key="textColor" name="AppTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rux-Li-Ytk">
-                                                        <rect key="frame" x="82" y="2" width="240" height="20.5"/>
+                                                        <rect key="frame" x="82" y="0.0" width="134.5" height="20.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <color key="textColor" name="PanelFooterTextColor"/>
+                                                        <color key="textColor" name="AppTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="FlF-dU-uVl">
+                                                <rect key="frame" x="221.5" y="38" width="118.5" height="20.5"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stopwatch" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="w5Q-re-YU7">
+                                                        <rect key="frame" x="0.0" y="-1.5" width="20" height="21.5"/>
+                                                        <color key="tintColor" name="OkButtonColor"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0h 00m 00s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLj-4W-thi">
+                                                        <rect key="frame" x="25" y="0.0" width="93.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <color key="textColor" name="AppTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" name="PanelFooterBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="I2V-Zm-uiY"/>
-                                            <constraint firstAttribute="trailing" secondItem="5nv-zG-cXR" secondAttribute="trailing" id="OOS-de-RwA"/>
-                                            <constraint firstItem="5nv-zG-cXR" firstAttribute="leading" secondItem="X1E-ez-cQJ" secondAttribute="leading" constant="6" id="eg1-df-HEH"/>
-                                            <constraint firstItem="5nv-zG-cXR" firstAttribute="top" secondItem="X1E-ez-cQJ" secondAttribute="top" id="iVI-wl-usL"/>
-                                            <constraint firstAttribute="bottom" secondItem="5nv-zG-cXR" secondAttribute="bottom" id="tws-GO-iCs"/>
-                                        </constraints>
-                                    </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="X1E-ez-cQJ" secondAttribute="bottom" constant="6" id="DGU-iQ-5Kz"/>
-                                    <constraint firstItem="PSF-LP-1BP" firstAttribute="leading" secondItem="jEt-fk-lUY" secondAttribute="leading" constant="6" id="JMk-wy-AhI"/>
-                                    <constraint firstItem="X1E-ez-cQJ" firstAttribute="leading" secondItem="PSF-LP-1BP" secondAttribute="leading" id="lvP-kr-rNA"/>
-                                    <constraint firstItem="X1E-ez-cQJ" firstAttribute="top" secondItem="PSF-LP-1BP" secondAttribute="bottom" constant="6" id="n6i-5N-36N"/>
-                                    <constraint firstAttribute="trailing" secondItem="PSF-LP-1BP" secondAttribute="trailing" constant="6" id="rAg-dE-yof"/>
-                                    <constraint firstItem="PSF-LP-1BP" firstAttribute="top" secondItem="jEt-fk-lUY" secondAttribute="top" constant="6" id="yKE-ps-rjY"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" name="PanelBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="jEt-fk-lUY" secondAttribute="trailing" id="71U-8A-3fl"/>
-                            <constraint firstItem="jEt-fk-lUY" firstAttribute="top" secondItem="AsS-R8-Ocw" secondAttribute="top" id="MNE-Pa-wGi"/>
-                            <constraint firstItem="jEt-fk-lUY" firstAttribute="top" secondItem="AsS-R8-Ocw" secondAttribute="top" id="apQ-SY-T26"/>
-                            <constraint firstItem="jEt-fk-lUY" firstAttribute="leading" secondItem="AsS-R8-Ocw" secondAttribute="leading" id="cPe-xB-fSa"/>
-                            <constraint firstItem="jEt-fk-lUY" firstAttribute="leading" secondItem="AsS-R8-Ocw" secondAttribute="leading" id="clv-k8-ols"/>
-                            <constraint firstAttribute="bottom" secondItem="jEt-fk-lUY" secondAttribute="bottom" constant="6" id="jtz-ab-DQx"/>
-                            <constraint firstAttribute="trailing" secondItem="jEt-fk-lUY" secondAttribute="trailing" id="ob6-g5-Poi"/>
+                            <constraint firstItem="jEt-fk-lUY" firstAttribute="top" secondItem="AsS-R8-Ocw" secondAttribute="top" constant="12" id="MNE-Pa-wGi"/>
+                            <constraint firstItem="jEt-fk-lUY" firstAttribute="leading" secondItem="AsS-R8-Ocw" secondAttribute="leading" constant="12" id="cPe-xB-fSa"/>
+                            <constraint firstAttribute="bottom" secondItem="jEt-fk-lUY" secondAttribute="bottom" constant="12" id="jtz-ab-DQx"/>
+                            <constraint firstAttribute="trailing" secondItem="jEt-fk-lUY" secondAttribute="trailing" constant="12" id="ob6-g5-Poi"/>
                         </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" name="AppBackgroundColor"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="AsS-R8-Ocw" secondAttribute="trailing" constant="12" id="13G-RI-dsP"/>
-                    <constraint firstAttribute="bottom" secondItem="AsS-R8-Ocw" secondAttribute="bottom" constant="8" id="nwZ-xI-QwM"/>
-                    <constraint firstItem="AsS-R8-Ocw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="qEn-LH-fGN"/>
-                    <constraint firstItem="AsS-R8-Ocw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="zTI-3C-r7U"/>
+                    <constraint firstAttribute="trailing" secondItem="AsS-R8-Ocw" secondAttribute="trailing" id="13G-RI-dsP"/>
+                    <constraint firstAttribute="bottom" secondItem="AsS-R8-Ocw" secondAttribute="bottom" id="nwZ-xI-QwM"/>
+                    <constraint firstItem="AsS-R8-Ocw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="qEn-LH-fGN"/>
+                    <constraint firstItem="AsS-R8-Ocw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="zTI-3C-r7U"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -106,28 +102,27 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="completedExercisesLabel" destination="Rux-Li-Ytk" id="o8N-hs-859"/>
-                <outlet property="exerciseWrapperView" destination="X1E-ez-cQJ" id="KoD-kQ-8xI"/>
                 <outlet property="rootView" destination="AsS-R8-Ocw" id="zW7-l4-3Gx"/>
+                <outlet property="spentTimeLabel" destination="zLj-4W-thi" id="g9z-eE-sbW"/>
+                <outlet property="stopwatchImage" destination="w5Q-re-YU7" id="Zfy-ez-tbA"/>
                 <outlet property="trainingDateLabel" destination="eXs-8z-CjI" id="AQl-z9-KF9"/>
             </connections>
             <point key="canvasLocation" x="166.66666666666669" y="241.40625"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="stopwatch" catalog="system" width="60" height="64"/>
         <namedColor name="AppBackgroundColor">
             <color red="0.94499999284744263" green="0.94900000095367432" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="AppTextColor">
             <color red="0.13699999451637268" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <namedColor name="OkButtonColor">
+            <color red="0.21600000560283661" green="0.4779999852180481" blue="0.90600001811981201" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="PanelBackgroundColor">
             <color red="1" green="1" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="PanelFooterBackgroundColor">
-            <color white="0.97399997711181641" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </namedColor>
-        <namedColor name="PanelFooterTextColor">
-            <color white="0.24899999797344208" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
     </resources>
 </document>
