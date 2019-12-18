@@ -30,6 +30,6 @@ extension Date {
     
     public func isOnThisWeek() -> Bool {
         let oldDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())!;
-        return Calendar.current.compare(oldDate, to: self, toGranularity: .second) == .orderedDescending;
+        return Calendar.current.compare(oldDate, to: self, toGranularity: .second) == .orderedAscending;
     }
 }

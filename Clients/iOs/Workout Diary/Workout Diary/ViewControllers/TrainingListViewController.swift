@@ -50,8 +50,33 @@ class TrainingListViewController: UIViewController {
     }
     
     public func performEditTraining(at indexPath: IndexPath) {
-        self.selectedTrainingId = self.sections[indexPath.section].trainings[indexPath.row].id;
-        self.performSegue(withIdentifier: ConstantData.Segue.FromTrainingList_ToEditTrainingModal, sender: self);
+        let selectedTraining = self.sections[indexPath.section].trainings[indexPath.row];
+        
+        let navigateToDetailsAction: () -> Void = {
+            self.selectedTrainingId = selectedTraining.id;
+            self.performSegue(withIdentifier: ConstantData.Segue.FromTrainingList_ToEditTrainingModal, sender: self);
+        };
+        
+        if selectedTraining.isInProgress {
+            
+            let alert = UIAlertController(title: "Training is still in progress", message: "You need to stop selected training before you can edit it.", preferredStyle: .alert);
+            
+            alert.addAction(UIAlertAction(title: "Stop Training and Edit", style: .default, handler: { (alertAction) -> Void in
+                selectedTraining.isInProgress = false;
+                selectedTraining.finishedDate = Date();
+                self.store.updateTraining(from: selectedTraining);
+                
+                navigateToDetailsAction();
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+            self.present(alert, animated: true);
+            
+            return;
+            
+        }
+        
+        navigateToDetailsAction();
     }
     
     public func performRemoveTraining(at indexPath: IndexPath) {
@@ -133,7 +158,7 @@ class TrainingListViewController: UIViewController {
         
         let todaysTrainings = trainings.filter {i in i.date.isToday()};
         let yesterdaysTrainings = trainings.filter {i in i.date.isYesterday()};
-        let onThisWeekTrainings = trainings.filter {i in !i.date.isToday() && !i.date.isYesterday() && i.date.isYesterday()};
+        let onThisWeekTrainings = trainings.filter {i in !i.date.isToday() && !i.date.isYesterday() && i.date.isOnThisWeek()};
         
         let olderTrainings = trainings.filter {i in !i.date.isToday() && !i.date.isYesterday() && !i.date.isOnThisWeek()};
         

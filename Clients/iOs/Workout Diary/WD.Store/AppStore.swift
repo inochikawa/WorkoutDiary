@@ -91,6 +91,8 @@ class AppStore {
         dataSource.updatePropertyInScope {
             training.name = viewModel.name;
             training.spentTime = viewModel.spentTime;
+            training.isInProgress = viewModel.isInProgress;
+            training.finishedDate = viewModel.finishedDate;
             training.createdDate = viewModel.date;
         }
     }
