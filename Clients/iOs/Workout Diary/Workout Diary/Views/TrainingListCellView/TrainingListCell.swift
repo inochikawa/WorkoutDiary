@@ -51,7 +51,7 @@ class TrainingListCell: UITableViewCell {
             self.trainingListViewModel.spentTime += timeDiff;
         }
         
-        self.trainingDateLabel.text = viewModel.date.toUserFriendlyString();
+        self.trainingDateLabel.text = viewModel.name;
         self.completedExercisesLabel.text = String(viewModel.exercisesCount);
         self.refreshSpentTimeLabel();
         self.setupTimer();

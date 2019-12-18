@@ -15,7 +15,7 @@ class DataSource {
     private var _realmConfig: Realm.Configuration {
         var config = Realm.Configuration.defaultConfiguration;
         
-        config.schemaVersion = 4;
+        config.schemaVersion = 5;
         config.migrationBlock = { migration, oldSchemaVersion in
             if oldSchemaVersion < 1 {
                 // Nothing to do!
@@ -37,6 +37,12 @@ class DataSource {
             if oldSchemaVersion < 4 {
                 migration.enumerateObjects(ofType: TrainingModel.className()) { oldObject, newObject in
                     newObject!["spentTime"] = 0;
+                }
+            }
+            
+            if oldSchemaVersion < 5 {
+                migration.enumerateObjects(ofType: TrainingModel.className()) { oldObject, newObject in
+                    newObject!["name"] = (oldObject!["createdDate"] as! Date).toUserFriendlyString();
                 }
             }
         }

@@ -50,13 +50,8 @@ class TrainingListViewController: UIViewController {
     }
     
     public func performEditTraining(at indexPath: IndexPath) {
-        // show to user selected row
-        self.listTableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
-        
-        // navigate to details view after delay. This approach is more user friendly.
-        DispatchQueue.main.asyncAfter(wallDeadline: .now() + .milliseconds(500)) {
-            self.navigateToDetails(selectedIndexPath: indexPath);
-        }
+        self.selectedTrainingId = self.sections[indexPath.section].trainings[indexPath.row].id;
+        self.performSegue(withIdentifier: ConstantData.Segue.FromTrainingList_ToEditTrainingModal, sender: self);
     }
     
     public func performRemoveTraining(at indexPath: IndexPath) {
@@ -95,9 +90,10 @@ class TrainingListViewController: UIViewController {
         
         // By default all trainings are sorted by Date DESC.
         // So we just navigate to first item in the list after creation
-        self.performEditTraining(at: IndexPath(row: 0, section: 0));
+        DispatchQueue.main.asyncAfter(wallDeadline: .now() + .milliseconds(500)) {
+            self.navigateToDetails(selectedIndexPath: IndexPath(row: 0, section: 0));
+        }
     }
-    
     
     private func finishUpdatingUI(animateOnlyFirstRow: Bool = false, with animation: UITableView.RowAnimation = .bottom) {
         self.listTableView.refreshControl?.endRefreshing();
@@ -131,7 +127,7 @@ class TrainingListViewController: UIViewController {
         self.listTableView.refreshControl?.beginRefreshing();
     }
     
-    private func refreshSections() {
+    func refreshSections() {
         let trainings: [TrainingListViewModel] = self.store.getTrainingListViewModels();
         var res = [TrainingListSection]();
         
@@ -150,7 +146,7 @@ class TrainingListViewController: UIViewController {
         }
         
         if onThisWeekTrainings.count > 0 {
-            res.append(TrainingListSection(name: "Last 7 days", trainings: onThisWeekTrainings));
+            res.append(TrainingListSection(name: "On This Week", trainings: onThisWeekTrainings));
         }
         
         if olderTrainings.count > 0 {

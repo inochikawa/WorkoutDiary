@@ -44,7 +44,7 @@ class TrainingDetailsViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         } else {
             self.navigationItem.largeTitleDisplayMode = .never;
-            self.navigationItem.title = "\(self.trainingDetailsViewModel!.createdDate!.toUserFriendlyString())";
+            self.navigationItem.title = "\(self.trainingDetailsViewModel!.name)";
             
             self.setupNoExercisesLabel();
             

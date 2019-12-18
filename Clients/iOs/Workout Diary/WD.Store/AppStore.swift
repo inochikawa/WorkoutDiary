@@ -13,6 +13,7 @@ class AppStore {
     var lastWeightIndexSelected: Int = 0;
     var lastRepeatsIndexSelected: Int = 0;
     var lastWeightStepSelected: Int = 0;
+    var autoFillTrainingName: Bool = true;
     
     init() {
     }
@@ -82,6 +83,16 @@ class AppStore {
         let training = TrainingModel(viewModel: viewModel);
         // if training already exists -> it will be updated
         dataSource.addItem(item: training);
+    }
+    
+    public func updateTraining(from viewModel: TrainingListViewModel) {
+        let dataSource = DataSource.newInstanse();
+        let training = dataSource.trainings.filter {i in i.id == viewModel.id}.first!;
+        dataSource.updatePropertyInScope {
+            training.name = viewModel.name;
+            training.spentTime = viewModel.spentTime;
+            training.createdDate = viewModel.date;
+        }
     }
     
     public func updateTrainingSpentTimeAndFinishedDate(trainingId: String, spentTime: Int, finishedDate: Date) {
