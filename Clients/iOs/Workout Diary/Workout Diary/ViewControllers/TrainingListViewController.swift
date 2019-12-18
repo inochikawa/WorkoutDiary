@@ -59,7 +59,7 @@ class TrainingListViewController: UIViewController {
         
         if selectedTraining.isInProgress {
             
-            let alert = UIAlertController(title: "Training is still in progress", message: "You need to stop selected training before you can edit it.", preferredStyle: .alert);
+            let alert = UIAlertController(title: "Training is still in progress", message: "You need to stop selected training before you can edit it.", preferredStyle: .actionSheet);
             
             alert.addAction(UIAlertAction(title: "Stop Training and Edit", style: .default, handler: { (alertAction) -> Void in
                 selectedTraining.isInProgress = false;
