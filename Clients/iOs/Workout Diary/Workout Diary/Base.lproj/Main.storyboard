@@ -192,34 +192,49 @@
                                 <blurEffect style="dark"/>
                             </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gDU-iv-Fux" userLabel="Root view">
-                                <rect key="frame" x="30" y="340" width="315" height="132.33333333333337"/>
+                                <rect key="frame" x="30" y="328.66666666666669" width="315" height="154.66666666666669"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="yQ5-bG-siy" userLabel="Root Stack View">
-                                        <rect key="frame" x="12" y="11.999999999999993" width="291" height="108.33333333333331"/>
+                                        <rect key="frame" x="12" y="12" width="291" height="130.66666666666666"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="9Th-56-CM4" userLabel="Text field Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="291" height="66.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="291" height="88.666666666666671"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit exercise name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKc-aL-cOO">
-                                                        <rect key="frame" x="0.0" y="0.0" width="143.66666666666666" height="20.333333333333332"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit exercise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKc-aL-cOO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="120.33333333333333" height="26.333333333333332"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                         <color key="textColor" name="AppTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Test text" borderStyle="roundedRect" placeholder="Please enter new name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="akU-dG-mny">
-                                                        <rect key="frame" x="0.0" y="32.333333333333314" width="291" height="34"/>
-                                                        <color key="textColor" name="AppTextColor"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
-                                                    </textField>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="B8b-q6-jGK">
+                                                        <rect key="frame" x="0.0" y="38.333333333333314" width="291" height="50.333333333333343"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PL2-kd-COn">
+                                                                <rect key="frame" x="0.0" y="0.0" width="33" height="14.333333333333334"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Test text" borderStyle="roundedRect" placeholder="Please enter new name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="akU-dG-mny">
+                                                                <rect key="frame" x="0.0" y="16.333333333333314" width="291" height="34"/>
+                                                                <color key="textColor" name="AppTextColor"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                            </textField>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="akU-dG-mny" firstAttribute="leading" secondItem="B8b-q6-jGK" secondAttribute="leading" id="BPJ-Rh-dzW"/>
+                                                            <constraint firstAttribute="trailing" secondItem="akU-dG-mny" secondAttribute="trailing" id="fH1-F7-OId"/>
+                                                        </constraints>
+                                                    </stackView>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="akU-dG-mny" secondAttribute="trailing" id="9qH-1z-eb8"/>
-                                                    <constraint firstItem="akU-dG-mny" firstAttribute="leading" secondItem="9Th-56-CM4" secondAttribute="leading" id="HrV-N9-n3M"/>
+                                                    <constraint firstAttribute="trailing" secondItem="B8b-q6-jGK" secondAttribute="trailing" id="GQ3-Fp-FjJ"/>
+                                                    <constraint firstItem="B8b-q6-jGK" firstAttribute="leading" secondItem="9Th-56-CM4" secondAttribute="leading" id="bbR-K5-9WU"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="oP2-6g-s6I" userLabel="Buttons Stack View">
-                                                <rect key="frame" x="0.0" y="78.333333333333314" width="291" height="30"/>
+                                                <rect key="frame" x="0.0" y="100.66666666666663" width="291" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkO-na-9p1">
                                                         <rect key="frame" x="0.0" y="0.0" width="183.33333333333334" height="30"/>
@@ -298,22 +313,22 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPg-SH-YZt" userLabel="Modal view">
-                                            <rect key="frame" x="38.333333333333343" y="254.66666666666666" width="298.33333333333326" height="302.66666666666674"/>
+                                            <rect key="frame" x="38.333333333333343" y="258.33333333333337" width="298.33333333333326" height="295.33333333333337"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oRb-ch-4Fw" userLabel="Root Stack View">
-                                                    <rect key="frame" x="24.000000000000014" y="24.000000000000043" width="250.33333333333337" height="254.66666666666663"/>
+                                                    <rect key="frame" x="24.000000000000014" y="24.000000000000014" width="250.33333333333337" height="247.33333333333337"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="8wo-Fx-8Xp" userLabel="Exercise name and Weight step Stack View">
-                                                            <rect key="frame" x="11.666666666666657" y="0.0" width="227" height="92.666666666666671"/>
+                                                            <rect key="frame" x="11.666666666666657" y="0.0" width="227" height="85.333333333333329"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Otzhym blya!!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkw-em-jne">
-                                                                    <rect key="frame" x="26" y="0.0" width="175" height="33.666666666666664"/>
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                                    <rect key="frame" x="44.333333333333329" y="0.0" width="138.66666666666669" height="26.333333333333332"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                                     <color key="textColor" name="AppTextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="mhf-Kc-cJj" userLabel="Weight step stack">
-                                                                    <rect key="frame" x="0.0" y="45.666666666666629" width="227" height="47"/>
+                                                                    <rect key="frame" x="0.0" y="38.333333333333371" width="227" height="47"/>
                                                                     <subviews>
                                                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dcw-Zs-Kll" userLabel="Weight segment control">
                                                                             <rect key="frame" x="0.0" y="0.0" width="227" height="32"/>
@@ -338,7 +353,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="UEf-0c-cqW" userLabel="Pickers and Buttons Stack View">
-                                                            <rect key="frame" x="0.0" y="92.666666666666629" width="250.33333333333334" height="162"/>
+                                                            <rect key="frame" x="0.0" y="85.333333333333371" width="250.33333333333334" height="162"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rI8-I4-uLW" userLabel="Pickers Stack View">
                                                                     <rect key="frame" x="0.0" y="0.0" width="250.33333333333334" height="120"/>
