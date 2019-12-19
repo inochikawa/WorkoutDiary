@@ -33,6 +33,18 @@ class ExerciseModel : Object, Identifiable {
         }
     }
     
+    init(dataObject: ExerciseDataObject) {
+        self.id = dataObject.id;
+        self.name = dataObject.name;
+        self.trainingId = dataObject.trainingId;
+        
+        self.loops = List<ExerciseLoopModel>();
+        
+        for loopDataObject in dataObject.loops {
+            self.loops.append(ExerciseLoopModel(dataObject: loopDataObject))
+        }
+    }
+    
     override class func primaryKey() -> String? {
         return "id";
     }

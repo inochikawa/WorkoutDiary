@@ -20,7 +20,6 @@ class TrainingListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.verifyICloudSignIn();
         
         self.listTableView.dataSource = self;
         self.listTableView.delegate = self;
@@ -29,7 +28,10 @@ class TrainingListViewController: UIViewController {
         
         self.navigationController?.navigationBar.prefersLargeTitles = true;
         
-        self.setUpRefreshControl();
+        self.verifyICloudSignIn {
+            self.setUpRefreshControl();
+        }
+        
         self.reloadListViewDataAsync(forceRefreshControl: true);
     }
     
@@ -103,11 +105,19 @@ class TrainingListViewController: UIViewController {
             self.startRefreshControl();
         }
         
-        self.refreshSections();
-        
-        DispatchQueue.main.asyncAfter(wallDeadline: .now() + .milliseconds(200)) {
-            self.finishUpdatingUI();
-        }
+        let syncService = ICloudSyncService();
+        syncService.fetchAllRecords(successBlock: { (items) in
+            let trainings = items.map { i in TrainingModel(dataObject: i) };
+            self.store.saveTrainings(trainings);
+            
+            self.refreshSections();
+            
+            DispatchQueue.main.asyncAfter(wallDeadline: .now() + .milliseconds(200)) {
+                self.finishUpdatingUI();
+            }
+        }) { (error) in
+            //ignore
+        };
     }
     
     @objc private func onSyncButtonTouchDown() {
@@ -187,7 +197,7 @@ class TrainingListViewController: UIViewController {
         self.listTableView.refreshControl?.beginRefreshing();
     }
     
-    private func verifyICloudSignIn() {
+    private func verifyICloudSignIn(successBlock: @escaping () -> Void) {
         let iCloudService = ICloudSyncService();
         
         if !iCloudService.isICloudContainerAvailable {
@@ -200,7 +210,7 @@ class TrainingListViewController: UIViewController {
 
             self.present(alert, animated: true);
         } else {
-            
+            successBlock();
         }
     }
 }

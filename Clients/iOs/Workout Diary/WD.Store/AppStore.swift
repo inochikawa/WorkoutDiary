@@ -112,9 +112,12 @@ class AppStore {
         let training = dataSource.getTrainingBy(id: id)!;
         dataSource.removeItem(item: training);
     }
-    
-    public func saveChanges() {
+
+    public func saveTrainings(_ trainings: [TrainingModel]) {
         let dataSource = DataSource.newInstanse();
-        dataSource.saveChanges();
+        
+        for item in trainings {
+            dataSource.addItem(item: item);
+        }
     }
 }

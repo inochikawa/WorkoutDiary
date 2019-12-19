@@ -59,7 +59,7 @@ class ICloudSyncService {
         }
     }
     
-    func fetchAllRecords() {
+    func fetchAllRecords(successBlock: (([TrainingDataObject]) -> Void)?, errorBlock: ((Error?) -> Void)?) {
         let predicate = NSPredicate(value: true);
         let query = CKQuery(recordType: ICloudRecordType.Training.typeName, predicate: predicate);
         let operation = CKQueryOperation(query: query);
@@ -73,8 +73,13 @@ class ICloudSyncService {
         operation.queryCompletionBlock = { cursor, error in
             if error != nil {
                 print("Error while fetching data: \(error!)");
+                if let saveErrorBlock = errorBlock {
+                    saveErrorBlock(error);
+                }
             } else {
-                
+                if let saveSuccessBlock = successBlock {
+                    saveSuccessBlock(records);
+                }
             }
         }
         

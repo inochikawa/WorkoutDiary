@@ -38,12 +38,14 @@ struct TrainingDataObject: Codable {
         self.spentTime = ckRecord[ICloudRecordType.Training.spentTime]!;
         self.name = ckRecord[ICloudRecordType.Training.name]!;
         
-        let exercisesStrings = ckRecord[ICloudRecordType.Training.exercises] as! [String];
+        let exercisesStrings = ckRecord[ICloudRecordType.Training.exercises] as? [String];
         let jsonDecoder = JSONDecoder();
         
-        self.exercises = exercisesStrings.map {s in
-            let data = s.data(using: .utf8)!;
-            return try! jsonDecoder.decode(ExerciseDataObject.self, from: data);
+        self.exercises = exercisesStrings == nil
+            ? []
+            : exercisesStrings!.map {s in
+                let data = s.data(using: .utf8)!;
+                return try! jsonDecoder.decode(ExerciseDataObject.self, from: data);
         };
     }
     

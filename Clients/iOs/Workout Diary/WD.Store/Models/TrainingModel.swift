@@ -43,6 +43,20 @@ class TrainingModel : Object, Identifiable {
         }
     }
     
+    init(dataObject: TrainingDataObject) {
+        self.id = dataObject.id;
+        self.spentTime = dataObject.spentTime;
+        self.isInProgress = dataObject.isInProgress;
+        self.createdDate = dataObject.createdDate;
+        self.finishedDate = dataObject.finishedDate;
+        self.exercises = List<ExerciseModel>();
+        self.name = dataObject.name;
+        
+        for exerciseDataObject in dataObject.exercises {
+            self.exercises.append(ExerciseModel(dataObject: exerciseDataObject));
+        }
+    }
+    
     override class func primaryKey() -> String? {
         return "id";
     }
