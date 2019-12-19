@@ -20,6 +20,7 @@ class TrainingListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.verifyICloudSignIn();
         
         self.listTableView.dataSource = self;
         self.listTableView.delegate = self;
@@ -65,6 +66,11 @@ class TrainingListViewController: UIViewController {
                 selectedTraining.isInProgress = false;
                 selectedTraining.finishedDate = Date();
                 self.store.updateTraining(from: selectedTraining);
+                
+                DispatchQueue.main.async {
+                    self.refreshSections();
+                    self.listTableView.reloadData();
+                }
                 
                 navigateToDetailsAction();
             }))
@@ -120,6 +126,35 @@ class TrainingListViewController: UIViewController {
         }
     }
     
+    func refreshSections() {
+        let trainings: [TrainingListViewModel] = self.store.getTrainingListViewModels();
+        var res = [TrainingListSection]();
+        
+        let todaysTrainings = trainings.filter {i in i.date.isToday()};
+        let yesterdaysTrainings = trainings.filter {i in i.date.isYesterday()};
+        let onThisWeekTrainings = trainings.filter {i in !i.date.isToday() && !i.date.isYesterday() && i.date.isOnThisWeek()};
+        
+        let olderTrainings = trainings.filter {i in !i.date.isToday() && !i.date.isYesterday() && !i.date.isOnThisWeek()};
+        
+        if todaysTrainings.count > 0 {
+            res.append(TrainingListSection(name: "Today", trainings: todaysTrainings));
+        }
+        
+        if yesterdaysTrainings.count > 0 {
+            res.append(TrainingListSection(name: "Yesterday", trainings: yesterdaysTrainings));
+        }
+        
+        if onThisWeekTrainings.count > 0 {
+            res.append(TrainingListSection(name: "On This Week", trainings: onThisWeekTrainings));
+        }
+        
+        if olderTrainings.count > 0 {
+            res.append(TrainingListSection(name: "Older", trainings: olderTrainings));
+        }
+        
+        self.sections = res;
+    }
+    
     private func finishUpdatingUI(animateOnlyFirstRow: Bool = false, with animation: UITableView.RowAnimation = .bottom) {
         self.listTableView.refreshControl?.endRefreshing();
         self.listTableView.reloadData();
@@ -152,32 +187,20 @@ class TrainingListViewController: UIViewController {
         self.listTableView.refreshControl?.beginRefreshing();
     }
     
-    func refreshSections() {
-        let trainings: [TrainingListViewModel] = self.store.getTrainingListViewModels();
-        var res = [TrainingListSection]();
+    private func verifyICloudSignIn() {
+        let iCloudService = ICloudSyncService();
         
-        let todaysTrainings = trainings.filter {i in i.date.isToday()};
-        let yesterdaysTrainings = trainings.filter {i in i.date.isYesterday()};
-        let onThisWeekTrainings = trainings.filter {i in !i.date.isToday() && !i.date.isYesterday() && i.date.isOnThisWeek()};
-        
-        let olderTrainings = trainings.filter {i in !i.date.isToday() && !i.date.isYesterday() && !i.date.isOnThisWeek()};
-        
-        if todaysTrainings.count > 0 {
-            res.append(TrainingListSection(name: "Today", trainings: todaysTrainings));
+        if !iCloudService.isICloudContainerAvailable {
+            let alert = UIAlertController(
+                title: "Sign in to iCloud",
+                message: "Sign in to your iCloud account to write records.\n\nOn the Home screen, launch Settings, tap iCloud, and enter your Apple ID. Turn iCloud Drive on. If you don't have an iCloud account, tap Create a new Apple ID.",
+                preferredStyle: .actionSheet
+            );
+            alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+
+            self.present(alert, animated: true);
+        } else {
+            
         }
-        
-        if yesterdaysTrainings.count > 0 {
-            res.append(TrainingListSection(name: "Yesterday", trainings: yesterdaysTrainings));
-        }
-        
-        if onThisWeekTrainings.count > 0 {
-            res.append(TrainingListSection(name: "On This Week", trainings: onThisWeekTrainings));
-        }
-        
-        if olderTrainings.count > 0 {
-            res.append(TrainingListSection(name: "Older", trainings: olderTrainings));
-        }
-        
-        self.sections = res;
     }
 }
