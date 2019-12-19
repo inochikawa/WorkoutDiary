@@ -11,7 +11,8 @@ import Resolver
 
 class TrainingDetailsViewController: UIViewController {
     
-    var store: AppStore = Resolver.resolve();
+    let store: AppStore = Resolver.resolve();
+    let syncService = ICloudSyncService();
     var trainingDetailsViewModel: TrainingDetailsViewModel?;
     
     var selectedExerciseId: String!;
@@ -117,6 +118,11 @@ class TrainingDetailsViewController: UIViewController {
             self.setupProgressTimer();
         } else {
             self.finishTraining();
+            
+            if self.syncService.isICloudContainerAvailable {
+                let trainingModel = DataSource.newInstanse().getTrainingBy(id: self.trainingDetailsViewModel!.id)!;
+                self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord);
+            }
         }
     }
     

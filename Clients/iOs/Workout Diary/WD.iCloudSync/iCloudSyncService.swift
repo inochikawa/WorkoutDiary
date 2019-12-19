@@ -39,6 +39,23 @@ class ICloudSyncService {
         }
     }
     
+    func tryRemoveRecord(_ recordId: String, successBlock: (() -> Void)?, errorBlock: ((Error) -> Void)?) {
+        print("Try to remove record \(recordId)")
+        privateDB.delete(withRecordID: CKRecord.ID(recordName: recordId)) { (deletedRecordId, error) in
+            if error != nil {
+                print("Error while removing record \(recordId): \(error!)");
+                if let saveErrorBlock = errorBlock {
+                    saveErrorBlock(error!);
+                }
+            } else {
+                print("Removed successfully record \(recordId)");
+                if let saveSuccessBlock = successBlock {
+                    saveSuccessBlock();
+                }
+            }
+        }
+    }
+    
     func trySaveRecord(_ record: CKRecord) {
         print("Try to remove record \(record.recordID.recordName)")
         privateDB.delete(withRecordID: record.recordID) { (recordId, error) in

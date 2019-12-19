@@ -15,7 +15,9 @@ class TrainingListViewController: UIViewController {
 
     var sections: [TrainingListSection] = [];
     
-    var store: AppStore = Resolver.resolve();
+    let store: AppStore = Resolver.resolve();
+    let syncService = ICloudSyncService();
+
     var selectedTrainingId: String?;
     
     override func viewDidLoad() {
@@ -69,6 +71,11 @@ class TrainingListViewController: UIViewController {
                 selectedTraining.finishedDate = Date();
                 self.store.updateTraining(from: selectedTraining);
                 
+                if self.syncService.isICloudContainerAvailable {
+                    let trainingModel = DataSource.newInstanse().getTrainingBy(id: selectedTraining.id)!;
+                    self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord);
+                }
+                
                 DispatchQueue.main.async {
                     self.refreshSections();
                     self.listTableView.reloadData();
@@ -90,7 +97,12 @@ class TrainingListViewController: UIViewController {
     public func performRemoveTraining(at indexPath: IndexPath) {
         let trainingId = self.sections[indexPath.section].trainings[indexPath.row].id;
         self.store.removeTraining(by: trainingId);
+        
         self.reloadListViewDataAsync();
+        
+        if self.syncService.isICloudContainerAvailable {
+            self.syncService.tryRemoveRecord(trainingId, successBlock: nil, errorBlock: nil);
+        }
     }
     
     public func navigateToDetails(selectedIndexPath: IndexPath) {
@@ -101,23 +113,28 @@ class TrainingListViewController: UIViewController {
     }
     
     @objc private func reloadListViewDataAsync(forceRefreshControl: Bool = false) {
-        if forceRefreshControl {
-            self.startRefreshControl();
-        }
-        
-        let syncService = ICloudSyncService();
-        syncService.fetchAllRecords(successBlock: { (items) in
-            let trainings = items.map { i in TrainingModel(dataObject: i) };
-            self.store.saveTrainings(trainings);
-            
+        let completeAction = {
             self.refreshSections();
             
             DispatchQueue.main.asyncAfter(wallDeadline: .now() + .milliseconds(200)) {
                 self.finishUpdatingUI();
             }
-        }) { (error) in
-            //ignore
-        };
+        }
+        
+        if forceRefreshControl {
+            self.startRefreshControl();
+            syncService.fetchAllRecords(successBlock: { (items) in
+                let trainings = items.map { i in TrainingModel(dataObject: i) };
+                self.store.saveTrainings(trainings);
+                
+                completeAction();
+            }) { (error) in
+                //ignore
+            };
+        } else {
+            completeAction();
+        }
+        
     }
     
     @objc private func onSyncButtonTouchDown() {
@@ -189,9 +206,13 @@ class TrainingListViewController: UIViewController {
         
         self.listTableView.refreshControl?.attributedTitle = NSAttributedString(string: "Refreshing data");
         self.listTableView.refreshControl?.tintColor = UIColor(named: ConstantData.Color.CancelButton);
-        self.listTableView.refreshControl?.addTarget(self, action: #selector(self.reloadListViewDataAsync), for: .valueChanged)
+        self.listTableView.refreshControl?.addTarget(self, action: #selector(self.onRefreshControlTrigger), for: .valueChanged)
     }
-
+    
+    @objc private func onRefreshControlTrigger(sender: Any) {
+        self.reloadListViewDataAsync(forceRefreshControl: true);
+    }
+    
     private func startRefreshControl() {
         self.listTableView.setContentOffset(CGPoint(x: 0, y: -(listTableView.refreshControl?.frame.size.height ?? 0)), animated: true);
         self.listTableView.refreshControl?.beginRefreshing();

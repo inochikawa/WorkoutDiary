@@ -40,6 +40,11 @@ extension TrainingDetailsViewController : UITableViewDelegate  {
             self.exerciseListView.reloadData();
             self.refreshCompletedExercisesCountLabel();
             self.setupNoExercisesLabel();
+            
+            if self.syncService.isICloudContainerAvailable {
+                let trainingModel = DataSource.newInstanse().getTrainingBy(id: self.trainingDetailsViewModel!.id)!;
+                self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord);
+            }
         });
         return config;
     }
@@ -88,6 +93,11 @@ extension TrainingDetailsViewController : ExerciseCellDelegate {
         
         self.store.updateTraining(from: self.trainingDetailsViewModel!);
         self.exerciseListView.reloadData();
+        
+        if self.syncService.isICloudContainerAvailable {
+            let trainingModel = DataSource.newInstanse().getTrainingBy(id: self.trainingDetailsViewModel!.id)!;
+            self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord);
+        }
     }
 
 }
@@ -108,6 +118,11 @@ extension TrainingDetailsViewController : EditExerciseLoopModalDelegate {
         
         self.store.updateTraining(from: self.trainingDetailsViewModel!);
         self.exerciseListView.reloadData();
+        
+        if self.syncService.isICloudContainerAvailable {
+            let trainingModel = DataSource.newInstanse().getTrainingBy(id: self.trainingDetailsViewModel!.id)!;
+            self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord);
+        }
     }
 
 }
@@ -128,5 +143,10 @@ extension TrainingDetailsViewController : EditExerciseModalViewDelegate {
         self.exerciseListView.reloadData();
         self.refreshCompletedExercisesCountLabel();
         self.setupNoExercisesLabel();
+        
+        if self.syncService.isICloudContainerAvailable {
+            let trainingModel = DataSource.newInstanse().getTrainingBy(id: self.trainingDetailsViewModel!.id)!;
+            self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord);
+        }
     }
 }
