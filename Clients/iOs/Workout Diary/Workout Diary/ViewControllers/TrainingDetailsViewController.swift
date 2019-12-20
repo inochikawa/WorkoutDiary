@@ -11,7 +11,8 @@ import Resolver
 
 class TrainingDetailsViewController: UIViewController {
     
-    var store: AppStore = Resolver.resolve();
+    let store: AppStore = Resolver.resolve();
+    let syncService = ICloudSyncService();
     var trainingDetailsViewModel: TrainingDetailsViewModel?;
     
     var selectedExerciseId: String!;
@@ -44,7 +45,7 @@ class TrainingDetailsViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         } else {
             self.navigationItem.largeTitleDisplayMode = .never;
-            self.navigationItem.title = "\(self.trainingDetailsViewModel!.createdDate!.toUserFriendlyString())";
+            self.navigationItem.title = "\(self.trainingDetailsViewModel!.name)";
             
             self.setupNoExercisesLabel();
             
@@ -117,6 +118,13 @@ class TrainingDetailsViewController: UIViewController {
             self.setupProgressTimer();
         } else {
             self.finishTraining();
+            
+            self.syncService.checkIfICloudContainerAvailable { (isOk) in
+                if isOk {
+                    let trainingModel = DataSource.newInstanse().getTrainingBy(id: self.trainingDetailsViewModel!.id)!;
+                    self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord, completionBlock: nil);
+                }
+            }
         }
     }
     

@@ -10,9 +10,17 @@ import Foundation;
 import Resolver;
 
 class AppStore {
-    var lastWeightIndexSelected: Int = 0;
-    var lastRepeatsIndexSelected: Int = 0;
-    var lastWeightStepSelected: Int = 0;
+    @UserDefault<Int>("lastWeightIndexSelected", defaultValue: 0)
+    var lastWeightIndexSelected: Int;
+    
+    @UserDefault<Int>("lastRepeatsIndexSelected", defaultValue: 0)
+    var lastRepeatsIndexSelected: Int;
+    
+    @UserDefault<Int>("lastWeightStepSelected", defaultValue: 0)
+    var lastWeightStepSelected: Int;
+    
+    @UserDefault<Bool>("autoFillTrainingName", defaultValue: false)
+    var autoFillTrainingName: Bool;
     
     init() {
     }
@@ -84,6 +92,18 @@ class AppStore {
         dataSource.addItem(item: training);
     }
     
+    public func updateTraining(from viewModel: TrainingListViewModel) {
+        let dataSource = DataSource.newInstanse();
+        let training = dataSource.trainings.filter {i in i.id == viewModel.id}.first!;
+        dataSource.updatePropertyInScope {
+            training.name = viewModel.name;
+            training.spentTime = viewModel.spentTime;
+            training.isInProgress = viewModel.isInProgress;
+            training.finishedDate = viewModel.finishedDate;
+            training.createdDate = viewModel.date;
+        }
+    }
+    
     public func updateTrainingSpentTimeAndFinishedDate(trainingId: String, spentTime: Int, finishedDate: Date) {
         let dataSource = DataSource.newInstanse();
         let training = dataSource.trainings.filter {i in i.id == trainingId}.first!;
@@ -99,9 +119,12 @@ class AppStore {
         let training = dataSource.getTrainingBy(id: id)!;
         dataSource.removeItem(item: training);
     }
-    
-    public func saveChanges() {
+
+    public func saveTrainings(_ trainings: [TrainingModel]) {
         let dataSource = DataSource.newInstanse();
-        dataSource.saveChanges();
+        
+        for item in trainings {
+            dataSource.addItem(item: item);
+        }
     }
 }

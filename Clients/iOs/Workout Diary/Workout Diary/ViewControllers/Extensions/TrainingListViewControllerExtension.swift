@@ -55,6 +55,42 @@ extension TrainingListViewController : UITableViewDelegate {
                 detailsViewController.setTrainingId(self.selectedTrainingId);
             }
         }
+        if segue.identifier == ConstantData.Segue.FromTrainingList_ToEditTrainingModal {
+            if let viewController = segue.destination as? EditTrainingModalViewController {
+                let trainingViewModel = self.sections.flatMap {i in i.trainings}.filter { (model) -> Bool in
+                    return model.id == self.selectedTrainingId!
+                }.first!;
+                
+                viewController.setViewModel(trainingViewModel);
+                viewController.delegate = self;
+            }
+        }
     }
     
+}
+
+
+extension TrainingListViewController : EditTrainingModalDelegate {
+    func onOkClick(viewModel: TrainingListViewModel) {
+        let training = self.sections.flatMap { (section) -> [TrainingListViewModel] in
+            return section.trainings;
+        }.filter{ i in i.id == viewModel.id}.first!;
+        
+        
+        training.name = viewModel.name;
+        training.date = viewModel.date;
+        training.spentTime = viewModel.spentTime;
+        
+        self.store.updateTraining(from: viewModel);
+        
+        self.refreshSections();
+        self.listTableView.reloadData();
+        
+        self.syncService.checkIfICloudContainerAvailable { (isOk) in
+            if isOk {
+                let trainingModel = DataSource.newInstanse().getTrainingBy(id: viewModel.id)!;
+                self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord, completionBlock: nil);
+            }
+        }
+    }
 }

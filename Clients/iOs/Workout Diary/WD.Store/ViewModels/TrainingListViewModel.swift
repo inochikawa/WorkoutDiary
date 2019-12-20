@@ -25,6 +25,9 @@ class TrainingListViewModel: Identifiable {
     var exercisesCount: Int = 0;
     var spentTime: Int = 0;
     var isInProgress: Bool = false;
+    var name: String = "";
+    
+    init() {}
     
     init(model: TrainingModel) {
         self.id = model.id;
@@ -33,5 +36,20 @@ class TrainingListViewModel: Identifiable {
         self.spentTime = model.spentTime;
         self.exercisesCount = model.exercises.count;
         self.isInProgress = model.isInProgress;
+        self.name = model.name;
+    }
+    
+    func clone() -> TrainingListViewModel {
+        let viewModel = TrainingListViewModel();
+
+        viewModel.id = self.id;
+        viewModel.date = self.date;
+        viewModel.finishedDate = self.finishedDate;
+        viewModel.spentTime = self.spentTime;
+        viewModel.exercisesCount = self.exercisesCount;
+        viewModel.isInProgress = self.isInProgress;
+        viewModel.name = self.name;
+
+        return viewModel;
     }
 }

@@ -10,12 +10,14 @@ import UIKit
 import Resolver
 
 class TrainingListViewController: UIViewController {
-
+    
     @IBOutlet weak var listTableView: UITableView!;
-
+    
     var sections: [TrainingListSection] = [];
     
-    var store: AppStore = Resolver.resolve();
+    let store: AppStore = Resolver.resolve();
+    let syncService = ICloudSyncService();
+    
     var selectedTrainingId: String?;
     
     override func viewDidLoad() {
@@ -28,13 +30,18 @@ class TrainingListViewController: UIViewController {
         
         self.navigationController?.navigationBar.prefersLargeTitles = true;
         
-        self.setUpRefreshControl();
-        self.reloadListViewDataAsync(forceRefreshControl: true);
+        self.reloadListViewDataAsync();
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.listTableView.refreshControl = nil;
+        self.verifyICloudSignIn {
+            self.setUpRefreshControl();
+        }
+        
         if let selectedIndexPath = self.listTableView.indexPathForSelectedRow {
             self.listTableView.deselectRow(at: selectedIndexPath, animated: animated)
         }
@@ -50,19 +57,58 @@ class TrainingListViewController: UIViewController {
     }
     
     public func performEditTraining(at indexPath: IndexPath) {
-        // show to user selected row
-        self.listTableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+        let selectedTraining = self.sections[indexPath.section].trainings[indexPath.row];
         
-        // navigate to details view after delay. This approach is more user friendly.
-        DispatchQueue.main.asyncAfter(wallDeadline: .now() + .milliseconds(500)) {
-            self.navigateToDetails(selectedIndexPath: indexPath);
+        let navigateToDetailsAction: () -> Void = {
+            self.selectedTrainingId = selectedTraining.id;
+            self.performSegue(withIdentifier: ConstantData.Segue.FromTrainingList_ToEditTrainingModal, sender: self);
+        };
+        
+        if selectedTraining.isInProgress {
+            
+            let alert = UIAlertController(title: "Training is still in progress", message: "You need to stop selected training before you can edit it.", preferredStyle: .actionSheet);
+            
+            alert.addAction(UIAlertAction(title: "Stop Training and Edit", style: .default, handler: { (alertAction) -> Void in
+                selectedTraining.isInProgress = false;
+                selectedTraining.finishedDate = Date();
+                self.store.updateTraining(from: selectedTraining);
+                
+                self.syncService.checkIfICloudContainerAvailable { (isOk) in
+                    if isOk {
+                        let trainingModel = DataSource.newInstanse().getTrainingBy(id: selectedTraining.id)!;
+                        self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord, completionBlock: nil);
+                    }
+                }
+                
+                DispatchQueue.main.async {
+                    self.refreshSections();
+                    self.listTableView.reloadData();
+                }
+                
+                navigateToDetailsAction();
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true);
+            
+            return;
+            
         }
+        
+        navigateToDetailsAction();
     }
     
     public func performRemoveTraining(at indexPath: IndexPath) {
         let trainingId = self.sections[indexPath.section].trainings[indexPath.row].id;
         self.store.removeTraining(by: trainingId);
+        
         self.reloadListViewDataAsync();
+        
+        self.syncService.checkIfICloudContainerAvailable { (isOk) in
+            if isOk {
+                self.syncService.tryRemoveRecord(trainingId, successBlock: nil, errorBlock: nil);
+            }
+        }
     }
     
     public func navigateToDetails(selectedIndexPath: IndexPath) {
@@ -73,15 +119,42 @@ class TrainingListViewController: UIViewController {
     }
     
     @objc private func reloadListViewDataAsync(forceRefreshControl: Bool = false) {
+        let completeAction = {
+            self.refreshSections();
+            
+            DispatchQueue.main.asyncAfter(wallDeadline: .now() + .milliseconds(200)) {
+                self.finishUpdatingUI();
+            }
+        }
+        
         if forceRefreshControl {
             self.startRefreshControl();
+            
+            let allTrainings = DataSource.newInstanse().trainings;
+            syncService.trySaveRecords(
+                allTrainings.map {TrainingDataObject(from: $0).ckRecord},
+                completionBlock: { isSaveSuccess in
+                    if isSaveSuccess {
+                        self.syncService.fetchAllRecords(successBlock: { (items) in
+                            let trainings = items.map { i in TrainingModel(dataObject: i) };
+                            self.store.saveTrainings(trainings);
+                            
+                            completeAction();
+                        }) { (error) in
+                            completeAction();
+                            // TODO: show popup that was error
+                        };
+                    } else {
+                        // TODO: show popup that was error
+                        completeAction();
+                    }
+            });
+            
+            
+        } else {
+            completeAction();
         }
         
-        self.refreshSections();
-        
-        DispatchQueue.main.asyncAfter(wallDeadline: .now() + .milliseconds(200)) {
-            self.finishUpdatingUI();
-        }
     }
     
     @objc private func onSyncButtonTouchDown() {
@@ -95,9 +168,39 @@ class TrainingListViewController: UIViewController {
         
         // By default all trainings are sorted by Date DESC.
         // So we just navigate to first item in the list after creation
-        self.performEditTraining(at: IndexPath(row: 0, section: 0));
+        DispatchQueue.main.asyncAfter(wallDeadline: .now() + .milliseconds(500)) {
+            self.navigateToDetails(selectedIndexPath: IndexPath(row: 0, section: 0));
+        }
     }
     
+    func refreshSections() {
+        let trainings: [TrainingListViewModel] = self.store.getTrainingListViewModels();
+        var res = [TrainingListSection]();
+        
+        let todaysTrainings = trainings.filter {i in i.date.isToday()};
+        let yesterdaysTrainings = trainings.filter {i in i.date.isYesterday()};
+        let onThisWeekTrainings = trainings.filter {i in !i.date.isToday() && !i.date.isYesterday() && i.date.isOnThisWeek()};
+        
+        let olderTrainings = trainings.filter {i in !i.date.isToday() && !i.date.isYesterday() && !i.date.isOnThisWeek()};
+        
+        if todaysTrainings.count > 0 {
+            res.append(TrainingListSection(name: "Today", trainings: todaysTrainings));
+        }
+        
+        if yesterdaysTrainings.count > 0 {
+            res.append(TrainingListSection(name: "Yesterday", trainings: yesterdaysTrainings));
+        }
+        
+        if onThisWeekTrainings.count > 0 {
+            res.append(TrainingListSection(name: "On This Week", trainings: onThisWeekTrainings));
+        }
+        
+        if olderTrainings.count > 0 {
+            res.append(TrainingListSection(name: "Older", trainings: olderTrainings));
+        }
+        
+        self.sections = res;
+    }
     
     private func finishUpdatingUI(animateOnlyFirstRow: Bool = false, with animation: UITableView.RowAnimation = .bottom) {
         self.listTableView.refreshControl?.endRefreshing();
@@ -123,40 +226,43 @@ class TrainingListViewController: UIViewController {
         
         self.listTableView.refreshControl?.attributedTitle = NSAttributedString(string: "Refreshing data");
         self.listTableView.refreshControl?.tintColor = UIColor(named: ConstantData.Color.CancelButton);
-        self.listTableView.refreshControl?.addTarget(self, action: #selector(self.reloadListViewDataAsync), for: .valueChanged)
+        self.listTableView.refreshControl?.addTarget(self, action: #selector(self.onRefreshControlTrigger), for: .valueChanged)
     }
-
+    
+    @objc private func onRefreshControlTrigger(sender: Any) {
+        self.reloadListViewDataAsync(forceRefreshControl: true);
+    }
+    
     private func startRefreshControl() {
         self.listTableView.setContentOffset(CGPoint(x: 0, y: -(listTableView.refreshControl?.frame.size.height ?? 0)), animated: true);
         self.listTableView.refreshControl?.beginRefreshing();
     }
     
-    private func refreshSections() {
-        let trainings: [TrainingListViewModel] = self.store.getTrainingListViewModels();
-        var res = [TrainingListSection]();
+    private func verifyICloudSignIn(successBlock: @escaping () -> Void) {
+        let iCloudService = ICloudSyncService();
         
-        let todaysTrainings = trainings.filter {i in i.date.isToday()};
-        let yesterdaysTrainings = trainings.filter {i in i.date.isYesterday()};
-        let onThisWeekTrainings = trainings.filter {i in !i.date.isToday() && !i.date.isYesterday() && i.date.isYesterday()};
-        
-        let olderTrainings = trainings.filter {i in !i.date.isToday() && !i.date.isYesterday() && !i.date.isOnThisWeek()};
-        
-        if todaysTrainings.count > 0 {
-            res.append(TrainingListSection(name: "Today", trainings: todaysTrainings));
+        self.syncService.checkIfICloudContainerAvailable { (isOk) in
+            if isOk {
+                DispatchQueue.main.async {
+                    successBlock();
+                }
+                return;
+            }
+            
+            if !iCloudService.didUserConfirmToEnableICloud {
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(
+                        title: "Sign in to iCloud",
+                        message: "Sign in to your iCloud account to write records.\n\nOn the Home screen, launch Settings, tap iCloud, and enter your Apple ID. Turn iCloud Drive on. If you don't have an iCloud account, tap Create a new Apple ID.",
+                        preferredStyle: .actionSheet
+                    );
+                    alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { action in
+                        iCloudService.didUserConfirmToEnableICloud = true;
+                    }))
+                    
+                    self.present(alert, animated: true);
+                }
+            }
         }
-        
-        if yesterdaysTrainings.count > 0 {
-            res.append(TrainingListSection(name: "Yesterday", trainings: yesterdaysTrainings));
-        }
-        
-        if onThisWeekTrainings.count > 0 {
-            res.append(TrainingListSection(name: "Last 7 days", trainings: onThisWeekTrainings));
-        }
-        
-        if olderTrainings.count > 0 {
-            res.append(TrainingListSection(name: "Older", trainings: olderTrainings));
-        }
-        
-        self.sections = res;
     }
 }

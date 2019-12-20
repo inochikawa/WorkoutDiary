@@ -40,6 +40,13 @@ extension TrainingDetailsViewController : UITableViewDelegate  {
             self.exerciseListView.reloadData();
             self.refreshCompletedExercisesCountLabel();
             self.setupNoExercisesLabel();
+            
+            self.syncService.checkIfICloudContainerAvailable { (isOk) in
+                if isOk {
+                    let trainingModel = DataSource.newInstanse().getTrainingBy(id: self.trainingDetailsViewModel!.id)!;
+                    self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord, completionBlock: nil);
+                }
+            }
         });
         return config;
     }
@@ -88,6 +95,13 @@ extension TrainingDetailsViewController : ExerciseCellDelegate {
         
         self.store.updateTraining(from: self.trainingDetailsViewModel!);
         self.exerciseListView.reloadData();
+        
+        self.syncService.checkIfICloudContainerAvailable { (isOk) in
+            if isOk {
+                let trainingModel = DataSource.newInstanse().getTrainingBy(id: self.trainingDetailsViewModel!.id)!;
+                self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord, completionBlock: nil);
+            }
+        }
     }
 
 }
@@ -108,6 +122,13 @@ extension TrainingDetailsViewController : EditExerciseLoopModalDelegate {
         
         self.store.updateTraining(from: self.trainingDetailsViewModel!);
         self.exerciseListView.reloadData();
+        
+        self.syncService.checkIfICloudContainerAvailable { (isOk) in
+            if isOk {
+                let trainingModel = DataSource.newInstanse().getTrainingBy(id: self.trainingDetailsViewModel!.id)!;
+                self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord, completionBlock: nil);
+            }
+        }
     }
 
 }
@@ -128,5 +149,12 @@ extension TrainingDetailsViewController : EditExerciseModalViewDelegate {
         self.exerciseListView.reloadData();
         self.refreshCompletedExercisesCountLabel();
         self.setupNoExercisesLabel();
+        
+        self.syncService.checkIfICloudContainerAvailable { (isOk) in
+            if isOk {
+                let trainingModel = DataSource.newInstanse().getTrainingBy(id: self.trainingDetailsViewModel!.id)!;
+                self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord, completionBlock: nil);
+            }
+        }
     }
 }

@@ -28,6 +28,13 @@ class ExerciseLoopModel : Object, Identifiable {
         self.exerciseId = viewModel.exerciseId;
     }
     
+    init(dataObject: ExerciseLoopDataObject) {
+        self.id = dataObject.id;
+        self.repeats = dataObject.repeats;
+        self.weight = dataObject.weight;
+        self.exerciseId = dataObject.exerciseId;
+    }
+    
     override class func primaryKey() -> String? {
         return "id";
     }

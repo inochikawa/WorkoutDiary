@@ -15,6 +15,7 @@ class TrainingModel : Object, Identifiable {
     @objc dynamic var createdDate: Date;
     @objc dynamic var finishedDate: Date;
     @objc dynamic var spentTime: Int;
+    @objc dynamic var name: String;
     var exercises: List<ExerciseModel>;
     
     required init() {
@@ -24,6 +25,7 @@ class TrainingModel : Object, Identifiable {
         self.exercises = List<ExerciseModel>();
         self.isInProgress = true;
         self.spentTime = 0;
+        self.name = self.createdDate.toUserFriendlyString();
     }
     
     
@@ -34,9 +36,24 @@ class TrainingModel : Object, Identifiable {
         self.createdDate = viewModel.createdDate ?? Date();
         self.finishedDate = viewModel.finishedDate ?? Date();
         self.exercises = List<ExerciseModel>();
+        self.name = viewModel.name;
         
         for exerciseViewModel in viewModel.exercises {
             self.exercises.append(ExerciseModel(viewModel: exerciseViewModel))
+        }
+    }
+    
+    init(dataObject: TrainingDataObject) {
+        self.id = dataObject.id;
+        self.spentTime = dataObject.spentTime;
+        self.isInProgress = dataObject.isInProgress;
+        self.createdDate = dataObject.createdDate;
+        self.finishedDate = dataObject.finishedDate;
+        self.exercises = List<ExerciseModel>();
+        self.name = dataObject.name;
+        
+        for exerciseDataObject in dataObject.exercises {
+            self.exercises.append(ExerciseModel(dataObject: exerciseDataObject));
         }
     }
     

@@ -10,6 +10,7 @@ import Foundation
 
 class TrainingDetailsViewModel : Identifiable {
     var id: String;
+    var name: String;
     var spentTime: Int;
     var isInProgress: Bool;
     var createdDate: Date?;
@@ -19,6 +20,7 @@ class TrainingDetailsViewModel : Identifiable {
     init() {
         self.id = "\(UUID())";
         self.createdDate = Date();
+        self.name = self.createdDate!.toUserFriendlyString();
         self.isInProgress = true;
         self.spentTime = 0;
     }
@@ -30,6 +32,7 @@ class TrainingDetailsViewModel : Identifiable {
         self.isInProgress = model.isInProgress;
         self.spentTime = model.spentTime;
         self.exercises = model.exercises.map { i in return ExerciseViewModel(model: i) };
+        self.name = model.name;
     }
     
     init(viewModel: TrainingDetailsViewModel) {
@@ -39,5 +42,6 @@ class TrainingDetailsViewModel : Identifiable {
         self.isInProgress = viewModel.isInProgress;
         self.spentTime = viewModel.spentTime;
         self.exercises = viewModel.exercises.map { i in return ExerciseViewModel(viewModel: i) };
+        self.name = viewModel.name;
     }
 }

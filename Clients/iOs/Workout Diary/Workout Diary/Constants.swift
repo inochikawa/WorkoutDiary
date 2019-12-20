@@ -27,11 +27,15 @@ struct ConstantData {
         public static let ToTrainingDetailsSequeId = "ToTrainingDetailsSeque";
         public static let FromTrainingDetail_ToEditExerciseLoop = "FromTrainingDetail_ToEditExerciseLoop";
         public static let FromTrainingDetail_ToEditExercise = "FromTrainingDetail_ToEditExercise";
+        public static let FromTrainingList_ToEditTrainingModal = "FromTrainingList_ToEditTrainingModal";
     }
     
     struct Color {
         public static let OkButton = "OkButtonColor";
         public static let CancelButton = "CancelButtonColor";
+        public static let AppText = "AppTextColor";
+        public static let AppBackground = "AppBackgroundColor";
+        public static let ToolbarForPicker = "ToolbarForPickerColor";
     }
     
 }
