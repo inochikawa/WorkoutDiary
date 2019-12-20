@@ -10,10 +10,17 @@ import Foundation;
 import Resolver;
 
 class AppStore {
-    var lastWeightIndexSelected: Int = 0;
-    var lastRepeatsIndexSelected: Int = 0;
-    var lastWeightStepSelected: Int = 0;
-    var autoFillTrainingName: Bool = true;
+    @UserDefault<Int>("lastWeightIndexSelected", defaultValue: 0)
+    var lastWeightIndexSelected: Int;
+    
+    @UserDefault<Int>("lastRepeatsIndexSelected", defaultValue: 0)
+    var lastRepeatsIndexSelected: Int;
+    
+    @UserDefault<Int>("lastWeightStepSelected", defaultValue: 0)
+    var lastWeightStepSelected: Int;
+    
+    @UserDefault<Bool>("autoFillTrainingName", defaultValue: false)
+    var autoFillTrainingName: Bool;
     
     init() {
     }

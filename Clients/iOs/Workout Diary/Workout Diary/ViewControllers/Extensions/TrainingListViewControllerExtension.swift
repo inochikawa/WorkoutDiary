@@ -86,9 +86,11 @@ extension TrainingListViewController : EditTrainingModalDelegate {
         self.refreshSections();
         self.listTableView.reloadData();
         
-        if self.syncService.isICloudContainerAvailable {
-            let trainingModel = DataSource.newInstanse().getTrainingBy(id: viewModel.id)!;
-            self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord);
+        self.syncService.checkIfICloudContainerAvailable { (isOk) in
+            if isOk {
+                let trainingModel = DataSource.newInstanse().getTrainingBy(id: viewModel.id)!;
+                self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord, completionBlock: nil);
+            }
         }
     }
 }

@@ -10,14 +10,14 @@ import UIKit
 import Resolver
 
 class TrainingListViewController: UIViewController {
-
+    
     @IBOutlet weak var listTableView: UITableView!;
-
+    
     var sections: [TrainingListSection] = [];
     
     let store: AppStore = Resolver.resolve();
     let syncService = ICloudSyncService();
-
+    
     var selectedTrainingId: String?;
     
     override func viewDidLoad() {
@@ -30,16 +30,18 @@ class TrainingListViewController: UIViewController {
         
         self.navigationController?.navigationBar.prefersLargeTitles = true;
         
-        self.verifyICloudSignIn {
-            self.setUpRefreshControl();
-        }
-        
-        self.reloadListViewDataAsync(forceRefreshControl: true);
+        self.reloadListViewDataAsync();
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.listTableView.refreshControl = nil;
+        self.verifyICloudSignIn {
+            self.setUpRefreshControl();
+        }
+        
         if let selectedIndexPath = self.listTableView.indexPathForSelectedRow {
             self.listTableView.deselectRow(at: selectedIndexPath, animated: animated)
         }
@@ -71,9 +73,11 @@ class TrainingListViewController: UIViewController {
                 selectedTraining.finishedDate = Date();
                 self.store.updateTraining(from: selectedTraining);
                 
-                if self.syncService.isICloudContainerAvailable {
-                    let trainingModel = DataSource.newInstanse().getTrainingBy(id: selectedTraining.id)!;
-                    self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord);
+                self.syncService.checkIfICloudContainerAvailable { (isOk) in
+                    if isOk {
+                        let trainingModel = DataSource.newInstanse().getTrainingBy(id: selectedTraining.id)!;
+                        self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord, completionBlock: nil);
+                    }
                 }
                 
                 DispatchQueue.main.async {
@@ -84,7 +88,7 @@ class TrainingListViewController: UIViewController {
                 navigateToDetailsAction();
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-
+            
             self.present(alert, animated: true);
             
             return;
@@ -100,8 +104,10 @@ class TrainingListViewController: UIViewController {
         
         self.reloadListViewDataAsync();
         
-        if self.syncService.isICloudContainerAvailable {
-            self.syncService.tryRemoveRecord(trainingId, successBlock: nil, errorBlock: nil);
+        self.syncService.checkIfICloudContainerAvailable { (isOk) in
+            if isOk {
+                self.syncService.tryRemoveRecord(trainingId, successBlock: nil, errorBlock: nil);
+            }
         }
     }
     
@@ -123,14 +129,28 @@ class TrainingListViewController: UIViewController {
         
         if forceRefreshControl {
             self.startRefreshControl();
-            syncService.fetchAllRecords(successBlock: { (items) in
-                let trainings = items.map { i in TrainingModel(dataObject: i) };
-                self.store.saveTrainings(trainings);
-                
-                completeAction();
-            }) { (error) in
-                //ignore
-            };
+            
+            let allTrainings = DataSource.newInstanse().trainings;
+            syncService.trySaveRecords(
+                allTrainings.map {TrainingDataObject(from: $0).ckRecord},
+                completionBlock: { isSaveSuccess in
+                    if isSaveSuccess {
+                        self.syncService.fetchAllRecords(successBlock: { (items) in
+                            let trainings = items.map { i in TrainingModel(dataObject: i) };
+                            self.store.saveTrainings(trainings);
+                            
+                            completeAction();
+                        }) { (error) in
+                            completeAction();
+                            // TODO: show popup that was error
+                        };
+                    } else {
+                        // TODO: show popup that was error
+                        completeAction();
+                    }
+            });
+            
+            
         } else {
             completeAction();
         }
@@ -221,17 +241,28 @@ class TrainingListViewController: UIViewController {
     private func verifyICloudSignIn(successBlock: @escaping () -> Void) {
         let iCloudService = ICloudSyncService();
         
-        if !iCloudService.isICloudContainerAvailable {
-            let alert = UIAlertController(
-                title: "Sign in to iCloud",
-                message: "Sign in to your iCloud account to write records.\n\nOn the Home screen, launch Settings, tap iCloud, and enter your Apple ID. Turn iCloud Drive on. If you don't have an iCloud account, tap Create a new Apple ID.",
-                preferredStyle: .actionSheet
-            );
-            alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
-
-            self.present(alert, animated: true);
-        } else {
-            successBlock();
+        self.syncService.checkIfICloudContainerAvailable { (isOk) in
+            if isOk {
+                DispatchQueue.main.async {
+                    successBlock();
+                }
+                return;
+            }
+            
+            if !iCloudService.didUserConfirmToEnableICloud {
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(
+                        title: "Sign in to iCloud",
+                        message: "Sign in to your iCloud account to write records.\n\nOn the Home screen, launch Settings, tap iCloud, and enter your Apple ID. Turn iCloud Drive on. If you don't have an iCloud account, tap Create a new Apple ID.",
+                        preferredStyle: .actionSheet
+                    );
+                    alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { action in
+                        iCloudService.didUserConfirmToEnableICloud = true;
+                    }))
+                    
+                    self.present(alert, animated: true);
+                }
+            }
         }
     }
 }

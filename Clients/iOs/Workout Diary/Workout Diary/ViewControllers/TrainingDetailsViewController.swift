@@ -119,9 +119,11 @@ class TrainingDetailsViewController: UIViewController {
         } else {
             self.finishTraining();
             
-            if self.syncService.isICloudContainerAvailable {
-                let trainingModel = DataSource.newInstanse().getTrainingBy(id: self.trainingDetailsViewModel!.id)!;
-                self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord);
+            self.syncService.checkIfICloudContainerAvailable { (isOk) in
+                if isOk {
+                    let trainingModel = DataSource.newInstanse().getTrainingBy(id: self.trainingDetailsViewModel!.id)!;
+                    self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord, completionBlock: nil);
+                }
             }
         }
     }

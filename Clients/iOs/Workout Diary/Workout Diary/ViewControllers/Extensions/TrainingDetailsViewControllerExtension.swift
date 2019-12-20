@@ -41,9 +41,11 @@ extension TrainingDetailsViewController : UITableViewDelegate  {
             self.refreshCompletedExercisesCountLabel();
             self.setupNoExercisesLabel();
             
-            if self.syncService.isICloudContainerAvailable {
-                let trainingModel = DataSource.newInstanse().getTrainingBy(id: self.trainingDetailsViewModel!.id)!;
-                self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord);
+            self.syncService.checkIfICloudContainerAvailable { (isOk) in
+                if isOk {
+                    let trainingModel = DataSource.newInstanse().getTrainingBy(id: self.trainingDetailsViewModel!.id)!;
+                    self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord, completionBlock: nil);
+                }
             }
         });
         return config;
@@ -94,9 +96,11 @@ extension TrainingDetailsViewController : ExerciseCellDelegate {
         self.store.updateTraining(from: self.trainingDetailsViewModel!);
         self.exerciseListView.reloadData();
         
-        if self.syncService.isICloudContainerAvailable {
-            let trainingModel = DataSource.newInstanse().getTrainingBy(id: self.trainingDetailsViewModel!.id)!;
-            self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord);
+        self.syncService.checkIfICloudContainerAvailable { (isOk) in
+            if isOk {
+                let trainingModel = DataSource.newInstanse().getTrainingBy(id: self.trainingDetailsViewModel!.id)!;
+                self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord, completionBlock: nil);
+            }
         }
     }
 
@@ -119,9 +123,11 @@ extension TrainingDetailsViewController : EditExerciseLoopModalDelegate {
         self.store.updateTraining(from: self.trainingDetailsViewModel!);
         self.exerciseListView.reloadData();
         
-        if self.syncService.isICloudContainerAvailable {
-            let trainingModel = DataSource.newInstanse().getTrainingBy(id: self.trainingDetailsViewModel!.id)!;
-            self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord);
+        self.syncService.checkIfICloudContainerAvailable { (isOk) in
+            if isOk {
+                let trainingModel = DataSource.newInstanse().getTrainingBy(id: self.trainingDetailsViewModel!.id)!;
+                self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord, completionBlock: nil);
+            }
         }
     }
 
@@ -144,9 +150,11 @@ extension TrainingDetailsViewController : EditExerciseModalViewDelegate {
         self.refreshCompletedExercisesCountLabel();
         self.setupNoExercisesLabel();
         
-        if self.syncService.isICloudContainerAvailable {
-            let trainingModel = DataSource.newInstanse().getTrainingBy(id: self.trainingDetailsViewModel!.id)!;
-            self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord);
+        self.syncService.checkIfICloudContainerAvailable { (isOk) in
+            if isOk {
+                let trainingModel = DataSource.newInstanse().getTrainingBy(id: self.trainingDetailsViewModel!.id)!;
+                self.syncService.trySaveRecord(TrainingDataObject(from: trainingModel).ckRecord, completionBlock: nil);
+            }
         }
     }
 }

@@ -464,17 +464,69 @@
             </objects>
             <point key="canvasLocation" x="3062" y="452"/>
         </scene>
-        <!--Sync-->
+        <!--Settings-->
         <scene sceneID="FhI-Gt-qLY">
             <objects>
-                <viewController id="9kU-cW-N7b" sceneMemberID="viewController">
+                <viewController id="9kU-cW-N7b" customClass="SettingsViewController" customModule="Workout_Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3wB-mP-iBI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="o0H-5r-zru">
+                                <rect key="frame" x="24" y="68" width="327" height="119.66666666666669"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIb-p4-Y0n">
+                                        <rect key="frame" x="0.0" y="0.0" width="120.66666666666667" height="40.666666666666664"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iXy-rV-Bpz" userLabel="iCloud Switch View">
+                                        <rect key="frame" x="0.0" y="64.666666666666657" width="327" height="55"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Xe9-EQ-es8">
+                                                <rect key="frame" x="12" y="12" width="303" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud Synchronization" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noX-xV-bU7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="242" height="31"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <color key="textColor" name="AppTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uWd-cN-EDt">
+                                                        <rect key="frame" x="254" y="0.0" width="51" height="31"/>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" name="PanelBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Xe9-EQ-es8" secondAttribute="bottom" constant="12" id="1Xi-lC-63K"/>
+                                            <constraint firstItem="Xe9-EQ-es8" firstAttribute="top" secondItem="iXy-rV-Bpz" secondAttribute="top" constant="12" id="KI6-bV-Dt3"/>
+                                            <constraint firstItem="Xe9-EQ-es8" firstAttribute="leading" secondItem="iXy-rV-Bpz" secondAttribute="leading" constant="12" id="pR0-DC-5p7"/>
+                                            <constraint firstAttribute="trailing" secondItem="Xe9-EQ-es8" secondAttribute="trailing" constant="12" id="qNO-5x-wCW"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="iXy-rV-Bpz" secondAttribute="trailing" id="ZYR-wG-0Cv"/>
+                                    <constraint firstItem="iXy-rV-Bpz" firstAttribute="leading" secondItem="o0H-5r-zru" secondAttribute="leading" id="wDs-wg-knS"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" name="AppBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Nug-sO-V5y" firstAttribute="trailing" secondItem="o0H-5r-zru" secondAttribute="trailing" constant="24" id="DEq-zp-fld"/>
+                            <constraint firstItem="o0H-5r-zru" firstAttribute="leading" secondItem="Nug-sO-V5y" secondAttribute="leading" constant="24" id="TmI-ph-OBC"/>
+                            <constraint firstItem="o0H-5r-zru" firstAttribute="top" secondItem="Nug-sO-V5y" secondAttribute="top" constant="24" id="dyg-jU-elO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Nug-sO-V5y"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Sync" image="arrow.clockwise.icloud" catalog="system" id="s8M-Qk-kJf"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="s8M-Qk-kJf"/>
+                    <connections>
+                        <outlet property="iCloudSwitchView" destination="iXy-rV-Bpz" id="Cfp-qN-Xid"/>
+                        <outlet property="iCloudSyncSwitch" destination="uWd-cN-EDt" id="uxj-2s-Mas"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xu2-gM-gmp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -805,7 +857,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.clockwise.icloud" catalog="system" width="64" height="44"/>
+        <image name="gear" catalog="system" width="64" height="58"/>
         <image name="list.dash" catalog="system" width="64" height="42"/>
         <image name="play.fill" catalog="system" width="58" height="64"/>
         <image name="plus.circle.fill" catalog="system" width="64" height="60"/>
