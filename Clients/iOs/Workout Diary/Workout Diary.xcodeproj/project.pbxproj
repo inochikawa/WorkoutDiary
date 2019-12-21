@@ -78,7 +78,7 @@
 		64200B3923ABA96B0027242F /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		64200B3C23ABAF140027242F /* iCloudSyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudSyncService.swift; sourceTree = "<group>"; };
 		64200B3E23ABAF4A0027242F /* iCloudRecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudRecordType.swift; sourceTree = "<group>"; };
-		646521322397399A00A1154F /* Workout Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workout Diary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		646521322397399A00A1154F /* Dumbbells Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dumbbells Notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		646521352397399A00A1154F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		646521372397399A00A1154F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6465213C2397399A00A1154F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 		646521332397399A00A1154F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				646521322397399A00A1154F /* Workout Diary.app */,
+				646521322397399A00A1154F /* Dumbbells Notes.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -389,7 +389,7 @@
 			);
 			name = "Workout Diary";
 			productName = "Workout Diary";
-			productReference = 646521322397399A00A1154F /* Workout Diary.app */;
+			productReference = 646521322397399A00A1154F /* Dumbbells Notes.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -690,7 +690,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "maxim.stecenko.Workout-Diary";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Dumbbells Notes";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -711,7 +711,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "maxim.stecenko.Workout-Diary";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Dumbbells Notes";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
