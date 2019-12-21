@@ -532,11 +532,11 @@
             </objects>
             <point key="canvasLocation" x="-951" y="945"/>
         </scene>
-        <!--Trainings-->
+        <!--Workouts-->
         <scene sceneID="hjB-Et-gHC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QGN-5J-B1C" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Trainings" image="list.dash" catalog="system" id="Ctm-uO-5on"/>
+                    <tabBarItem key="tabBarItem" title="Workouts" image="list.dash" catalog="system" id="Ctm-uO-5on"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ygh-2w-sIn"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dg6-KK-BBd">
@@ -563,7 +563,7 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
-        <!--Workout Diary-->
+        <!--Workouts-->
         <scene sceneID="nAi-bE-UTr">
             <objects>
                 <viewController id="I19-Iy-TJb" customClass="TrainingListViewController" customModule="Workout_Diary" customModuleProvider="target" sceneMemberID="viewController">
@@ -641,7 +641,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Udv-gE-O0F"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Workout Diary" id="eui-Jx-sZX">
+                    <navigationItem key="navigationItem" title="Workouts" id="eui-Jx-sZX">
                         <barButtonItem key="backBarButtonItem" title="Back" id="aDt-ND-Kjm"/>
                     </navigationItem>
                     <connections>
