@@ -7,27 +7,43 @@
 //
 
 import UIKit
+import Resolver
 
 class SettingsViewController: UIViewController {
-
-    @IBOutlet weak var iCloudSyncSwitch: UISwitch!
-    @IBOutlet weak var iCloudSwitchView: UIView!
     
+    @IBOutlet weak var settingsListView: UITableView!
+    
+    var appSettings: AppSettings = Resolver.resolve();
+    
+    var settingSections: [SettingSection] {
+        let syncSection = SettingSection(header: "Synchronization", settings: [
+            SettingItemViewModel(
+                title: "Use iCloud",
+                key: AppSettings.Key.iCloudSync,
+                isOn: appSettings.enableICloudSync,
+                onSettingChange: { newValue in self.appSettings.enableICloudSync = newValue }
+            )
+        ])
+        
+        if self.appSettings.enableICloudSync {
+            syncSection.settings.append(
+                SettingItemViewModel(
+                    title: "Only through Wi-Fi",
+                    key: AppSettings.Key.wifiSync,
+                    isOn: appSettings.syncOnlyViaWiFi,
+                    onSettingChange: { newValue in self.appSettings.syncOnlyViaWiFi = newValue }
+                )
+            );
+        }
+        
+        return [syncSection];
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad();
-
-        setupICloudSyncSwitch();
-        self.iCloudSyncSwitch.addTarget(self, action: #selector(onICloudSyncSwitch), for: .valueChanged);
-    }
-    
-    @objc func onICloudSyncSwitch(_ sender: UISwitch) {
-        let syncService = ICloudSyncService();
-        syncService.isSyncEnabledByUserInTheApp = sender.isOn;
-    }
-    
-    func setupICloudSyncSwitch() {
-        iCloudSwitchView.layer.cornerRadius = 12;
-        let syncService = ICloudSyncService();
-        self.iCloudSyncSwitch.isOn = syncService.isSyncEnabledByUserInTheApp;
+        settingsListView.delegate = self;
+        settingsListView.dataSource = self;
+        
+        self.settingsListView.register(UINib(nibName: ConstantData.Nib.SettingsCellNibName, bundle: nil), forCellReuseIdentifier: ConstantData.Cell.SettingsCellId);
     }
 }

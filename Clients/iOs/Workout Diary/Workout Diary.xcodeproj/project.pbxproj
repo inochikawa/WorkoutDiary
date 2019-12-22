@@ -60,6 +60,12 @@
 		648466DF23ABCAD200205DCE /* ExerciseLoopDataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648466DE23ABCAD200205DCE /* ExerciseLoopDataObject.swift */; };
 		648466E223AC2B9B00205DCE /* UserDefaultPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648466E123AC2B9B00205DCE /* UserDefaultPropertyWrapper.swift */; };
 		648466E423AC487500205DCE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648466E323AC487500205DCE /* SettingsViewController.swift */; };
+		64A8CB7C23AEBAC50063A128 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A8CB7A23AEBAC50063A128 /* SettingsCell.swift */; };
+		64A8CB7D23AEBAC50063A128 /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A8CB7B23AEBAC50063A128 /* SettingsCell.xib */; };
+		64A8CB7F23AEBCBF0063A128 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A8CB7E23AEBCBF0063A128 /* SettingsViewModel.swift */; };
+		64A8CB8123AEBD8E0063A128 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A8CB8023AEBD8E0063A128 /* AppSettings.swift */; };
+		64A8CB8523AEC48F0063A128 /* SettingsViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A8CB8423AEC48F0063A128 /* SettingsViewControllerExtension.swift */; };
+		64A8CB8723AED6500063A128 /* ICloudAlertCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A8CB8623AED6500063A128 /* ICloudAlertCreator.swift */; };
 		64D7ABF423A804B50017147F /* TimeIntervalUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D7ABF323A804B50017147F /* TimeIntervalUtil.swift */; };
 		64D7ABF623A807840017147F /* IntUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D7ABF523A807840017147F /* IntUtil.swift */; };
 		C1648AFED7131D96D4FBD0C6 /* Pods_Workout_Diary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A374B748E0304397AD04175 /* Pods_Workout_Diary.framework */; };
@@ -122,6 +128,12 @@
 		648466DE23ABCAD200205DCE /* ExerciseLoopDataObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseLoopDataObject.swift; sourceTree = "<group>"; };
 		648466E123AC2B9B00205DCE /* UserDefaultPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultPropertyWrapper.swift; sourceTree = "<group>"; };
 		648466E323AC487500205DCE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		64A8CB7A23AEBAC50063A128 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		64A8CB7B23AEBAC50063A128 /* SettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
+		64A8CB7E23AEBCBF0063A128 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		64A8CB8023AEBD8E0063A128 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		64A8CB8423AEC48F0063A128 /* SettingsViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerExtension.swift; sourceTree = "<group>"; };
+		64A8CB8623AED6500063A128 /* ICloudAlertCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudAlertCreator.swift; sourceTree = "<group>"; };
 		64D7ABF323A804B50017147F /* TimeIntervalUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalUtil.swift; sourceTree = "<group>"; };
 		64D7ABF523A807840017147F /* IntUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntUtil.swift; sourceTree = "<group>"; };
 		8A374B748E0304397AD04175 /* Pods_Workout_Diary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Workout_Diary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,6 +242,7 @@
 				6465215B23973BA700A1154F /* Models */,
 				6465218E239996EC00A1154F /* AppStore.swift */,
 				6465215023973B5D00A1154F /* DataSource.swift */,
+				64A8CB8023AEBD8E0063A128 /* AppSettings.swift */,
 			);
 			path = WD.Store;
 			sourceTree = "<group>";
@@ -264,6 +277,7 @@
 				6465216C23973CCB00A1154F /* TrainingDetailsViewModel.swift */,
 				6465216E23973CCB00A1154F /* TrainingListViewModel.swift */,
 				646521902399C32900A1154F /* TrainingListSectionsViewModel.swift */,
+				64A8CB7E23AEBCBF0063A128 /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -280,11 +294,13 @@
 		6465217B23994FE300A1154F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				64A8CB7523AEBA450063A128 /* SettingsCell */,
 				647A1DE3239BD84B004D9D89 /* Extensions */,
 				647A1DDC239BCCF5004D9D89 /* ExerciseLoopCell */,
 				646521922399D3F600A1154F /* ExerciseCell */,
 				64652182239950F500A1154F /* TrainingListCellView */,
 				640513D723A1138600303AB0 /* ItemActionContextMenuConfiguration.swift */,
+				64A8CB8623AED6500063A128 /* ICloudAlertCreator.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -320,6 +336,7 @@
 				640513D523A0328000303AB0 /* EditExerciseLoopModalViewControllerExtension.swift */,
 				640513DB23A1750E00303AB0 /* EditExerciseModalViewControllerExtension.swift */,
 				64200B3523AA8CCC0027242F /* EditTrainingModalViewControllerExtension.swift */,
+				64A8CB8423AEC48F0063A128 /* SettingsViewControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -359,6 +376,15 @@
 				648466DE23ABCAD200205DCE /* ExerciseLoopDataObject.swift */,
 			);
 			path = DataObjects;
+			sourceTree = "<group>";
+		};
+		64A8CB7523AEBA450063A128 /* SettingsCell */ = {
+			isa = PBXGroup;
+			children = (
+				64A8CB7A23AEBAC50063A128 /* SettingsCell.swift */,
+				64A8CB7B23AEBAC50063A128 /* SettingsCell.xib */,
+			);
+			path = SettingsCell;
 			sourceTree = "<group>";
 		};
 		D98BAA51DCA0C82693198691 /* Frameworks */ = {
@@ -430,6 +456,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64A8CB7D23AEBAC50063A128 /* SettingsCell.xib in Resources */,
 				646521422397399D00A1154F /* LaunchScreen.storyboard in Resources */,
 				647A1DE0239BCD3C004D9D89 /* ExerciseLoopCell.xib in Resources */,
 				646521862399514200A1154F /* TrainingListCell.xib in Resources */,
@@ -493,6 +520,7 @@
 				646521912399C32900A1154F /* TrainingListSectionsViewModel.swift in Sources */,
 				6465218D239995A000A1154F /* TrainingListViewControllerExtension.swift in Sources */,
 				648466DD23ABCA7C00205DCE /* ExerciseDataObject.swift in Sources */,
+				64A8CB8523AEC48F0063A128 /* SettingsViewControllerExtension.swift in Sources */,
 				64200B3D23ABAF140027242F /* iCloudSyncService.swift in Sources */,
 				6465216A23973CBC00A1154F /* TrainingModelExtension.swift in Sources */,
 				6465217223973CCB00A1154F /* TrainingListViewModel.swift in Sources */,
@@ -509,6 +537,7 @@
 				647A1DDF239BCD3C004D9D89 /* ExerciseLoopCell.swift in Sources */,
 				640513DC23A1750E00303AB0 /* EditExerciseModalViewControllerExtension.swift in Sources */,
 				646521362397399A00A1154F /* AppDelegate.swift in Sources */,
+				64A8CB7C23AEBAC50063A128 /* SettingsCell.swift in Sources */,
 				646521852399514200A1154F /* TrainingListCell.swift in Sources */,
 				648466DF23ABCAD200205DCE /* ExerciseLoopDataObject.swift in Sources */,
 				648466E423AC487500205DCE /* SettingsViewController.swift in Sources */,
@@ -522,6 +551,7 @@
 				64200B3823AAA7CF0027242F /* UIToolbarExtension.swift in Sources */,
 				6465216823973CBC00A1154F /* ExerciseLoopModelExtension.swift in Sources */,
 				64D7ABF423A804B50017147F /* TimeIntervalUtil.swift in Sources */,
+				64A8CB7F23AEBCBF0063A128 /* SettingsViewModel.swift in Sources */,
 				640513D823A1138600303AB0 /* ItemActionContextMenuConfiguration.swift in Sources */,
 				648466E223AC2B9B00205DCE /* UserDefaultPropertyWrapper.swift in Sources */,
 				6465216323973CB400A1154F /* ExerciseLoopModel.swift in Sources */,
@@ -534,8 +564,10 @@
 				6465216923973CBC00A1154F /* ExerciseModelExtension.swift in Sources */,
 				6465217523973CD400A1154F /* ExerciseViewModelExtension.swift in Sources */,
 				64200B3F23ABAF4A0027242F /* iCloudRecordType.swift in Sources */,
+				64A8CB8723AED6500063A128 /* ICloudAlertCreator.swift in Sources */,
 				6465215923973B9D00A1154F /* DateUtil.swift in Sources */,
 				64652181239950A100A1154F /* TrainingDetailsViewController.swift in Sources */,
+				64A8CB8123AEBD8E0063A128 /* AppSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

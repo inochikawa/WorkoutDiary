@@ -15,12 +15,14 @@ struct ConstantData {
         public static let TrainingListCellId = "TrainingListCell";
         public static let ExerciseCellId = "ExerciseCell";
         public static let ExerciseLoopCellId = "ExerciseLoopCell";
+        public static let SettingsCellId = "SettingsCell";
     }
     
     struct Nib {
         public static let TrainingListCellNibName = "TrainingListCell";
         public static let ExerciseCellNibName = "ExerciseCell";
         public static let ExerciseLoopCellNibName = "ExerciseLoopCell";
+        public static let SettingsCellNibName = "SettingsCell";
     }
     
     struct Segue {

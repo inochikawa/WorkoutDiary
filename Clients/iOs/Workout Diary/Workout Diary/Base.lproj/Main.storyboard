@@ -11,7 +11,7 @@
         <!--Details-->
         <scene sceneID="mQH-J8-gsP">
             <objects>
-                <viewController modalTransitionStyle="flipHorizontal" id="lGr-2R-8VP" userLabel="Details" customClass="TrainingDetailsViewController" customModule="Workout_Diary" customModuleProvider="target" colorLabel="IBBuiltInLabel-Green" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="flipHorizontal" id="lGr-2R-8VP" userLabel="Details" customClass="TrainingDetailsViewController" customModule="Dumbbells_Notes" customModuleProvider="target" colorLabel="IBBuiltInLabel-Green" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n3C-DI-GUA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -178,7 +178,7 @@
         <!--Edit Exercise ViewController-->
         <scene sceneID="EJv-Tj-rBm">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="w4q-16-ER3" userLabel="Edit Exercise ViewController" customClass="EditExerciseViewController" customModule="Workout_Diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="w4q-16-ER3" userLabel="Edit Exercise ViewController" customClass="EditExerciseViewController" customModule="Dumbbells_Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wsh-zC-SJj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -301,7 +301,7 @@
         <!--Edit exercise loop modal-->
         <scene sceneID="J6E-AQ-ZVK">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="8fl-kr-zMQ" userLabel="Edit exercise loop modal" customClass="EditExerciseLoopModalViewController" customModule="Workout_Diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="8fl-kr-zMQ" userLabel="Edit exercise loop modal" customClass="EditExerciseLoopModalViewController" customModule="Dumbbells_Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sy8-Tk-pux">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -467,65 +467,62 @@
         <!--Settings-->
         <scene sceneID="FhI-Gt-qLY">
             <objects>
-                <viewController id="9kU-cW-N7b" customClass="SettingsViewController" customModule="Workout_Diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9kU-cW-N7b" customClass="SettingsViewController" customModule="Dumbbells_Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3wB-mP-iBI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="o0H-5r-zru">
-                                <rect key="frame" x="24" y="68" width="327" height="119.66666666666669"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIb-p4-Y0n">
-                                        <rect key="frame" x="0.0" y="0.0" width="120.66666666666667" height="40.666666666666664"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iXy-rV-Bpz" userLabel="iCloud Switch View">
-                                        <rect key="frame" x="0.0" y="64.666666666666657" width="327" height="55"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Xe9-EQ-es8">
-                                                <rect key="frame" x="12" y="12" width="303" height="31"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud Synchronization" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noX-xV-bU7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="242" height="31"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <color key="textColor" name="AppTextColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uWd-cN-EDt">
-                                                        <rect key="frame" x="254" y="0.0" width="51" height="31"/>
-                                                    </switch>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <color key="backgroundColor" name="PanelBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Xe9-EQ-es8" secondAttribute="bottom" constant="12" id="1Xi-lC-63K"/>
-                                            <constraint firstItem="Xe9-EQ-es8" firstAttribute="top" secondItem="iXy-rV-Bpz" secondAttribute="top" constant="12" id="KI6-bV-Dt3"/>
-                                            <constraint firstItem="Xe9-EQ-es8" firstAttribute="leading" secondItem="iXy-rV-Bpz" secondAttribute="leading" constant="12" id="pR0-DC-5p7"/>
-                                            <constraint firstAttribute="trailing" secondItem="Xe9-EQ-es8" secondAttribute="trailing" constant="12" id="qNO-5x-wCW"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="iXy-rV-Bpz" secondAttribute="trailing" id="ZYR-wG-0Cv"/>
-                                    <constraint firstItem="iXy-rV-Bpz" firstAttribute="leading" secondItem="o0H-5r-zru" secondAttribute="leading" id="wDs-wg-knS"/>
-                                </constraints>
-                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="neI-fG-112">
+                                <rect key="frame" x="0.0" y="44" width="375" height="685"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Settings List Cell" id="uRy-Gl-g1a">
+                                        <rect key="frame" x="15" y="55.333332061767578" width="345" height="71.333335876464844"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uRy-Gl-g1a" id="reO-kb-TJv">
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="71.333335876464844"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gsi-JY-D48">
+                                                    <rect key="frame" x="20" y="20" width="305" height="31.333333333333329"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xrz-7K-rDO">
+                                                            <rect key="frame" x="0.0" y="0.0" width="256" height="31.333333333333332"/>
+                                                            <accessibility key="accessibilityConfiguration" label="label"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hf6-vd-9jC">
+                                                            <rect key="frame" x="256" y="0.0" width="51" height="31.333333333333332"/>
+                                                            <accessibility key="accessibilityConfiguration" label="switch"/>
+                                                        </switch>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Gsi-JY-D48" firstAttribute="top" secondItem="reO-kb-TJv" secondAttribute="top" constant="20" symbolic="YES" id="XJT-fu-5KX"/>
+                                                <constraint firstAttribute="trailing" secondItem="Gsi-JY-D48" secondAttribute="trailing" constant="20" symbolic="YES" id="dY3-IT-AdA"/>
+                                                <constraint firstItem="Gsi-JY-D48" firstAttribute="leading" secondItem="reO-kb-TJv" secondAttribute="leading" constant="20" symbolic="YES" id="lCa-FC-n0b"/>
+                                                <constraint firstAttribute="bottom" secondItem="Gsi-JY-D48" secondAttribute="bottom" constant="20" symbolic="YES" id="yvT-DT-7dp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" name="AppBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Nug-sO-V5y" firstAttribute="trailing" secondItem="o0H-5r-zru" secondAttribute="trailing" constant="24" id="DEq-zp-fld"/>
-                            <constraint firstItem="o0H-5r-zru" firstAttribute="leading" secondItem="Nug-sO-V5y" secondAttribute="leading" constant="24" id="TmI-ph-OBC"/>
-                            <constraint firstItem="o0H-5r-zru" firstAttribute="top" secondItem="Nug-sO-V5y" secondAttribute="top" constant="24" id="dyg-jU-elO"/>
+                            <constraint firstItem="neI-fG-112" firstAttribute="leading" secondItem="Nug-sO-V5y" secondAttribute="leading" id="BEh-aN-C3u"/>
+                            <constraint firstItem="Nug-sO-V5y" firstAttribute="bottom" secondItem="neI-fG-112" secondAttribute="bottom" id="dSi-6E-dka"/>
+                            <constraint firstItem="Nug-sO-V5y" firstAttribute="trailing" secondItem="neI-fG-112" secondAttribute="trailing" id="ikL-UF-NiD"/>
+                            <constraint firstItem="neI-fG-112" firstAttribute="top" secondItem="Nug-sO-V5y" secondAttribute="top" id="sNg-tS-fOx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Nug-sO-V5y"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="s8M-Qk-kJf"/>
                     <connections>
-                        <outlet property="iCloudSwitchView" destination="iXy-rV-Bpz" id="Cfp-qN-Xid"/>
-                        <outlet property="iCloudSyncSwitch" destination="uWd-cN-EDt" id="uxj-2s-Mas"/>
+                        <outlet property="settingsListView" destination="neI-fG-112" id="FHp-KW-Fdz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xu2-gM-gmp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -566,7 +563,7 @@
         <!--Workouts-->
         <scene sceneID="nAi-bE-UTr">
             <objects>
-                <viewController id="I19-Iy-TJb" customClass="TrainingListViewController" customModule="Workout_Diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="I19-Iy-TJb" customClass="TrainingListViewController" customModule="Dumbbells_Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hJh-j3-E8t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -676,7 +673,7 @@
         <!--Edit Training Modal View Controller-->
         <scene sceneID="Xyp-D2-B7E">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="nie-hu-OZh" customClass="EditTrainingModalViewController" customModule="Workout_Diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="nie-hu-OZh" customClass="EditTrainingModalViewController" customModule="Dumbbells_Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AmL-Z7-RSh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

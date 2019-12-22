@@ -16,6 +16,7 @@ class TrainingListViewController: UIViewController {
     var sections: [TrainingListSection] = [];
     
     let store: AppStore = Resolver.resolve();
+    let appSettings: AppSettings = Resolver.resolve();
     let syncService = ICloudSyncService();
     
     var selectedTrainingId: String?;
@@ -239,8 +240,6 @@ class TrainingListViewController: UIViewController {
     }
     
     private func verifyICloudSignIn(successBlock: @escaping () -> Void) {
-        let iCloudService = ICloudSyncService();
-        
         self.syncService.checkIfICloudContainerAvailable { (isOk) in
             if isOk {
                 DispatchQueue.main.async {
@@ -249,18 +248,9 @@ class TrainingListViewController: UIViewController {
                 return;
             }
             
-            if !iCloudService.didUserConfirmToEnableICloud {
+            if !self.syncService.didUserConfirmToEnableICloud && self.appSettings.enableICloudSync {
                 DispatchQueue.main.async {
-                    let alert = UIAlertController(
-                        title: "Sign in to iCloud",
-                        message: "Sign in to your iCloud account to write records.\n\nOn the Home screen, launch Settings, tap iCloud, and enter your Apple ID. Turn iCloud Drive on. If you don't have an iCloud account, tap Create a new Apple ID.",
-                        preferredStyle: .actionSheet
-                    );
-                    alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { action in
-                        iCloudService.didUserConfirmToEnableICloud = true;
-                    }))
-                    
-                    self.present(alert, animated: true);
+                    presentICloudAlert(from: self);
                 }
             }
         }

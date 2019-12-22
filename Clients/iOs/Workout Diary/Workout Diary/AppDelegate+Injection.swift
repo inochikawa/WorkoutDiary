@@ -7,11 +7,15 @@
 //
 
 import Resolver
+import Network
 
 extension Resolver: ResolverRegistering {
     public static func registerAllServices() {
         // by default scope is Unique
         register { DataSource() }
+        register { ICloudSyncService() }
         register { AppStore() }.scope(application)
+        register { NWPathMonitor() }.scope(application)
+        register { AppSettings() }.scope(application)
     }
 }

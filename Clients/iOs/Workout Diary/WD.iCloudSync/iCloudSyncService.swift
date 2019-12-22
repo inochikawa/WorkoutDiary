@@ -9,10 +9,14 @@
 import Foundation
 import CloudKit
 import UIKit
+import Resolver
+import Network
 
 class ICloudSyncService {
     private var _containerKey = "iCloud.maxim.stecenko.Workout-Diary";
     private var _container: CKContainer!;
+    
+    var appSettings: AppSettings = Resolver.resolve();
     
     var container: CKContainer {
         if _container == nil {
@@ -28,47 +32,68 @@ class ICloudSyncService {
     
     @UserDefault<Bool>("didUserConfirmToEnableICloud", defaultValue: false)
     var didUserConfirmToEnableICloud: Bool;
-    
-    @UserDefault<Bool>("isSyncEnabledByUserInTheApp", defaultValue: true)
-    var isSyncEnabledByUserInTheApp: Bool;
-    
+    var isWiFiConnected: Bool {
+        let monitor: NWPathMonitor = Resolver.resolve();
+        return monitor.currentPath.usesInterfaceType(.wifi);
+    }
+    var isNetworkConnected: Bool {
+        let monitor: NWPathMonitor = Resolver.resolve();
+        return monitor.currentPath.usesInterfaceType(.cellular)
+            || monitor.currentPath.usesInterfaceType(.wifi)
+            || monitor.currentPath.usesInterfaceType(.wiredEthernet);
+    }
+    var canUseNetworkForSync: Bool {
+        return isNetworkConnected
+            && (!appSettings.syncOnlyViaWiFi || (appSettings.syncOnlyViaWiFi && isWiFiConnected));
+    }
+
     func checkIfICloudContainerAvailable(completionBlock: @escaping (Bool) -> Void) {
         print("Try get account status");
-        showNetworkIndicator();
-        container.accountStatus { status, error in
-            if let error = error {
-              // some error occurred (probably a failed connection, try again)
-              print("Error while fetching account status: \(error)")
-            } else {
-                switch status {
-                case .available:
-                    print("The user is logged in");
-                    break
-                case .noAccount:
-                    print("The user is NOT logged in");
-                    break;
-                case .couldNotDetermine:
-                    print("For some reason, the status could not be determined (try again)");
-                    break;
-                case .restricted:
-                    print("iCloud settings are restricted by parental controls or a configuration profile");
-                    break;
-                @unknown default:
-                    print("Unkown status");
-                    break;
+        
+        if !self.appSettings.enableICloudSync {
+            print("Sync disabled in the app by User");
+            completionBlock(false);
+        } else {
+            showNetworkIndicator();
+            container.accountStatus { status, error in
+                if let error = error {
+                  // some error occurred (probably a failed connection, try again)
+                  print("Error while fetching account status: \(error)")
+                } else {
+                    switch status {
+                    case .available:
+                        print("The user is logged in");
+                        break
+                    case .noAccount:
+                        print("The user is NOT logged in");
+                        break;
+                    case .couldNotDetermine:
+                        print("For some reason, the status could not be determined (try again)");
+                        break;
+                    case .restricted:
+                        print("iCloud settings are restricted by parental controls or a configuration profile");
+                        break;
+                    @unknown default:
+                        print("Unkown status");
+                        break;
+                    }
+                    
+                    completionBlock(status == .available);
                 }
-                
-                if !self.isSyncEnabledByUserInTheApp {
-                    print("Sync disabled in the app by User");
-                }
-                
-                completionBlock(status == .available && self.isSyncEnabledByUserInTheApp);
+                self.hideNetworkIndicator();
             }
-            self.hideNetworkIndicator();
         }
     }
     
     func trySaveRecords(_ records: [CKRecord], completionBlock: ((Bool) -> Void)?) {
+        if !canUseNetworkForSync {
+            print("Network is not available");
+            if completionBlock != nil {
+                completionBlock!(false);
+            }
+            return;
+        }
+        
         var completedResults: [Bool] = [];
         
         if records.count == 0 {
@@ -93,6 +118,14 @@ class ICloudSyncService {
     
     func tryRemoveRecord(_ recordId: String, successBlock: (() -> Void)?, errorBlock: ((Error) -> Void)?) {
         print("Try to remove record \(recordId)")
+        if !canUseNetworkForSync {
+            print("Network is not available");
+            if let saveErrorBlock = errorBlock {
+                saveErrorBlock(NSError(domain: "", code: 0, userInfo: nil));
+            }
+            return;
+        }
+        
         showNetworkIndicator();
         privateDB.delete(withRecordID: CKRecord.ID(recordName: recordId)) { (deletedRecordId, error) in
             self.hideNetworkIndicator();
@@ -111,7 +144,15 @@ class ICloudSyncService {
     }
     
     func trySaveRecord(_ record: CKRecord, completionBlock: ((Bool) -> Void)?) {
-        print("Try to remove record \(record.recordID.recordName)")
+        print("Try to save record \(record.recordID.recordName)")
+        if !canUseNetworkForSync {
+            print("Network is not available");
+            
+            if completionBlock != nil {
+                completionBlock!(false);
+            }
+            return;
+        }
         showNetworkIndicator();
         privateDB.delete(withRecordID: record.recordID) { (recordId, error) in
             if error != nil {
@@ -137,6 +178,15 @@ class ICloudSyncService {
     }
     
     func fetchAllRecords(successBlock: (([TrainingDataObject]) -> Void)?, errorBlock: ((Error?) -> Void)?) {
+        print("Try fetch all data");
+        if !canUseNetworkForSync {
+            print("Network is not available");
+            if let saveErrorBlock = errorBlock {
+                saveErrorBlock(NSError(domain: "", code: 0, userInfo: nil));
+            }
+            return;
+        }
+        
         let predicate = NSPredicate(value: true);
         let query = CKQuery(recordType: ICloudRecordType.Training.typeName, predicate: predicate);
         let operation = CKQueryOperation(query: query);
@@ -162,7 +212,6 @@ class ICloudSyncService {
         }
         
         showNetworkIndicator();
-        print("Try fetch all data");
         privateDB.add(operation);
     }
     
