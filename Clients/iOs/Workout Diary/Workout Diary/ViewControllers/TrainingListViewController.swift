@@ -193,7 +193,7 @@ class TrainingListViewController: UIViewController {
         }
         
         if onThisWeekTrainings.count > 0 {
-            res.append(TrainingListSection(name: "On This Week", trainings: onThisWeekTrainings));
+            res.append(TrainingListSection(name: "Last 7 days", trainings: onThisWeekTrainings));
         }
         
         if olderTrainings.count > 0 {
