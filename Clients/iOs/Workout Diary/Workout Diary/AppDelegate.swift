@@ -27,6 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let queue = DispatchQueue.global(qos: .background)
         monitor.start(queue: queue);
         
+        
+        sd
+        fs
+        df
+        sfsdf
+        sdf
+        sdf
+        sdfsdf
+        sdf
         return true
     }
 
