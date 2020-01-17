@@ -10,6 +10,7 @@
 "Minutes" = "m";
 "Seconds" = "s";
 "CountOfReps" = "reps";
+"WeightShort" = "kg";
 "AtTime" = "at";
 
 "SettingsSyncHeader" = "Synchronization";
@@ -20,3 +21,19 @@
 "TrainingListYesterdayHeader" = "Yesterday";
 "TrainingListLast7DaysHeader" = "Last 7 Days";
 "TrainingListOlderHeader" = "Older";
+
+"RefreshingData" = "Refreshing data";
+"UIToolbarDone" = "Done";
+
+"ItemActionContextEdit" = "Edit";
+"ItemActionContextRemove" = "Remove";
+"ItemActionContextChooseAction" = "Choose action";
+
+"UIAlertEditTrainingTitle" = "Training is still in progress";
+"UIAlertEditTrainingMessage" = "You need to stop selected training before you can edit it.";
+"UIAlertEditTrainingStopActionTitle" = "Stop Training and Edit";
+"UIAlertEditTrainingCancelActionTitle" = "Cancel";
+
+"UIAlertSigninICloudTitle" = "Sign in to iCloud";
+"UIAlertSigninICloudMessage" = "Sign in to your iCloud account to write records.\n\nOn the Home screen, launch Settings, tap iCloud, and enter your Apple ID. Turn iCloud Drive on. If you don't have an iCloud account, tap Create a new Apple ID.";
+"UIAlertSigninICloudOkActionTitle" = "Okay";

@@ -36,13 +36,13 @@ class ExerciseLoopCell: UICollectionViewCell {
             self.reservedRepeatsLabel.isHidden = true;
             self.mainLoopView.isHidden = false;
             
-            self.weightLabel.text = "\(exerciseLoopViewModel.weight) kg";
-            self.repeatsLabel.text = "\(exerciseLoopViewModel.repeats) reps";
+            self.weightLabel.text = "\(exerciseLoopViewModel.weight) \(NSLocalizedString(ConstantData.LocalizeName.WeightShort, comment: ""))";
+            self.repeatsLabel.text = "\(exerciseLoopViewModel.repeats) \(NSLocalizedString(ConstantData.LocalizeName.CountOfReps, comment: ""))";
         } else  {
             self.reservedRepeatsLabel.isHidden = false;
             self.mainLoopView.isHidden = true;
             
-            self.reservedRepeatsLabel.text = "\(exerciseLoopViewModel.repeats) reps";
+            self.reservedRepeatsLabel.text = "\(exerciseLoopViewModel.repeats) \(NSLocalizedString(ConstantData.LocalizeName.CountOfReps, comment: ""))";
         }
     }
 }

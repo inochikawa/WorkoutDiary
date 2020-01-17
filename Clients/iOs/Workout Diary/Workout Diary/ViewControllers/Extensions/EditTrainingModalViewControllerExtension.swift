@@ -30,7 +30,7 @@ extension EditTrainingModalViewController: UIPickerViewDelegate {
         let minutes = pickerView.selectedRow(inComponent: 1);
         let seconds = pickerView.selectedRow(inComponent: 2);
         
-        self.spentTimeTextField.text = String(format: "%.1dh %.2dm %.2ds", hours, minutes, seconds);
+        self.spentTimeTextField.text = (hours * 3600 + minutes * 60 + seconds).toTimeString();
         self.trainingListViewModel.spentTime = hours * 3600 + minutes * 60 + seconds;
     }
 }

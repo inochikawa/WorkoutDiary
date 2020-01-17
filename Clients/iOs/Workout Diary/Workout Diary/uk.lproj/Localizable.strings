@@ -6,11 +6,12 @@
   Copyright © 2020 Maxim Stecenko. All rights reserved.
 */
 
-"Hours" = "год";
+"Hours" = "г";
 "Minutes" = "хв";
 "Seconds" = "сек";
 "CountOfReps" = "повт";
-"AtTime" = "о";
+"WeightShort" = "кг";
+"AtTime" = "о годині";
 
 "SettingsSyncHeader" = "Синхронізація";
 "SettingsUseICloud" = "Використовувати iCloud";
@@ -20,3 +21,20 @@
 "TrainingListYesterdayHeader" = "Вчора";
 "TrainingListLast7DaysHeader" = "Останні 7 днів";
 "TrainingListOlderHeader" = "Давніші";
+
+"RefreshingData" = "Оновлення даних";
+"UIToolbarDone" = "Добре";
+
+
+"ItemActionContextEdit" = "Редагувати";
+"ItemActionContextRemove" = "Видалити";
+"ItemActionContextChooseAction" = "Оберіть дію";
+
+"UIAlertEditTrainingTitle" = "Тренування все ще виконується";
+"UIAlertEditTrainingMessage" = "Зупиніть тренування перш ніж редагувати його.";
+"UIAlertEditTrainingStopActionTitle" = "Зупинити тренування і редагувати";
+"UIAlertEditTrainingCancelActionTitle" = "Видмінити";
+
+"UIAlertSigninICloudTitle" = "Увійдіть у iCloud";
+"UIAlertSigninICloudMessage" = "Увійдіть до свого облікового запису iCloud, щоб синхронізувати дані. \n\nНа головному екрані запустіть Налаштування, торкніться iCloud та введіть свій Apple ID. Увімкніть iCloud Drive. Якщо у вас немає облікового запису iCloud, натисніть Створити новий обліковий запис Apple.";
+"UIAlertSigninICloudOkActionTitle" = "Добре";

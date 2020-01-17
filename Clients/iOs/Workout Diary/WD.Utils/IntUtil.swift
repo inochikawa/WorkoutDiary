@@ -13,7 +13,11 @@ extension Int {
         let seconds = self % 60
         let minutes = (self / 60) % 60
         let hours = (self / 3600)
+        
+        let timeStringFormat = "%.1d" + NSLocalizedString(ConstantData.LocalizeName.Hours, comment: "")
+        + " %.2d" + NSLocalizedString(ConstantData.LocalizeName.Minutes, comment: "")
+        + " %.2d" + NSLocalizedString(ConstantData.LocalizeName.Seconds, comment: "");
 
-        return String(format: "%0.1dh %0.2dm %0.2ds",hours,minutes,seconds)
+        return String(format: timeStringFormat, hours, minutes, seconds)
     }
 }

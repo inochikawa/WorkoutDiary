@@ -21,7 +21,7 @@ extension UIToolbar {
         toolBar.tintColor = UIColor(named: ConstantData.Color.OkButton);
         toolBar.sizeToFit();
         
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: onDoneTap);
+        let doneButton = UIBarButtonItem(title: NSLocalizedString(ConstantData.LocalizeName.UIToolbarDone, comment: ""), style: UIBarButtonItem.Style.done, target: self, action: onDoneTap);
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil);
         
         toolBar.setItems([ spaceButton, doneButton], animated: false);

@@ -67,9 +67,9 @@ class TrainingListViewController: UIViewController {
         
         if selectedTraining.isInProgress {
             
-            let alert = UIAlertController(title: "Training is still in progress", message: "You need to stop selected training before you can edit it.", preferredStyle: .actionSheet);
+            let alert = UIAlertController(title: NSLocalizedString(ConstantData.LocalizeName.UIAlertEditTrainingTitle, comment: ""), message: NSLocalizedString(ConstantData.LocalizeName.UIAlertEditTrainingMessage, comment: ""), preferredStyle: .actionSheet);
             
-            alert.addAction(UIAlertAction(title: "Stop Training and Edit", style: .default, handler: { (alertAction) -> Void in
+            alert.addAction(UIAlertAction(title: NSLocalizedString(ConstantData.LocalizeName.UIAlertEditTrainingStopActionTitle, comment: ""), style: .default, handler: { (alertAction) -> Void in
                 selectedTraining.isInProgress = false;
                 selectedTraining.finishedDate = Date();
                 self.store.updateTraining(from: selectedTraining);
@@ -88,7 +88,7 @@ class TrainingListViewController: UIViewController {
                 
                 navigateToDetailsAction();
             }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: NSLocalizedString(ConstantData.LocalizeName.UIAlertEditTrainingCancelActionTitle, comment: ""), style: .cancel, handler: nil))
             
             self.present(alert, animated: true);
             
@@ -185,19 +185,19 @@ class TrainingListViewController: UIViewController {
         let olderTrainings = trainings.filter {i in !i.date.isToday() && !i.date.isYesterday() && !i.date.isOnThisWeek()};
         
         if todaysTrainings.count > 0 {
-            res.append(TrainingListSection(name: "Today", trainings: todaysTrainings));
+            res.append(TrainingListSection(name: NSLocalizedString(ConstantData.LocalizeName.TrainingListTodayHeader, comment: ""), trainings: todaysTrainings));
         }
         
         if yesterdaysTrainings.count > 0 {
-            res.append(TrainingListSection(name: "Yesterday", trainings: yesterdaysTrainings));
+            res.append(TrainingListSection(name: NSLocalizedString(ConstantData.LocalizeName.TrainingListYesterdayHeader, comment: ""), trainings: yesterdaysTrainings));
         }
         
         if onThisWeekTrainings.count > 0 {
-            res.append(TrainingListSection(name: "Last 7 days", trainings: onThisWeekTrainings));
+            res.append(TrainingListSection(name: NSLocalizedString(ConstantData.LocalizeName.TrainingListLast7DaysHeader, comment: ""), trainings: onThisWeekTrainings));
         }
         
         if olderTrainings.count > 0 {
-            res.append(TrainingListSection(name: "Older", trainings: olderTrainings));
+            res.append(TrainingListSection(name: NSLocalizedString(ConstantData.LocalizeName.TrainingListOlderHeader, comment: ""), trainings: olderTrainings));
         }
         
         self.sections = res;
@@ -225,7 +225,7 @@ class TrainingListViewController: UIViewController {
     private func setUpRefreshControl() {
         self.listTableView.refreshControl = UIRefreshControl();
         
-        self.listTableView.refreshControl?.attributedTitle = NSAttributedString(string: "Refreshing data");
+        self.listTableView.refreshControl?.attributedTitle = NSAttributedString(string: NSLocalizedString(ConstantData.LocalizeName.RefreshingData, comment: ""));
         self.listTableView.refreshControl?.tintColor = UIColor(named: ConstantData.Color.CancelButton);
         self.listTableView.refreshControl?.addTarget(self, action: #selector(self.onRefreshControlTrigger), for: .valueChanged)
     }

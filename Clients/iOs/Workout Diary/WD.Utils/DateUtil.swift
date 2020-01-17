@@ -17,7 +17,7 @@ extension Date {
     }
     
     public func toUserFriendlyString() -> String {
-        return "\(self.toString(formatString: "dd MMM, yyyy")) at \(self.toString(formatString: "HH:mm"))";
+        return "\(self.toString(formatString: "dd MMM, yyyy")) \(NSLocalizedString(ConstantData.LocalizeName.AtTime, comment: "")) \(self.toString(formatString: "HH:mm"))";
     }
     
     public func isToday() -> Bool {

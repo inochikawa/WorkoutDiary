@@ -87,16 +87,16 @@
 "cuS-w9-yEq.text" = "1h 28m 23s";
 
 /* Class = "UISegmentedControl"; dcw-Zs-Kll.segmentTitles[0] = "1 kg"; ObjectID = "dcw-Zs-Kll"; */
-"dcw-Zs-Kll.segmentTitles[0]" = "1 kg";
+"dcw-Zs-Kll.segmentTitles[0]" = "1 кг";
 
 /* Class = "UISegmentedControl"; dcw-Zs-Kll.segmentTitles[1] = "2.5 kg"; ObjectID = "dcw-Zs-Kll"; */
-"dcw-Zs-Kll.segmentTitles[1]" = "2.5 kg";
+"dcw-Zs-Kll.segmentTitles[1]" = "2.5 кг";
 
 /* Class = "UISegmentedControl"; dcw-Zs-Kll.segmentTitles[2] = "5 kg"; ObjectID = "dcw-Zs-Kll"; */
-"dcw-Zs-Kll.segmentTitles[2]" = "5 kg";
+"dcw-Zs-Kll.segmentTitles[2]" = "5 кг";
 
 /* Class = "UISegmentedControl"; dcw-Zs-Kll.segmentTitles[3] = "10 kg"; ObjectID = "dcw-Zs-Kll"; */
-"dcw-Zs-Kll.segmentTitles[3]" = "10 kg";
+"dcw-Zs-Kll.segmentTitles[3]" = "10 кг";
 
 /* Class = "UINavigationItem"; title = "Workouts"; ObjectID = "eui-Jx-sZX"; */
 "eui-Jx-sZX.title" = "Тренування";
