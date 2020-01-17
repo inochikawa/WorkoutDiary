@@ -40,4 +40,21 @@ struct ConstantData {
         public static let ToolbarForPicker = "ToolbarForPickerColor";
     }
     
+    struct LocalizeName {
+        public static let Hours = "Hours";
+        public static let Minutes = "Minutes";
+        public static let Seconds = "Seconds";
+        public static let CountOfReps = "CountOfReps";
+        public static let AtTime = "AtTime";
+
+        public static let SettingsSyncHeader = "SettingsSyncHeader";
+        public static let SettingsUseICloud = "SettingsUseICloud";
+        public static let SettingsOnlyThroughWifi = "SettingsOnlyThroughWifi";
+
+        public static let TrainingListTodayHeader = "TrainingListTodayHeader";
+        public static let TrainingListYesterdayHeader = "TrainingListYesterdayHeader";
+        public static let TrainingListLast7DaysHeader = "TrainingListLast7DaysHeader";
+        public static let TrainingListOlderHeader = "TrainingListOlderHeader";
+    }
+    
 }

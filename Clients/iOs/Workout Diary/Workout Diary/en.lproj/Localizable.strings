@@ -1,0 +1,22 @@
+/* 
+  localizable.strings
+  Workout Diary
+
+  Created by Maxim Stecenko on 18.01.2020.
+  Copyright © 2020 Maxim Stecenko. All rights reserved.
+*/
+
+"Hours" = "h";
+"Minutes" = "m";
+"Seconds" = "s";
+"CountOfReps" = "reps";
+"AtTime" = "at";
+
+"SettingsSyncHeader" = "Synchronization";
+"SettingsUseICloud" = "Use iCloud";
+"SettingsOnlyThroughWifi" = "Only through Wi-Fi";
+
+"TrainingListTodayHeader" = "Today";
+"TrainingListYesterdayHeader" = "Yesterday";
+"TrainingListLast7DaysHeader" = "Last 7 Days";
+"TrainingListOlderHeader" = "Older";
