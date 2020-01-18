@@ -55,14 +55,13 @@ class TrainingDetailsViewController: UIViewController {
 
             self.refreshSpentTimeLabel();
             
-            if self.trainingDetailsViewModel!.isInProgress {
-                // calculate difference of spent time if User closed this view but training was in progress
-                let timeDiff = Date().timeIntervalSince(self.trainingDetailsViewModel!.finishedDate!).getSeconds();
-                self.trainingDetailsViewModel!.spentTime += timeDiff;
-                self.setupProgressTimer();
-            }
+            recalculateTrainingSpentTime();
+            setupProgressTimer();
             
             self.refreshCompletedExercisesCountLabel();
+
+            NotificationCenter.default.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil);
+            NotificationCenter.default.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil);
         }
     }
     
@@ -140,18 +139,21 @@ class TrainingDetailsViewController: UIViewController {
     }
     
     func setupProgressTimer() {
-        self.progressTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: {t in
-            self.trainingDetailsViewModel!.spentTime += 1;
-            self.trainingDetailsViewModel!.finishedDate = Date();
-            
-            self.store.updateTrainingSpentTimeAndFinishedDate(
-                trainingId: self.trainingDetailsViewModel!.id,
-                spentTime: self.trainingDetailsViewModel!.spentTime,
-                finishedDate: self.trainingDetailsViewModel!.finishedDate!
-            );
-            
-            self.refreshSpentTimeLabel();
-        });
+        if trainingDetailsViewModel!.isInProgress {
+            self.progressTimer?.invalidate();
+            self.progressTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: {t in
+                self.trainingDetailsViewModel!.spentTime += 1;
+                self.trainingDetailsViewModel!.finishedDate = Date();
+                
+                self.store.updateTrainingSpentTimeAndFinishedDate(
+                    trainingId: self.trainingDetailsViewModel!.id,
+                    spentTime: self.trainingDetailsViewModel!.spentTime,
+                    finishedDate: self.trainingDetailsViewModel!.finishedDate!
+                );
+                
+                self.refreshSpentTimeLabel();
+            });
+        }
     }
     
     func refreshSpentTimeLabel() {
@@ -167,6 +169,24 @@ class TrainingDetailsViewController: UIViewController {
             self.stopwatchImage.tintColor = UIColor(named: ConstantData.Color.CancelButton);
         } else {
             self.stopwatchImage.tintColor = UIColor(named: ConstantData.Color.OkButton);
+        }
+    }
+    
+    @objc func appMovedToBackground() {
+        // stop timer while app in background
+        progressTimer?.invalidate();
+    }
+
+    @objc func appMovedToForeground() {
+        recalculateTrainingSpentTime();
+        setupProgressTimer();
+    }
+    
+    func recalculateTrainingSpentTime() {
+        if self.trainingDetailsViewModel!.isInProgress {
+            // calculate difference of spent time if User closed this view but training was in progress
+            let timeDiff = Date().timeIntervalSince(self.trainingDetailsViewModel!.finishedDate!).getSeconds();
+            self.trainingDetailsViewModel!.spentTime += timeDiff;
         }
     }
 }

@@ -27,7 +27,7 @@ extension TrainingListViewController : UITableViewDataSource {
         let trainingListViewModel = self.sections[indexPath.section].trainings[indexPath.row];
         
         let cell = tableView.dequeueReusableCell(withIdentifier: ConstantData.Cell.TrainingListCellId, for: indexPath) as! TrainingListCell;
-        cell.setViewMode(trainingListViewModel);
+        cell.setViewModel(trainingListViewModel);
         
         return cell;
     }

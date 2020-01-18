@@ -30,6 +30,9 @@ class TrainingListCell: UITableViewCell {
         self.rootView.layer.shadowColor = UIColor(named: "PanelShadowColor")?.cgColor;
         self.rootView.layer.shadowOpacity = 1;
         self.rootView.layer.shadowRadius = 4;
+
+        NotificationCenter.default.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil);
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -42,14 +45,10 @@ class TrainingListCell: UITableViewCell {
         }
     }
     
-    func setViewMode(_ viewModel: TrainingListViewModel) {
+    func setViewModel(_ viewModel: TrainingListViewModel) {
         self.trainingListViewModel = viewModel;
         
-        if self.trainingListViewModel.isInProgress {
-            // TODO: make refreshing spent time to store
-            let timeDiff = Date().timeIntervalSince(self.trainingListViewModel.finishedDate).getSeconds();
-            self.trainingListViewModel.spentTime += timeDiff;
-        }
+        recalculateSpentTime();
         
         self.trainingDateLabel.text = viewModel.name;
         self.completedExercisesLabel.text = String(viewModel.exercisesCount);
@@ -91,5 +90,22 @@ class TrainingListCell: UITableViewCell {
     
     func stopTrainingProgressTimer() {
         self.trainingProgressTimer?.invalidate();
+    }
+    
+    @objc func appMovedToBackground() {
+        self.stopTrainingProgressTimer();
+    }
+
+    @objc func appMovedToForeground() {
+        recalculateSpentTime();
+        setupTimer();
+    }
+    
+    func recalculateSpentTime() {
+        if self.trainingListViewModel.isInProgress {
+            // TODO: make refreshing spent time to store
+            let timeDiff = Date().timeIntervalSince(self.trainingListViewModel.finishedDate).getSeconds();
+            self.trainingListViewModel.spentTime += timeDiff;
+        }
     }
 }
