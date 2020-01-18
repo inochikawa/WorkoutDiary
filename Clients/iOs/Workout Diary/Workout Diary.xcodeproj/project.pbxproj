@@ -94,6 +94,11 @@
 		645200C723D26EDE00A37AA1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/TrainingListCell.strings; sourceTree = "<group>"; };
 		645200CB23D26F3F00A37AA1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		645200CD23D26F4100A37AA1 /* uk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		645200CE23D2812900A37AA1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		645200CF23D2812900A37AA1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		645200D023D2812900A37AA1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ExerciseLoopCell.strings; sourceTree = "<group>"; };
+		645200D123D2812900A37AA1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ExerciseCell.strings; sourceTree = "<group>"; };
+		645200D223D2812A00A37AA1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TrainingListCell.strings; sourceTree = "<group>"; };
 		646521322397399A00A1154F /* Dumbbells Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dumbbells Notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		646521352397399A00A1154F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		646521372397399A00A1154F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -449,6 +454,7 @@
 				en,
 				Base,
 				uk,
+				ru,
 			);
 			mainGroup = 646521292397399A00A1154F;
 			productRefGroup = 646521332397399A00A1154F /* Products */;
@@ -589,6 +595,7 @@
 			children = (
 				645200BA23D26E8F00A37AA1 /* Base */,
 				645200BD23D26E9900A37AA1 /* uk */,
+				645200D023D2812900A37AA1 /* ru */,
 			);
 			name = ExerciseLoopCell.xib;
 			sourceTree = "<group>";
@@ -598,6 +605,7 @@
 			children = (
 				645200BF23D26EAF00A37AA1 /* Base */,
 				645200C223D26EB500A37AA1 /* uk */,
+				645200D123D2812900A37AA1 /* ru */,
 			);
 			name = ExerciseCell.xib;
 			sourceTree = "<group>";
@@ -607,6 +615,7 @@
 			children = (
 				645200C423D26EDB00A37AA1 /* Base */,
 				645200C723D26EDE00A37AA1 /* uk */,
+				645200D223D2812A00A37AA1 /* ru */,
 			);
 			name = TrainingListCell.xib;
 			sourceTree = "<group>";
@@ -616,6 +625,7 @@
 			children = (
 				645200CB23D26F3F00A37AA1 /* en */,
 				645200CD23D26F4100A37AA1 /* uk */,
+				645200CF23D2812900A37AA1 /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -625,6 +635,7 @@
 			children = (
 				6465213C2397399A00A1154F /* Base */,
 				645200B823D26CD700A37AA1 /* uk */,
+				645200CE23D2812900A37AA1 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

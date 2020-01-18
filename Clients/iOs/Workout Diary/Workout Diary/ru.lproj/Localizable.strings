@@ -1,0 +1,39 @@
+/* 
+  localizable.strings
+  Workout Diary
+
+  Created by Maxim Stecenko on 18.01.2020.
+  Copyright © 2020 Maxim Stecenko. All rights reserved.
+*/
+
+"Hours" = "ч";
+"Minutes" = "мин";
+"Seconds" = "сек";
+"CountOfReps" = "повт";
+"WeightShort" = "кг";
+"AtTime" = "в";
+
+"SettingsSyncHeader" = "Синхронизация";
+"SettingsUseICloud" = "Использовать iCloud";
+"SettingsOnlyThroughWifi" = "Только через Wi-Fi";
+
+"TrainingListTodayHeader" = "Сегодня";
+"TrainingListYesterdayHeader" = "Вчера";
+"TrainingListLast7DaysHeader" = "За последние 7 дней";
+"TrainingListOlderHeader" = "Старше 7 дней";
+
+"RefreshingData" = "Обновленние данных";
+"UIToolbarDone" = "Готово";
+
+"ItemActionContextEdit" = "Редактировать";
+"ItemActionContextRemove" = "Удалить";
+"ItemActionContextChooseAction" = "Выберите действие";
+
+"UIAlertEditTrainingTitle" = "Тренировка все еще продолжается";
+"UIAlertEditTrainingMessage" = "Остановите тренировку прежде чем ее редактировать.";
+"UIAlertEditTrainingStopActionTitle" = "Остановить тренировку и редактировать";
+"UIAlertEditTrainingCancelActionTitle" = "Отменить";
+
+"UIAlertSigninICloudTitle" = "Войдите в iCloud";
+"UIAlertSigninICloudMessage" = "Войдите в свою учетную запись iCloud, чтобы записывать записи. \n\nНа главном экране запустите Настройки, нажмите iCloud и введите свой Apple ID. Включите iCloud Drive. Если у вас нет учетной записи iCloud, нажмите «Создать новый Apple ID».";
+"UIAlertSigninICloudOkActionTitle" = "Хорошо";
