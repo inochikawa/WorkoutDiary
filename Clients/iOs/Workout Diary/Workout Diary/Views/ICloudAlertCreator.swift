@@ -13,11 +13,11 @@ import Resolver
 func presentICloudAlert(from viewController: UIViewController) {
     let syncService: ICloudSyncService = Resolver.resolve();
     let alert = UIAlertController(
-        title: "Sign in to iCloud",
-        message: "Sign in to your iCloud account to write records.\n\nOn the Home screen, launch Settings, tap iCloud, and enter your Apple ID. Turn iCloud Drive on. If you don't have an iCloud account, tap Create a new Apple ID.",
+        title: NSLocalizedString(ConstantData.LocalizeName.UIAlertSigninICloudTitle, comment: ""),
+        message: NSLocalizedString(ConstantData.LocalizeName.UIAlertSigninICloudMessage, comment: ""),
         preferredStyle: .actionSheet
     );
-    alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { action in
+    alert.addAction(UIAlertAction(title: NSLocalizedString(ConstantData.LocalizeName.UIAlertSigninICloudOkActionTitle, comment: ""), style: .cancel, handler: { action in
         syncService.didUserConfirmToEnableICloud = true;
     }))
     

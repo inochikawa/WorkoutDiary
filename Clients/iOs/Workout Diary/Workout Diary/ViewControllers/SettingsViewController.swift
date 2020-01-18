@@ -16,9 +16,9 @@ class SettingsViewController: UIViewController {
     var appSettings: AppSettings = Resolver.resolve();
     
     var settingSections: [SettingSection] {
-        let syncSection = SettingSection(header: "Synchronization", settings: [
+        let syncSection = SettingSection(header: NSLocalizedString(ConstantData.LocalizeName.SettingsSyncHeader, comment: ""), settings: [
             SettingItemViewModel(
-                title: "Use iCloud",
+                title: NSLocalizedString(ConstantData.LocalizeName.SettingsUseICloud, comment: ""),
                 key: AppSettings.Key.iCloudSync,
                 isOn: appSettings.enableICloudSync,
                 onSettingChange: { newValue in self.appSettings.enableICloudSync = newValue }
@@ -28,7 +28,7 @@ class SettingsViewController: UIViewController {
         if self.appSettings.enableICloudSync {
             syncSection.settings.append(
                 SettingItemViewModel(
-                    title: "Only through Wi-Fi",
+                    title: NSLocalizedString(ConstantData.LocalizeName.SettingsOnlyThroughWifi, comment: ""),
                     key: AppSettings.Key.wifiSync,
                     isOn: appSettings.syncOnlyViaWiFi,
                     onSettingChange: { newValue in self.appSettings.syncOnlyViaWiFi = newValue }

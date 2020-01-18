@@ -40,4 +40,40 @@ struct ConstantData {
         public static let ToolbarForPicker = "ToolbarForPickerColor";
     }
     
+    struct LocalizeName {
+        public static let RefreshingData = "RefreshingData";
+        public static let UIToolbarDone = "UIToolbarDone";
+        
+        public static let Hours = "Hours";
+        public static let Minutes = "Minutes";
+        public static let Seconds = "Seconds";
+        public static let CountOfReps = "CountOfReps";
+        public static let WeightShort = "WeightShort";
+        public static let AtTime = "AtTime";
+
+        public static let SettingsSyncHeader = "SettingsSyncHeader";
+        public static let SettingsUseICloud = "SettingsUseICloud";
+        public static let SettingsOnlyThroughWifi = "SettingsOnlyThroughWifi";
+
+        public static let TrainingListTodayHeader = "TrainingListTodayHeader";
+        public static let TrainingListYesterdayHeader = "TrainingListYesterdayHeader";
+        public static let TrainingListLast7DaysHeader = "TrainingListLast7DaysHeader";
+        public static let TrainingListOlderHeader = "TrainingListOlderHeader";
+        
+        
+        public static let ItemActionContextEdit = "ItemActionContextEdit";
+        public static let ItemActionContextRemove = "ItemActionContextRemove";
+        public static let ItemActionContextChooseAction = "ItemActionContextChooseAction";
+        
+        
+        public static let UIAlertEditTrainingTitle = "UIAlertEditTrainingTitle";
+        public static let UIAlertEditTrainingMessage = "UIAlertEditTrainingMessage";
+        public static let UIAlertEditTrainingStopActionTitle = "UIAlertEditTrainingStopActionTitle";
+        public static let UIAlertEditTrainingCancelActionTitle = "UIAlertEditTrainingCancelActionTitle";
+        
+        public static let UIAlertSigninICloudTitle = "UIAlertSigninICloudTitle";
+        public static let UIAlertSigninICloudMessage = "UIAlertSigninICloudMessage";
+        public static let UIAlertSigninICloudOkActionTitle = "UIAlertSigninICloudOkActionTitle";
+    }
+    
 }

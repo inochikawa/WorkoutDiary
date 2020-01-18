@@ -1,0 +1,40 @@
+/* 
+  localizable.strings
+  Workout Diary
+
+  Created by Maxim Stecenko on 18.01.2020.
+  Copyright © 2020 Maxim Stecenko. All rights reserved.
+*/
+
+"Hours" = "г";
+"Minutes" = "хв";
+"Seconds" = "сек";
+"CountOfReps" = "повт";
+"WeightShort" = "кг";
+"AtTime" = "о годині";
+
+"SettingsSyncHeader" = "Синхронізація";
+"SettingsUseICloud" = "Використовувати iCloud";
+"SettingsOnlyThroughWifi" = "Лише через Wi-Fi";
+
+"TrainingListTodayHeader" = "Сьогодні";
+"TrainingListYesterdayHeader" = "Вчора";
+"TrainingListLast7DaysHeader" = "Останні 7 днів";
+"TrainingListOlderHeader" = "Давніші";
+
+"RefreshingData" = "Оновлення даних";
+"UIToolbarDone" = "Добре";
+
+
+"ItemActionContextEdit" = "Редагувати";
+"ItemActionContextRemove" = "Видалити";
+"ItemActionContextChooseAction" = "Оберіть дію";
+
+"UIAlertEditTrainingTitle" = "Тренування все ще виконується";
+"UIAlertEditTrainingMessage" = "Зупиніть тренування перш ніж редагувати його.";
+"UIAlertEditTrainingStopActionTitle" = "Зупинити тренування і редагувати";
+"UIAlertEditTrainingCancelActionTitle" = "Видмінити";
+
+"UIAlertSigninICloudTitle" = "Увійдіть у iCloud";
+"UIAlertSigninICloudMessage" = "Увійдіть до свого облікового запису iCloud, щоб синхронізувати дані. \n\nНа головному екрані запустіть Налаштування, торкніться iCloud та введіть свій Apple ID. Увімкніть iCloud Drive. Якщо у вас немає облікового запису iCloud, натисніть Створити новий обліковий запис Apple.";
+"UIAlertSigninICloudOkActionTitle" = "Добре";

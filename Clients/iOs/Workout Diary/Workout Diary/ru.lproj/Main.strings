@@ -1,0 +1,126 @@
+
+/* Class = "UILabel"; text = "Weight step"; ObjectID = "6rq-Z5-Msv"; */
+"6rq-Z5-Msv.text" = "Шаг веса";
+
+/* Class = "UIButton"; normalTitle = "Ok"; ObjectID = "7fp-lL-nTu"; */
+"7fp-lL-nTu.normalTitle" = "Ок";
+
+/* Class = "UILabel"; text = "No exercises"; ObjectID = "9lM-yQ-dU1"; */
+"9lM-yQ-dU1.text" = "Нету упражнений";
+
+/* Class = "UITextField"; placeholder = "Spent Time"; ObjectID = "BC5-d5-22r"; */
+"BC5-d5-22r.placeholder" = "Потраченное время";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "C1G-lG-DLF"; */
+"C1G-lG-DLF.text" = "Дата";
+
+/* Class = "UITabBarItem"; title = "Workouts"; ObjectID = "Ctm-uO-5on"; */
+"Ctm-uO-5on.title" = "Тренировки";
+
+/* Class = "UILabel"; text = "Exercises:"; ObjectID = "DFL-Kn-T5H"; */
+"DFL-Kn-T5H.text" = "Упражнения:";
+
+/* Class = "UILabel"; text = "Edit training information"; ObjectID = "E41-f6-F9k"; */
+"E41-f6-F9k.text" = "Редактировать тренировку";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "EKS-Jj-a7v"; */
+"EKS-Jj-a7v.title" = "Назад";
+
+/* Class = "UIButton"; normalTitle = "Ok"; ObjectID = "EVj-9D-Azf"; */
+"EVj-9D-Azf.normalTitle" = "Ок";
+
+/* Class = "UIButton"; normalTitle = "Ok"; ObjectID = "EhP-1s-tn0"; */
+"EhP-1s-tn0.normalTitle" = "Ок";
+
+/* Class = "UILabel"; text = "Spent Time"; ObjectID = "FWy-q3-Bcl"; */
+"FWy-q3-Bcl.text" = "Потраченное время";
+
+/* Class = "UILabel"; text = "Autofill Name"; ObjectID = "G3p-FJ-93W"; */
+"G3p-FJ-93W.text" = "Автозаполнение имени";
+
+/* Class = "UILabel"; text = "Weight"; ObjectID = "Kfz-08-kQ5"; */
+"Kfz-08-kQ5.text" = "Вес";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "PL2-kd-COn"; */
+"PL2-kd-COn.text" = "Имя";
+
+/* Class = "UIButton"; normalTitle = "Add Exercise"; ObjectID = "R9B-m1-bPd"; */
+"R9B-m1-bPd.normalTitle" = "Добавить упражнение";
+
+/* Class = "UINavigationItem"; prompt = "Your training info"; ObjectID = "Vdv-4O-6j3"; */
+"Vdv-4O-6j3.prompt" = "Информация о тренировке";
+
+/* Class = "UINavigationItem"; title = "Test"; ObjectID = "Vdv-4O-6j3"; */
+"Vdv-4O-6j3.title" = "Test";
+
+/* Class = "UILabel"; text = "8"; ObjectID = "Ves-zj-zAQ"; */
+"Ves-zj-zAQ.text" = "8";
+
+/* Class = "UIButton"; normalTitle = "Begin New Training"; ObjectID = "WOg-l2-fIJ"; */
+"WOg-l2-fIJ.normalTitle" = "Начать новую тренировку";
+
+/* Class = "UILabel"; accessibilityLabel = "label"; ObjectID = "Xrz-7K-rDO"; */
+"Xrz-7K-rDO.accessibilityLabel" = "label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Xrz-7K-rDO"; */
+"Xrz-7K-rDO.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "ZAY-ux-tEz"; */
+"ZAY-ux-tEz.placeholder" = "Имя";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "aDt-ND-Kjm"; */
+"aDt-ND-Kjm.title" = "Назад";
+
+/* Class = "UITextField"; placeholder = "Please enter new name"; ObjectID = "akU-dG-mny"; */
+"akU-dG-mny.placeholder" = "Введите новое имя";
+
+/* Class = "UITextField"; text = "Test text"; ObjectID = "akU-dG-mny"; */
+"akU-dG-mny.text" = "Test text";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "ash-nk-lZK"; */
+"ash-nk-lZK.normalTitle" = "Отменить";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "bKg-nb-uu4"; */
+"bKg-nb-uu4.normalTitle" = "Отменить";
+
+/* Class = "UILabel"; text = "1h 28m 23s"; ObjectID = "cuS-w9-yEq"; */
+"cuS-w9-yEq.text" = "1h 28m 23s";
+
+/* Class = "UISegmentedControl"; dcw-Zs-Kll.segmentTitles[0] = "1 kg"; ObjectID = "dcw-Zs-Kll"; */
+"dcw-Zs-Kll.segmentTitles[0]" = "1 кг";
+
+/* Class = "UISegmentedControl"; dcw-Zs-Kll.segmentTitles[1] = "2.5 kg"; ObjectID = "dcw-Zs-Kll"; */
+"dcw-Zs-Kll.segmentTitles[1]" = "2.5 кг";
+
+/* Class = "UISegmentedControl"; dcw-Zs-Kll.segmentTitles[2] = "5 kg"; ObjectID = "dcw-Zs-Kll"; */
+"dcw-Zs-Kll.segmentTitles[2]" = "5 кг";
+
+/* Class = "UISegmentedControl"; dcw-Zs-Kll.segmentTitles[3] = "10 kg"; ObjectID = "dcw-Zs-Kll"; */
+"dcw-Zs-Kll.segmentTitles[3]" = "10 кг";
+
+/* Class = "UINavigationItem"; title = "Workouts"; ObjectID = "eui-Jx-sZX"; */
+"eui-Jx-sZX.title" = "Тренировки";
+
+/* Class = "UISwitch"; accessibilityLabel = "switch"; ObjectID = "hf6-vd-9jC"; */
+"hf6-vd-9jC.accessibilityLabel" = "switch";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "hkO-na-9p1"; */
+"hkO-na-9p1.normalTitle" = "Отменить";
+
+/* Class = "UILabel"; text = "Edit exercise"; ObjectID = "mKc-aL-cOO"; */
+"mKc-aL-cOO.text" = "Редактировать упражнение";
+
+/* Class = "UITextField"; placeholder = "Started Date"; ObjectID = "p2s-Ov-9hx"; */
+"p2s-Ov-9hx.placeholder" = "Дата начала";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "qUR-JQ-5t0"; */
+"qUR-JQ-5t0.text" = "Имя";
+
+/* Class = "UILabel"; text = "Otzhym blya!!!"; ObjectID = "rkw-em-jne"; */
+"rkw-em-jne.text" = "Otzhym blya!!!";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "s8M-Qk-kJf"; */
+"s8M-Qk-kJf.title" = "Настройки";
+
+/* Class = "UILabel"; text = "Reps"; ObjectID = "uKZ-Oo-Z4p"; */
+"uKZ-Oo-Z4p.text" = "Повторения";

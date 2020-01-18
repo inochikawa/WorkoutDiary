@@ -14,15 +14,15 @@ func newActionItemContextMenuConfiguration(onEditTap: @escaping () -> Void, onDe
         identifier: nil,
         previewProvider: nil,
         actionProvider: {_ in
-            let editAction = UIAction(title: "Edit", image: UIImage(systemName: "slider.horizontal.3")) { (uiAction) in onEditTap()
+            let editAction = UIAction(title: NSLocalizedString(ConstantData.LocalizeName.ItemActionContextEdit, comment: ""), image: UIImage(systemName: "slider.horizontal.3")) { (uiAction) in onEditTap()
             }
             
-            let removeAction = UIAction(title: "Remove", image: UIImage(systemName: "trash"), attributes: [
+            let removeAction = UIAction(title: NSLocalizedString(ConstantData.LocalizeName.ItemActionContextRemove, comment: ""), image: UIImage(systemName: "trash"), attributes: [
                 UIMenuElement.Attributes.destructive
             ]) { (uiAction) in onDeleteTap();
             }
             
-            let menu = UIMenu(title: "Choose action", identifier: nil, options: [], children: [editAction, removeAction]);
+            let menu = UIMenu(title: NSLocalizedString(ConstantData.LocalizeName.ItemActionContextChooseAction, comment: ""), identifier: nil, options: [], children: [editAction, removeAction]);
             
             return menu;
         }
